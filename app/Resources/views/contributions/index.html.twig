@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{{ dump() }}
+    {% for contribution in contributions %}
+    <a href="{{ path("contrib_detail", {"id":contribution.id }) }}"  style="margin-bottom:50px;background-color:green;display:block;text-decoration:none;">
+        <p>ハラスメント度:{{ contribution.hara_ratio }}</p>
+        <p>カテゴリ:{{ contribution.cate_name }}</p>
+        <p>書き込み:{{ contribution.content }}</p>
+        <p>相談するべき:{{ contribution.consult_num }}</p>
+        <p>しなくてもいい:{{ contribution.not_consult_num }}</p>
+    </a>
+    {% endfor %}
+    
+</body>
+</html>

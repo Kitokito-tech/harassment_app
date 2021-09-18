@@ -1,0 +1,48 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Questions
+ *
+ * @ORM\Table(name="questions")
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\QuestionsRepository")
+ */
+class Questions
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var Hara_category
+     *
+     * @ORM\ManyToOne(targetEntity="Hara_category", inversedBy="questions")
+     * @ORM\JoinColumn(name="cate_id", referencedColumnName="id", nullable=false)
+     */
+    private $cateId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="string", length=300)
+     * @Assert\NotBlank()
+     */
+    private $content;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ratio_of_weight", type="integer")
+     */
+    private $ratioOfWeight = 0;
+}

@@ -1,0 +1,43 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Hara_category
+ *
+ * @ORM\Table(name="hara_category")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Hara_categoryRepository")
+ *  * @ORM\HasLifecycleCallbacks()
+ */
+class Hara_category
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cate_name", type="string",length=30)
+     * @Assert\NotBlank()
+     */
+    private $cateName;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Contributions", mappedBy="category")
+     */
+    private $contributions;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Questions", mappedBy="category")
+     */
+    private $questions;
+}

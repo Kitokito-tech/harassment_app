@@ -1,0 +1,15 @@
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+{{ dump() }}
+{% for key, category in categories %}
+    <p><button type="button" class="select-btn" value="{{ category.id }}">{{ category.cateName }}</button></p>
+{% endfor %}
+    {{ form_start(form) }}
+    {{ form_widget(form.whichHara, {"attr": {"class":"form-hidden"}}) }}
+    {{ form_errors(form.whichHara) }}
+    {{ form_widget(form.submit, {"attr": {"class":"form-submit"}}) }}
+    {{ form_end(form) }}
+<script>
+    $('.select-btn').on('click',function(){
+       $('.form-hidden').val($(this).val())
+    })
+</script>

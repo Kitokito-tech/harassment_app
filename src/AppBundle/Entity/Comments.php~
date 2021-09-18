@@ -1,0 +1,41 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Comments
+ *
+ * @ORM\Table(name="comments")
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentsRepository")
+ */
+class Comments
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /** 
+     * @var Contributions
+     *
+     * @ORM\ManyToOne(targetEntity="Contributions", inversedBy="comments")
+     * @ORM\JoinColumn(name="contribution_id", referencedColumnName="id", nullable=false)
+     */
+    private $contributionId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="string", length=300)
+     * @Assert\NotBlank()
+     */
+    private $content;
+}
