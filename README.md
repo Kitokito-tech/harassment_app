@@ -1,5 +1,14 @@
 # 動作環境:PHP73
 
+シンボリックリンク作成
+mklink /D <プロジェクトフォルダ>web\bundles\app <プロジェクトフォルダ>src\AppBundle\Resources\public
+
+twigファイル格納場所
+harassment_app/app/Resouces/views
+
+css,jsファイル保存場所
+harassment_app/src/AppBundle/public
+
 # Symfony Standard Edition
 
 **WARNING**: This distribution does not support Symfony 4. See the
