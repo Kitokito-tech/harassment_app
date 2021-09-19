@@ -6,13 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Hara_category
+ * HaraCategory
  *
  * @ORM\Table(name="hara_category")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Hara_categoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\HaraCategoryRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Hara_category
+class HaraCategory
 {
     /**
      * @var int
@@ -64,7 +64,7 @@ class Hara_category
      *
      * @param string $cateName
      *
-     * @return Hara_category
+     * @return HaraCategory
      */
     public function setCateName($cateName)
     {
@@ -88,7 +88,7 @@ class Hara_category
      *
      * @param \AppBundle\Entity\Contributions $contribution
      *
-     * @return Hara_category
+     * @return HaraCategory
      */
     public function addContribution(\AppBundle\Entity\Contributions $contribution)
     {
@@ -122,7 +122,7 @@ class Hara_category
      *
      * @param \AppBundle\Entity\Questions $question
      *
-     * @return Hara_category
+     * @return HaraCategory
      */
     public function addQuestion(\AppBundle\Entity\Questions $question)
     {

@@ -24,9 +24,9 @@ class Contributions
     private $id;
 
     /**
-     * @var Hara_category
+     * @var HaraCategory
      *
-     * @ORM\ManyToOne(targetEntity="Hara_category", inversedBy="contributions")
+     * @ORM\ManyToOne(targetEntity="HaraCategory", inversedBy="contributions")
      * @ORM\JoinColumn(name="cate_id", referencedColumnName="id", nullable=false)
      */
     private $category;
@@ -87,6 +87,13 @@ class Contributions
     private $questionsAnswers;
 
     /**
+     * @var date
+     * @ORM\Column(name="created_at", type="date")
+     * @Assert\NotBlank()
+     */
+    private $createdAt;
+
+    /**
      * @var Comments
      *
      * @ORM\OneToMany(targetEntity="Comments", mappedBy="contribution")
@@ -98,6 +105,7 @@ class Contributions
     public function __construct()
     {
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -279,13 +287,37 @@ class Contributions
     }
 
     /**
-     * Set category
+     * Set createdAt
      *
-     * @param \AppBundle\Entity\Hara_category $category
+     * @param \DateTime $createdAt
      *
      * @return Contributions
      */
-    public function setCategory(\AppBundle\Entity\Hara_category $category)
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\HaraCategory $category
+     *
+     * @return Contributions
+     */
+    public function setCategory(\AppBundle\Entity\HaraCategory $category)
     {
         $this->category = $category;
 
@@ -295,7 +327,7 @@ class Contributions
     /**
      * Get category
      *
-     * @return \AppBundle\Entity\Hara_category
+     * @return \AppBundle\Entity\HaraCategory
      */
     public function getCategory()
     {

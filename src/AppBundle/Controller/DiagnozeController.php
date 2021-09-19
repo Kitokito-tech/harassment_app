@@ -30,8 +30,8 @@ class DiagnozeController extends Controller
             ->add('whichHara', HiddenType::class, ['data' => 1])
             ->add('submit', SubmitType::class, ['label' => '質問へ'])->getForm();
         $em = $this->getDoctrine()->getManager();
-        $Hara_categoryRepository = $em->getRepository('AppBundle:Hara_category');
-        $categories = $Hara_categoryRepository->findAll();
+        $HaraCategoryRepository = $em->getRepository('AppBundle:HaraCategory');
+        $categories = $HaraCategoryRepository->findAll();
         return $this->render('diagnoze/selectCate.html.twig', ['categories' => $categories, 'form' => $form->createView()]);
     }
 
