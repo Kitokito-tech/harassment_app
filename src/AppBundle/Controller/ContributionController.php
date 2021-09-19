@@ -92,7 +92,7 @@ class ContributionController extends Controller
                 ->setMethod('POST')
                 ->add('email', EmailType::class)
                 ->add('comment', TextareaType::class)
-                ->add('submit', SubmitType::class, ['label' => '投稿する'])->getForm()->createView();
+                ->add('submit', SubmitType::class, ['label' => '完了'])->getForm()->createView();
             return $this->render('contributions/make_contrib.html.twig', ['form' => $form]);
         } else {
             return $this->redirectToRoute('index_page');

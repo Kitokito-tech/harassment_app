@@ -1,0 +1,65 @@
+@import "initial";
+@import "variable";
+
+
+header {
+    height: 58px;
+    background-color: $color-btn;
+  }
+
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+@media screen and (max-width: 600px) {
+    .content {
+        width: 100%;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+.hs {
+    &__adcontainer {
+        margin-top: 56px;
+        margin-bottom: 36px;
+        input {
+            width: 100%;
+            border: solid 1px $color-txt;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: $color-txt;
+        }
+    }
+    &__ad-detail {
+        font-size: 17px;
+        font-weight: bold;
+        color: $color-base;
+        padding-bottom: 32px;
+    }
+    &__wtcontainer {
+        margin-bottom: 45px;
+        textarea {
+            width: 100%;
+            border: solid 1px $color-txt;
+            min-height: 300px;
+        }
+    }
+    &__wt-detail {
+        font-size: 17px;
+        font-weight: bold;
+        color: $color-base;
+        padding-bottom: 32px;
+    }
+    &__btn {
+        display: flex;
+        justify-content: center;
+        button {
+          padding: 13px 46px;
+          background-color: $color-btn;
+          border-radius: 10px;
+          border: solid 3px $color-txt;
+        }
+      }
+}

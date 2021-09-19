@@ -28,7 +28,7 @@ class DiagnozeController extends Controller
             ->setAction($this->generateUrl("diagnoze_questions"))
             ->setMethod('POST')
             ->add('whichHara', HiddenType::class, ['data' => 1])
-            ->add('submit', SubmitType::class, ['label' => '送信'])->getForm();
+            ->add('submit', SubmitType::class, ['label' => '質問へ'])->getForm();
         $em = $this->getDoctrine()->getManager();
         $Hara_categoryRepository = $em->getRepository('AppBundle:Hara_category');
         $categories = $Hara_categoryRepository->findAll();

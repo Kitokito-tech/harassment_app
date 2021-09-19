@@ -1,5 +1,43 @@
-{{ dump() }}
-{{ question.content }}
-{% for key, form in forms %}
-{{ form(form) }}
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/question.css') }}">
+</head>
+<body>
+    <header>
+        なぜ
+    </header>
+  <div class="content">
+    <div class="container">
+      <div class="cate__contents">
+        <div class="cate__ttl">
+          <h3>
+            質問1
+          </h3>
+        </div>
+        <div class="cate__txt">
+            {{ question.content }}
+        </div>
+      </div>
+      <section class="cate">
+        <div class="cate__select">
+          {% for key, form in forms %}
+           <div class="cate__detail-ct">
+              <label class="cate__detail" for="#">
+                <input type="button">
+                {{ form(form) }}
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+   
+</body>
+
+</html>

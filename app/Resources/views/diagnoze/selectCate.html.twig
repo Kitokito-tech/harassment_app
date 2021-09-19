@@ -24,33 +24,38 @@
       </div>
       <section class="cate">
         <div class="cate__select">
-          <form action="submit">
             {% for key, category in categories %}
                 <div class="cate__detail-ct">
-                    <label class="cate__detail" for="#">
+                    <label class="cate__detail">
                       <button type="button" class="select-btn" value="{{ category.id }}">{{ category.cateName }}</button>
                     </label>
-                </div>
             {% endfor %}
             <div class="cate__btn">
-              <label class="cate__btn-detail" for="#">
-                <input type="submit" value="質問へ">
+              <label class="cate__btn-detail">
+                <div class="cate__btn-wrap">
+                    {{ form_start(form) }}
+                    {{ form_widget(form.whichHara, {"attr": {"class":"form-hidden"}}) }}
+                    {{ form_errors(form.whichHara) }}
+                    {{ form_widget(form.submit, {"attr": {"class":"form-submit"}}) }}
+                    {{ form_end(form) }}
+                </div>
               </label>
             </div>
-          </form>
         </div>
       </section>
     </div>
   </div>
 </body>
 </html>
-    {{ form_start(form) }}
-    {{ form_widget(form.whichHara, {"attr": {"class":"form-hidden"}}) }}
-    {{ form_errors(form.whichHara) }}
-    {{ form_widget(form.submit, {"attr": {"class":"form-submit"}}) }}
-    {{ form_end(form) }}
 <script>
     $('.select-btn').on('click',function(){
        $('.form-hidden').val($(this).val())
-    })
+    });
+
+    $(function(){
+    $('.cate__detail').on('click', function() {
+      $('.cate__detail').css('background-color','');
+      $(this).css('background-color','red');
+    });
+  });
 </script>
