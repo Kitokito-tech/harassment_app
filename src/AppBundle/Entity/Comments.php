@@ -26,7 +26,7 @@ class Comments
     /** 
      * @var Contributions
      *
-     * @ORM\ManyToOne(targetEntity="Contributions", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Contributions", inversedBy="comment")
      * @ORM\JoinColumn(name="contribution_id", referencedColumnName="id", nullable=false)
      */
     private $contribution;
@@ -38,6 +38,18 @@ class Comments
      * @Assert\NotBlank()
      */
     private $content;
+
+    /**
+     * @var date
+     * @ORM\Column(name="created_at", type="date")
+     * @Assert\NotBlank()
+     */
+    private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id
@@ -95,5 +107,24 @@ class Comments
     public function getContribution()
     {
         return $this->contribution;
+    }
+
+    /**
+     * @return date
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param date $createdAt
+     * @return Comments
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 }

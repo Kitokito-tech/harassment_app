@@ -24,12 +24,12 @@ class Contributions
     private $id;
 
     /**
-     * @var Hara_category
+     * @var HaraCategory
      *
-     * @ORM\ManyToOne(targetEntity="Hara_category", inversedBy="contributions")
+     * @ORM\ManyToOne(targetEntity="HaraCategory", inversedBy="contributions")
      * @ORM\JoinColumn(name="cate_id", referencedColumnName="id", nullable=false)
      */
-    private $cateId;
+    private $category;
 
     /**
      * @var int
@@ -87,252 +87,16 @@ class Contributions
     private $questionsAnswers;
 
     /**
+     * @var date
+     * @ORM\Column(name="created_at", type="date")
+     * @Assert\NotBlank()
+     */
+    private $createdAt;
+
+    /**
      * @var Comments
      *
      * @ORM\OneToMany(targetEntity="Comments", mappedBy="contribution")
      */
     private $comments;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set haraRatio
-     *
-     * @param integer $haraRatio
-     *
-     * @return Contributions
-     */
-    public function setHaraRatio($haraRatio)
-    {
-        $this->haraRatio = $haraRatio;
-
-        return $this;
-    }
-
-    /**
-     * Get haraRatio
-     *
-     * @return integer
-     */
-    public function getHaraRatio()
-    {
-        return $this->haraRatio;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Contributions
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * Set consultNum
-     *
-     * @param integer $consultNum
-     *
-     * @return Contributions
-     */
-    public function setConsultNum($consultNum)
-    {
-        $this->consultNum = $consultNum;
-
-        return $this;
-    }
-
-    /**
-     * Get consultNum
-     *
-     * @return integer
-     */
-    public function getConsultNum()
-    {
-        return $this->consultNum;
-    }
-
-    /**
-     * Set notConsultNum
-     *
-     * @param integer $notConsultNum
-     *
-     * @return Contributions
-     */
-    public function setNotConsultNum($notConsultNum)
-    {
-        $this->notConsultNum = $notConsultNum;
-
-        return $this;
-    }
-
-    /**
-     * Get notConsultNum
-     *
-     * @return integer
-     */
-    public function getNotConsultNum()
-    {
-        return $this->notConsultNum;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Contributions
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set selectedQuestions
-     *
-     * @param array $selectedQuestions
-     *
-     * @return Contributions
-     */
-    public function setSelectedQuestions($selectedQuestions)
-    {
-        $this->selectedQuestions = $selectedQuestions;
-
-        return $this;
-    }
-
-    /**
-     * Get selectedQuestions
-     *
-     * @return array
-     */
-    public function getSelectedQuestions()
-    {
-        return $this->selectedQuestions;
-    }
-
-    /**
-     * Set questionsAnswers
-     *
-     * @param array $questionsAnswers
-     *
-     * @return Contributions
-     */
-    public function setQuestionsAnswers($questionsAnswers)
-    {
-        $this->questionsAnswers = $questionsAnswers;
-
-        return $this;
-    }
-
-    /**
-     * Get questionsAnswers
-     *
-     * @return array
-     */
-    public function getQuestionsAnswers()
-    {
-        return $this->questionsAnswers;
-    }
-
-    /**
-     * Set cateId
-     *
-     * @param \AppBundle\Entity\Hara_category $cateId
-     *
-     * @return Contributions
-     */
-    public function setCateId(\AppBundle\Entity\Hara_category $cateId)
-    {
-        $this->cateId = $cateId;
-
-        return $this;
-    }
-
-    /**
-     * Get cateId
-     *
-     * @return \AppBundle\Entity\Hara_category
-     */
-    public function getCateId()
-    {
-        return $this->cateId;
-    }
-
-    /**
-     * Add comment
-     *
-     * @param \AppBundle\Entity\Comments $comment
-     *
-     * @return Contributions
-     */
-    public function addComment(\AppBundle\Entity\Comments $comment)
-    {
-        $this->comments[] = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Remove comment
-     *
-     * @param \AppBundle\Entity\Comments $comment
-     */
-    public function removeComment(\AppBundle\Entity\Comments $comment)
-    {
-        $this->comments->removeElement($comment);
-    }
-
-    /**
-     * Get comments
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
 }

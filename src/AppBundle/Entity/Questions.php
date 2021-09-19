@@ -24,9 +24,9 @@ class Questions
     private $id;
 
     /**
-     * @var Hara_category
+     * @var HaraCategory
      *
-     * @ORM\ManyToOne(targetEntity="Hara_category", inversedBy="questions")
+     * @ORM\ManyToOne(targetEntity="HaraCategory", inversedBy="questions")
      * @ORM\JoinColumn(name="cate_id", referencedColumnName="id", nullable=false)
      */
     private $category;
@@ -107,11 +107,11 @@ class Questions
     /**
      * Set category
      *
-     * @param \AppBundle\Entity\Hara_category $category
+     * @param \AppBundle\Entity\HaraCategory $category
      *
      * @return Questions
      */
-    public function setCategory(\AppBundle\Entity\Hara_category $category)
+    public function setCategory(\AppBundle\Entity\HaraCategory $category)
     {
         $this->category = $category;
 
@@ -121,7 +121,7 @@ class Questions
     /**
      * Get category
      *
-     * @return \AppBundle\Entity\Hara_category
+     * @return \AppBundle\Entity\HaraCategory
      */
     public function getCategory()
     {
