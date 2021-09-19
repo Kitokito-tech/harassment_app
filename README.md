@@ -7,7 +7,7 @@ twigファイル格納場所
 harassment_app/app/Resouces/views
 
 css,jsファイル保存場所
-harassment_app/src/AppBundle/public
+harassment_app/src/AppBundle/Resources/public
 
 # Symfony Standard Edition
 
