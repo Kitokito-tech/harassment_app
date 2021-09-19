@@ -1,8 +1,49 @@
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-{{ dump() }}
-{% for key, category in categories %}
-    <p><button type="button" class="select-btn" value="{{ category.id }}">{{ category.cateName }}</button></p>
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/selectCate.css') }}">
+</head>
+<body>
+  <header></header>
+  <div class="content">
+    <div class="container">
+      <div class="cate__contents">
+        <div class="cate__ttl">
+          <h2>
+            カテゴリ選択
+          </h2>
+        </div>
+        <div class="cate__txt">
+          受けた行為に近い、カテゴリーを選択してください。
+        </div>
+      </div>
+      <section class="cate">
+        <div class="cate__select">
+          <form action="submit">
+            {% for key, category in categories %}
+                <div class="cate__detail-ct">
+                    <label class="cate__detail" for="#">
+                      <button type="button" class="select-btn" value="{{ category.id }}">{{ category.cateName }}</button>
+                    </label>
+                </div>
+            {% endfor %}
+            <div class="cate__btn">
+              <label class="cate__btn-detail" for="#">
+                <input type="submit" value="質問へ">
+              </label>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
     {{ form_start(form) }}
     {{ form_widget(form.whichHara, {"attr": {"class":"form-hidden"}}) }}
     {{ form_errors(form.whichHara) }}

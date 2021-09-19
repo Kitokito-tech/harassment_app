@@ -1,0 +1,63 @@
+@import "initial";
+@import "variable";
+
+
+body {
+  background-color: $color-bc;
+  color: $color-txt;
+}
+header {
+  height: 58px;
+  background-color: $color-btn;
+}
+
+.cate {
+  &__select {
+    margin-bottom: 60px;
+  }
+  &__contents {
+    margin-top: 56px;
+    margin-bottom: 61px;
+    width: 288px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__ttl {
+    color: $color-base;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 17px;
+    text-align: center;
+  }
+  &__txt {
+    font-size: 12px;
+  }
+  &__detail-ct {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;/*コレ*/
+    padding-bottom: 10px;/*コレ*/
+  }
+  &__detail {
+    font-size: 18px;
+    display: block;
+    padding: 20px 116.5px;
+    background-color: $color-btn;
+    width: fit-content;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.2)
+  }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    input {
+      padding: 14px 39px;
+      background-color: $color-btn;
+      border-radius: 10px;
+      border: solid 3px $color-txt;
+    }
+  }
+}
