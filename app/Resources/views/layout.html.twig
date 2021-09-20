@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
     {% block header %}
     <header>
       <div class="header__logo">
-        <a href="#6">
+        <a href="{{ path('index_page') }}">
             <picture>
                 <source srcset="{{ asset('bundles/app/img/header/app_rogo@2x.png') }}" media="screen and (min-width: 1500px)">
                 <source srcset="{{ asset('bundles/app/img/header/app_rogo.png') }} 1x,{{ asset('bundles/app/img/header/app_rogo@2x.png') }} 2x" media="screen and (max-width: 600px)">
@@ -29,11 +29,9 @@
       
       <nav class="globalMenuSp">
           <ul>
-              <li><a href="#">Menu1</a></li>
-              <li><a href="#">Menu2</a></li>
-              <li><a href="#">Menu3</a></li>
-              <li><a href="#">Menu4</a></li>
-              <li><a href="#">Menu5</a></li>
+              <li><a href="{{ path('index_page') }}">トップページ</a></li>
+              <li><a href="{{ path('diagnoze_cate') }}">診断</a></li>
+              <li><a href="{{ path('contrib_index') }}">投稿一覧</a></li>
           </ul>
       </nav>
     </header>

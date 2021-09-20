@@ -32,6 +32,13 @@ class HaraCategory
     private $cateName;
 
     /**
+     * @var resource
+     *
+     * @ORM\Column(name="cate_img", type="blob", nullable=true)
+     */
+    private $cateImg;
+
+    /**
      * @ORM\OneToMany(targetEntity="Contributions", mappedBy="category")
      */
     private $contributions;
@@ -81,6 +88,30 @@ class HaraCategory
     public function getCateName()
     {
         return $this->cateName;
+    }
+
+    /**
+     * Set cateImg
+     *
+     * @param resource $cateImg
+     *
+     * @return HaraCategory
+     */
+    public function setCateImg($cateImg)
+    {
+        $this->cateImg = $cateImg;
+
+        return $this;
+    }
+
+    /**
+     * Get cateImg
+     *
+     * @return resource
+     */
+    public function getCateImg()
+    {
+        return $this->cateImg;
     }
 
     /**

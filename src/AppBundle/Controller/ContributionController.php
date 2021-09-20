@@ -42,8 +42,8 @@ class ContributionController extends Controller
         if (!$results['pagesCount']) {
             $results['pagesCount'] = 1;
         }
-        if(!$results['result']){
-            $results['result'] = "マッチする結果がありませんでした"
+        if (!$results['result']) {
+            $results['result'] = "マッチする結果がありませんでした";
         }
         $searchForm = $this->createSearchForm();
         return $this->render('contributions/index.html.twig', ['contributions' => $results['result'], 'pagesCount' => $results['pagesCount'], 'searchForm' => $searchForm]);

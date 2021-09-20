@@ -1,13 +1,18 @@
 @import "initial";
 @import "variable";
 
-
 body {
   background-color: $color-bc;
   color: $color-txt;
-  background-image: url('/bundles/app/img/selectCate/bg.png');
-  background-image: image-set(url('/bundles/app/img/selectCate/bg.png') 1x, url('/bundles/app/img/selectCate/bg@2x.png') 2x);
-  background-image: -webkit-image-set(url('/bundles/app/img/selectCate/bg.png') 1x, url('/bundles/app/img/selectCate/bg@2x.png') 2x);
+  background-image: url("/bundles/app/img/selectCate/bg.png");
+  background-image: image-set(
+    url("/bundles/app/img/selectCate/bg.png") 1x,
+    url("/bundles/app/img/selectCate/bg@2x.png") 2x
+  );
+  background-image: -webkit-image-set(
+    url("/bundles/app/img/selectCate/bg.png") 1x,
+    url("/bundles/app/img/selectCate/bg@2x.png") 2x
+  );
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -38,10 +43,36 @@ header {
     font-size: 12px;
   }
   &__detail-ct {
+    position: relative;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;/*コレ*/
+    overflow: hidden; /*コレ*/
+    &::before {
+      cursor: pointer;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+    }
+  }
+  &__detail-ct:first-child {
+    &::before {
+      background: url(../img/selectCate/punch.png) center no-repeat;
+    }
+  }
+  &__detail-ct:nth-child(2) {
+    &::before {
+      background: url(../img/selectCate/gender.png) center no-repeat;
+    }
+  }
+  &__detail-ct:nth-child(3) {
+    &::before {
+      background: url(../img/selectCate/chilist.png) center no-repeat;
+    }
   }
   &__detail {
     font-size: 18px;
@@ -52,17 +83,19 @@ header {
     border-radius: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
-    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.2)
+    cursor: pointer;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
   }
   &__btn {
     display: flex;
     justify-content: center;
   }
-  &__btn-wrap{:hover {
-    opacity: 0.8;
-    background-color: $color-am;
-    transition: 0.6s;
-  }
+  &__btn-wrap {
+    :hover {
+      opacity: 0.8;
+      background-color: $color-am;
+      transition: 0.6s;
+    }
     padding: 14px 39px;
     background-color: $color-btn;
     border-radius: 10px;
