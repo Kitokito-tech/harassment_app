@@ -1,2 +1,60 @@
 {{ dump() }}
 {{ form(form) }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/make.css') }}">
+    <script  src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="  crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <header></header>
+  <div class="content">
+    <div class="container">
+            <div class="hs__adcontainer">
+                <label class="hs__ad">
+                    <div class="hs__ad-detail">
+                        メールアドレスを記入してください
+                    </div>
+                    {{ form_widget(form.email, {"attr": {'placeholder':'example@gmail.com'}}) }}
+                </label>
+            </div>
+            <div class="hs__wtcontainer">
+                <label class="hs__wt">
+                    <div class="hs__wt-detail">
+                        詳細を記入してください
+                    </div>
+                    {{ form_widget(form.comment) }}
+                </label>
+            </div>
+            {{ form_start(form) }}
+                    {{ form_widget(form.submit) }}
+                                        {{ form_end(form) }}
+    </div>
+  </div>
+   
+</body>
+
+<script>
+    //textareaの要素取得
+let textarea = document.getElementById('textarea');
+//textareaのデフォルトの要素の高さを取得
+let ch = textarea.clientHeight;
+
+//textareaのinputイベント
+textarea.addEventListener('input', ()=>{
+    //textareaの高さを再設定（デフォルトの高さから計算するため）
+    textarea.style.height = ch + 'px';
+    //textareaの入力内容の高さを取得
+    let sh = textarea.scrollHeight;
+    //textareaの高さに入力内容の高さを設定
+    textarea.style.height = sh + 'px';
+});
+</script>
+
+</html>
