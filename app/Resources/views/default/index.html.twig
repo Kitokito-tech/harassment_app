@@ -1,3 +1,58 @@
 {{ dump() }}
-<div><a href="{{ path('diagnoze_cate') }}">診断</a></div>
-<div><a href="{{ path('contrib_index') }}">相談一覧</a></div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/default.css') }}">
+</head>
+<body>
+
+{#<div><a href="{{ path('diagnoze_cate') }}">診断</a></div>#}
+{#<div><a href="{{ path('contrib_index') }}">相談一覧</a></div>#}
+
+<div class="top">
+    <div class="top-container">
+        <div class="top-head">
+            <h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
+            <p class="top-head__txt">そんなあなたの悩みをみんなで、解決。ここにテキストが入ります。ここにテキストが入ります。</p>
+        </div><!-- /.top-head -->
+        <input type="search" class="search">
+        <div class="top-cate">
+            <h2 class="sub-ttl">Category</h2>
+            <ul class="top-cate__list">
+                <li class="top-cate__list--item">
+                    <a>
+                        <img src="/src/AppBundle/Resources/public/img/default/power.png" alt="" class="item-img">
+                    </a>
+                </li>
+                <li class="top-cate__list--item">
+                    <a>
+                        <img src="/src/AppBundle/Resources/public/img/default/sexual.png" alt="" class="item-img">
+                    </a>
+                </li>
+                <li class="top-cate__list--item">
+                    <a>
+                        <img src="/src/AppBundle/Resources/public/img/default/maternity.png" alt="" class="item-img">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="top-new">
+            <h2 class="sub-ttl">New</h2><!-- /.sub-ttl -->
+            <ul class="top-new__list">
+                <li class="top-new__list--item">
+                    <p class="top-new__list--item-text">
+                        私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+                    </p><!-- /.top-new__list--item-text -->
+                </li><!-- /.top-new__list--item -->
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

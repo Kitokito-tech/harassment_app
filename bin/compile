@@ -7,3 +7,5 @@ sass src/AppBundle/Resources/public/css/scss/question.scss:src/AppBundle/Resourc
 sass src/AppBundle/Resources/public/css/scss/make.scss:src/AppBundle/Resources/public/css/make.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/floor.scss:src/AppBundle/Resources/public/css/floor.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/tenant.scss:src/AppBundle/Resources/public/css/tenant.css --sourcemap=none --style compressed --no-cache
+sass src/AppBundle/Resources/public/css/scss/default.scss:src/AppBundle/Resources/public/css/default.css --sourcemap=none --style compressed --no-cache
+sass src/AppBundle/Resources/public/css/scss/detail.scss:src/AppBundle/Resources/public/css/detail.css --sourcemap=none --style compressed --no-cache
