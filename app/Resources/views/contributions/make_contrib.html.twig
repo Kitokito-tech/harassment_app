@@ -1,19 +1,8 @@
-{{ dump() }}
-{{ form(form) }}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('bundles/app/css/make.css') }}">
-    <script  src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="  crossorigin="anonymous"></script>
-
-</head>
-<body>
-  <header></header>
+{% endblock %}
+{% block content %}
   <div class="content">
     <div class="container">
             <div class="hs__adcontainer">
@@ -21,6 +10,7 @@
                     <div class="hs__ad-detail">
                         メールアドレスを記入してください
                     </div>
+                {{ form_start(form) }}
                     {{ form_widget(form.email, {"attr": {'placeholder':'example@gmail.com'}}) }}
                 </label>
             </div>
@@ -32,13 +22,14 @@
                     {{ form_widget(form.comment) }}
                 </label>
             </div>
-            {{ form_start(form) }}
-                    {{ form_widget(form.submit) }}
-                                        {{ form_end(form) }}
+            <div class="hs__btn">
+                {{ form_widget(form.submit) }}
+            </div>
+             {{ form_end(form) }}
     </div>
   </div>
-   
-</body>
+  {% endblock %}
+  {% block javascript %}
 
 <script>
     //textareaの要素取得
@@ -56,5 +47,4 @@ textarea.addEventListener('input', ()=>{
     textarea.style.height = sh + 'px';
 });
 </script>
-
-</html>
+  {% endblock %}

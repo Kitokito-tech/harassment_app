@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block stylesheet %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/header.css') }}">
+</head>
+<body>
+    {% block header %}
+    <header>
+      <div class="header__logo">
+        <a href="#6">
+            <picture>
+                <source srcset="{{ asset('bundles/app/img/header/app_rogo@2x.png') }}" media="screen and (min-width: 1500px)">
+                <source srcset="{{ asset('bundles/app/img/header/app_rogo.png') }} 1x,{{ asset('bundles/app/img/header/app_rogo@2x.png') }} 2x" media="screen and (max-width: 600px)">
+                <img src="{{ asset('bundles/app/img/header/app_logo.png') }}" srcset="{{ asset('bundles/app/img/header/app_rogo@2x.png') }} 2x" width="121" height="24" alt="">
+            </picture>
+        </a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <nav class="globalMenuSp">
+          <ul>
+              <li><a href="#">Menu1</a></li>
+              <li><a href="#">Menu2</a></li>
+              <li><a href="#">Menu3</a></li>
+              <li><a href="#">Menu4</a></li>
+              <li><a href="#">Menu5</a></li>
+          </ul>
+      </nav>
+    </header>
+        {% endblock %}
+                {% block content %}{% endblock %}
+
+       {% block javascript %}
+{% endblock %} 
+       <script>
+  $(function() {
+    $('.hamburger').click(function() {
+        $(this).toggleClass('active');
+ 
+        if ($(this).hasClass('active')) {
+            $('.globalMenuSp').addClass('active');
+        } else {
+            $('.globalMenuSp').removeClass('active');
+        }
+    });
+});
+</script>
+</body>
+</html>
