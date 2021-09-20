@@ -1,15 +1,8 @@
-<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('bundles/app/css/selectCate.css') }}">
-</head>
-<body>
-  <header></header>
+{% endblock %}
+{% block content %}
   <div class="content">
     <div class="container">
       <div class="cate__contents">
@@ -29,6 +22,7 @@
                     <label class="cate__detail">
                       <button type="button" class="select-btn" value="{{ category.id }}">{{ category.cateName }}</button>
                     </label>
+                </div>
             {% endfor %}
             <div class="cate__btn">
               <label class="cate__btn-detail">
@@ -45,8 +39,8 @@
       </section>
     </div>
   </div>
-</body>
-</html>
+  {% endblock %}
+  {% block javascript %}
 <script>
     $('.select-btn').on('click',function(){
        $('.form-hidden').val($(this).val())
@@ -55,7 +49,8 @@
     $(function(){
     $('.cate__detail').on('click', function() {
       $('.cate__detail').css('background-color','');
-      $(this).css('background-color','red');
+      $(this).css('background-color','#ffff004f');
     });
   });
 </script>
+  {% endblock %}

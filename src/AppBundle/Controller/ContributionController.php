@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
@@ -32,12 +33,17 @@ class ContributionController extends Controller
         $pageNum = $request->query->get('page');
         $cateName = $request->query->get('form')['categories'] ?? 0;
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
-        // dump($dateOrder);
-        // exit;
+        $search = $request->query->get('form')['search'] ?? '';
         if (is_numeric($pageNum)) {
-            $results = $this->pagenation(10, $pageNum, $cateName = $cateName, $dateOrder = $dateOrder);
+            $results = $this->pagenation(10, $pageNum, $cateName = $cateName, $search = $search, $dateOrder = $dateOrder);
         } else {
-            $results = $this->pagenation(10, 1, $cateName = $cateName, $dateOrder = $dateOrder);
+            $results = $this->pagenation(10, 1, $cateName = $cateName, $search = $search, $dateOrder = $dateOrder);
+        }
+        if (!$results['pagesCount']) {
+            $results['pagesCount'] = 1;
+        }
+        if (!$results['result']) {
+            $results['result'] = "マッチする結果がありませんでした";
         }
         $searchForm = $this->createSearchForm();
         return $this->render('contributions/index.html.twig', ['contributions' => $results['result'], 'pagesCount' => $results['pagesCount'], 'searchForm' => $searchForm]);
@@ -68,10 +74,6 @@ class ContributionController extends Controller
             ->getQuery()
             ->getResult();
         $comments = $contribution[0]->getComments()->getValues();
-        // $form = $this->createFormBuilder()
-        //     ->setMethod('POST')
-        //     ->add('comment', TextareaType::class, ['label' => 'コメントを記入'])
-        //     ->add('submit', SubmitType::class, ['label' => '投稿する'])->getForm();
         if ($request->isMethod('POST')) {
             if ($request->request->get('consult') && !isset($_SESSION['voted'])) {
                 if ($request->request->get('consult') === 'yes') {
@@ -138,14 +140,15 @@ class ContributionController extends Controller
             $em->persist($contribution);
             $em->flush();
             $_SESSION = [];
-            // sendMail();
+            $entry['to'] = $form["email"];
+            $this->contribSendMail($entry);
             return $this->render('contributions/complete.html.twig');
         } else {
             return $this->redirectToRoute('index_page');
         }
     }
 
-    public function pagenation(int $dataPerPages, int $currentPage = 1, int $cateId = 0, string $dateOrder = "DESC")
+    public function pagenation(int $dataPerPages, int $currentPage = 1, int $cateId = 0, string $search = '', string $dateOrder = "DESC")
     {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQueryBuilder()
@@ -155,6 +158,10 @@ class ContributionController extends Controller
         if ($cateId !== 0) {
             $query = $query->andWhere('b.id = :cateId')
                 ->setParameter('cateId', $cateId);
+        }
+        if ($search !== '') {
+            $query = $query->andWhere('a.content like :content')
+                ->setParameter('content', '%' . $search . '%');
         }
         if ($dateOrder !== "DESC") {
             $query = $query->addOrderBy('a.createdAt', 'ASC');
@@ -166,20 +173,22 @@ class ContributionController extends Controller
         $pagesCount = ceil(count($pagenator) / $dataPerPages);
         $result = $pagenator
             ->getQuery()
-            ->setFirstResult($dataPerPages * ($currentPage - 1)) // set the offset
-            ->setMaxResults($dataPerPages * $currentPage) // set the limit
+            ->setFirstResult($dataPerPages * ($currentPage - 1))
+            ->setMaxResults($dataPerPages)
             ->getResult();
         return ['result' => $result, 'pagesCount' => $pagesCount,];
     }
 
-    public function sendMail()
+    public function contribSendMail($entry)
     {
-        // $message = \Swift_Message::newInstance()
-        //     ->setSubject('投稿から一週間がたちました')
-        //     ->setFrom(["jumpater.dev@gmail.com" => 'にたみ'])
-        //     ->setTo($form["email"])
-        //     ->setBody('Body');
-        // $this->get('mailer')->send($message);
+        $contrib =  $this->getDoctrine()->getManager()->getRepository('AppBundle:Contributions')->findOneBy(['email' => $entry['to']], ['createdAt' => 'DESC']);
+        $message = \Swift_Message::newInstance()
+            ->setFrom('system_test@glic.co.jp', '〇Xハラスメント')
+            ->setSubject('〇Xハラスメント【ご相談内容の結果についてのご報告】')
+            ->setBody($this->renderView('Email/cont_email.html.twig', ['pageId' => $contrib->getId()]), 'text/html')
+            ->setReplyTo('system_test@glic.co.jp')
+            ->setTo($entry['to']);
+        $this->get('swiftmailer.mailer.default')->send($message);
     }
     public function createSearchForm()
     {
@@ -191,10 +200,17 @@ class ContributionController extends Controller
         }
         $form = $this->createFormBuilder()
             ->setMethod('GET')
+            ->add('search', TextType::class, [
+                'label' => 'キーワード検索',
+                'attr' => array(
+                    'maxlength' => 100,
+                    'placeholder' => "キーワードを入力"
+                )
+            ])
             ->add('categories', ChoiceType::class, [
                 'choices'  => $categorys,
                 'label' => "カテゴリ"
-            ],)
+            ])
             ->add('dateOrder', ChoiceType::class, [
                 'choices'  => ['新しい順' => 'DESC', '古い順' => 'ASC'],
                 'label' => "並べ替え"

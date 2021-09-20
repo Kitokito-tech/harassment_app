@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('bundles/app/css/question.css') }}">
-</head>
-<body>
-    <header>
-        なぜ
-    </header>
+{% endblock %}
+{% block content %}
   <div class="content">
     <div class="container">
       <div class="cate__contents">
@@ -37,7 +29,6 @@
       </section>
     </div>
   </div>
-   
-</body>
-
-</html>
+  {% endblock %}
+  {% block javascript %}
+    {% endblock %}

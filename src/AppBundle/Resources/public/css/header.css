@@ -351,78 +351,107 @@ th {
 
 body {
   background-color: #FFDCDA;
-  color: #707070;
-  background-image: url("/bundles/app/img/selectCate/bg.png");
-  background-image: image-set(url("/bundles/app/img/selectCate/bg.png") 1x, url("/bundles/app/img/selectCate/bg@2x.png") 2x);
-  background-image: -webkit-image-set(url("/bundles/app/img/selectCate/bg.png") 1x, url("/bundles/app/img/selectCate/bg@2x.png") 2x);
-  background-repeat: no-repeat;
-  background-position: center; }
+  color: #707070; }
 
 header {
   height: 58px;
   background-color: #fff; }
 
-.cate__select {
-  margin-bottom: 60px; }
-.cate__contents {
-  margin-top: 56px;
-  margin-bottom: 61px;
-  width: 288px;
-  margin-left: auto;
-  margin-right: auto; }
-.cate__ttl {
-  color: #2673B8;
-  font-size: 20px;
-  font-weight: bold;
-  padding-bottom: 17px;
-  text-align: center; }
-.cate__txt {
-  font-size: 12px; }
-.cate__detail-ct {
-  position: relative;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  /*コレ*/ }
-  .cate__detail-ct::before {
-    cursor: pointer;
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 8px;
-    transform: translateY(-50%);
-    width: 46px;
-    height: 46px; }
-.cate__detail-ct:first-child::before {
-  background: url(../img/selectCate/punch.png) center no-repeat; }
-.cate__detail-ct:nth-child(2)::before {
-  background: url(../img/selectCate/gender.png) center no-repeat; }
-.cate__detail-ct:nth-child(3)::before {
-  background: url(../img/selectCate/chilist.png) center no-repeat; }
-.cate__detail {
-  font-size: 18px;
-  display: block;
-  padding: 20px 116.5px;
-  background-color: #fff;
-  width: fit-content;
-  border-radius: 10px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2); }
-.cate__btn {
+.header__logo {
+  padding-left: 16px;
   display: flex;
-  justify-content: center; }
-.cate__btn-wrap {
-  padding: 14px 39px;
-  background-color: #fff;
-  border-radius: 10px;
-  border: solid 3px #707070;
-  margin-top: 81px; }
-  .cate__btn-wrap :hover {
-    opacity: 0.8;
-    background-color: #ffff004f;
-    transition: 0.6s; }
+  align-items: center;
+  height: 100%; }
 
-/*# sourceMappingURL=selectCate.css.map */
+/*　ハンバーガーボタン　*/
+.hamburger {
+  display: block;
+  position: fixed;
+  z-index: 3;
+  right: 13px;
+  top: 12px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  text-align: center; }
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 6px;
+  background: #555;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out; }
+
+.hamburger span:nth-child(1) {
+  top: 10px; }
+
+.hamburger span:nth-child(2) {
+  top: 20px; }
+
+.hamburger span:nth-child(3) {
+  top: 30px; }
+
+/* ナビ開いてる時のボタン */
+.hamburger.active span:nth-child(1) {
+  top: 16px;
+  left: 6px;
+  background: #fff;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+  top: 16px;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+nav.globalMenuSp {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .6s ease, visibility .6s ease; }
+
+nav.globalMenuSp ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100em; }
+
+nav.globalMenuSp ul li {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  transition: .4s all; }
+
+nav.globalMenuSp ul li:last-child {
+  padding-bottom: 0; }
+
+nav.globalMenuSp ul li:hover {
+  background: #ddd; }
+
+nav.globalMenuSp ul li a {
+  display: block;
+  color: #fff;
+  padding: 1em 0;
+  text-decoration: none; }
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+  opacity: 100;
+  display: block; }
+
+/*# sourceMappingURL=header.css.map */
