@@ -78,7 +78,8 @@ class DiagnozeController extends Controller
             $question = array_shift($_SESSION['questions']);
             $_SESSION['select_ids'][] = (int) $question['id'];
             $_SESSION['question_ratios'][] = (int) $question['ratio_of_weight'];
-            return $this->render('diagnoze/question.html.twig', ['question' => $question, 'forms' => $forms]);
+            $questionNum = count($_SESSION['select_ids']);
+            return $this->render('diagnoze/question.html.twig', ['question' => $question, 'forms' => $forms, 'questionNum' => $questionNum]);
         } else {
             return $this->redirectToRoute('index_page');
         }

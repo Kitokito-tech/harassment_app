@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
@@ -29,12 +30,17 @@ class ContributionController extends Controller
     {
         $_SESSION = [];
         $pageNum = $request->query->get('page');
+        $cateName = $request->query->get('form')['categories'] ?? 0;
+        $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
+        // dump($dateOrder);
+        // exit;
         if (is_numeric($pageNum)) {
-            $results = $this->pagenation(10, $pageNum);
+            $results = $this->pagenation(10, $pageNum, $cateName = $cateName, $dateOrder = $dateOrder);
         } else {
-            $results = $this->pagenation(10, 1);
+            $results = $this->pagenation(10, 1, $cateName = $cateName, $dateOrder = $dateOrder);
         }
-        return $this->render('contributions/index.html.twig', ['contributions' => $results['result'], 'pagesCount' => $results['pagesCount']]);
+        $searchForm = $this->createSearchForm();
+        return $this->render('contributions/index.html.twig', ['contributions' => $results['result'], 'pagesCount' => $results['pagesCount'], 'searchForm' => $searchForm]);
     }
 
     /**
@@ -132,32 +138,28 @@ class ContributionController extends Controller
             $em->persist($contribution);
             $em->flush();
             $_SESSION = [];
-            // $message = \Swift_Message::newInstance()
-            //     ->setSubject('投稿から一週間がたちました')
-            //     ->setFrom(["jumpater.dev@gmail.com" => 'にたみ'])
-            //     ->setTo($form["email"])
-            //     ->setBody('Body');
-            // $this->get('mailer')->send($message);
+            // sendMail();
             return $this->render('contributions/complete.html.twig');
         } else {
             return $this->redirectToRoute('index_page');
         }
     }
 
-    public function pagenation(int $dataPerPages, int $currentPage = 1, int $cateId = -1, string $dateOrder = "DESC")
+    public function pagenation(int $dataPerPages, int $currentPage = 1, int $cateId = 0, string $dateOrder = "DESC")
     {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQueryBuilder()
             ->select('a', 'b')
             ->from("AppBundle\Entity\Contributions", 'a')
             ->leftjoin('a.category', 'b');
-        if ($cateId !== -1) {
+        if ($cateId !== 0) {
             $query = $query->andWhere('b.id = :cateId')
                 ->setParameter('cateId', $cateId);
         }
         if ($dateOrder !== "DESC") {
-            $query = $query->andWhere('a.createdAt = :order')
-                ->setParameter('order', 'ASC');
+            $query = $query->addOrderBy('a.createdAt', 'ASC');
+        } else {
+            $query = $query->addOrderBy('a.createdAt', 'DESC');
         }
         $query = $query->getQuery();
         $pagenator = new Paginator($query);
@@ -168,5 +170,36 @@ class ContributionController extends Controller
             ->setMaxResults($dataPerPages * $currentPage) // set the limit
             ->getResult();
         return ['result' => $result, 'pagesCount' => $pagesCount,];
+    }
+
+    public function sendMail()
+    {
+        // $message = \Swift_Message::newInstance()
+        //     ->setSubject('投稿から一週間がたちました')
+        //     ->setFrom(["jumpater.dev@gmail.com" => 'にたみ'])
+        //     ->setTo($form["email"])
+        //     ->setBody('Body');
+        // $this->get('mailer')->send($message);
+    }
+    public function createSearchForm()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categoryObjs = $em->getRepository('AppBundle:HaraCategory')->findAll();
+        $categorys = ['指定なし' => true];
+        foreach ($categoryObjs as $categoryObj) {
+            $categorys[$categoryObj->getCateName()] = false;
+        }
+        $form = $this->createFormBuilder()
+            ->setMethod('GET')
+            ->add('categories', ChoiceType::class, [
+                'choices'  => $categorys,
+                'label' => "カテゴリ"
+            ],)
+            ->add('dateOrder', ChoiceType::class, [
+                'choices'  => ['新しい順' => 'DESC', '古い順' => 'ASC'],
+                'label' => "並べ替え"
+            ])
+            ->add('submit', SubmitType::class, ['label' => '検索'])->getForm();
+        return $form->createView();
     }
 }
