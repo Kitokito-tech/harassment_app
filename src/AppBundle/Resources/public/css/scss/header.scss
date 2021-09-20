@@ -9,6 +9,11 @@ body {
 header {
   height: 58px;
   background-color: $color-btn;
+  position: fixed;
+  width: 100em;
+  z-index: 999;
+  top:0;
+  left:0;
 }
 .header {
   &__logo {
