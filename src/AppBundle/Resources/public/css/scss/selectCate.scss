@@ -53,22 +53,20 @@ header {
     margin-top: 15px;
     margin-bottom: 15px;
     box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.2)
-  }::selection {
-      background-color: red;
   }
   &__btn {
     display: flex;
     justify-content: center;
   }
-  &__btn-wrap {
+  &__btn-wrap{:hover {
+    opacity: 0.8;
+    background-color: $color-am;
+    transition: 0.6s;
+  }
     padding: 14px 39px;
     background-color: $color-btn;
     border-radius: 10px;
     border: solid 3px $color-txt;
     margin-top: 81px;
   }
-}
-
-.select {
-    background-color: red;
 }

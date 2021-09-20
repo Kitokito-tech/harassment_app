@@ -1,2 +1,33 @@
-{{ dump() }}
-<a href="{{ path("index_page") }}">トップへ</a>
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/make_comp.css') }}">
+{% endblock %}
+{% block content %}
+  <div class="comp__container">
+    <div class="comp__wrapper">
+      <div class="comp__comment">
+          記入ありがとうございます。<br>結果は1週間後にメールにて通知されます。
+      </div>
+      <div class="comp__img">
+        <picture>
+            <source srcset="{{ asset('bundles/app/img/make_comp/woman__img@2x.png') }}" media="screen and (min-width: 1500px)">
+            <source srcset="{{ asset('bundles/app/img/make_comp/woman__img.png') }} 1x,{{ asset('bundles/app/img/make_comp/woman__img@2x.png') }} 2x" media="screen and (max-width: 600px)">
+            <img src="{{ asset('bundles/app/img/make_comp/woman__img.png') }}" srcset="{{ asset('bundles/app/img/make_comp/woman__img@2x.png') }} 2x" width="144" height="161" alt="">
+        </picture>
+      </div>
+    </div>
+    <div class="comp__top-container">
+      <a href="{{ path("index_page") }}">
+        <div class="comp__img2">
+            <picture>
+                <source srcset="{{ asset('bundles/app/img/make_comp/top@2x.png') }}" media="screen and (min-width: 1500px)">
+                <source srcset="{{ asset('bundles/app/img/make_comp/top.png') }} 1x,{{ asset('bundles/app/img/make_comp/top@2x.png') }} 2x" media="screen and (max-width: 600px)">
+                <img src="{{ asset('bundles/app/img/make_comp/top.png') }}" srcset="{{ asset('bundles/app/img/make_comp/top@2x.png') }} 2x" width="277" height="277" alt="">
+            </picture>
+        </div>
+    </a>
+    </div>
+  </div>
+  {% endblock %}
+  {% block javascript %}
+    {% endblock %}

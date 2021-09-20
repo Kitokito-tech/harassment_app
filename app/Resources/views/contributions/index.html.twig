@@ -8,6 +8,11 @@
 </head>
 <body>
 {{ dump() }}
+     {% for contribution in contributions %}
+    <a href="{{ path("contrib_detail", {"id":contribution.id }) }}"  style="margin-bottom:50px;background-color:green;display:block;text-decoration:none;">
+    <p>bwfhceuohiwn</p>
+    </a>
+    {% endfor %}
 {{ form(searchForm) }}
     {% for i in 1 .. pagesCount %}
         <a href="{{ path('contrib_index', {'page': i }) }}">{{ i }}</a>

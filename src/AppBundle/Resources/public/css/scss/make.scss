@@ -2,6 +2,11 @@
 @import "variable";
 
 
+body {
+    background-color: $color-bc;
+    color: $color-txt;
+  }
+
 header {
     height: 58px;
     background-color: $color-btn;
@@ -24,6 +29,7 @@ header {
         margin-top: 56px;
         margin-bottom: 36px;
         input {
+            background-color: $color-btn;
             width: 100%;
             border: solid 1px $color-txt;
             padding-left: 10px;
@@ -41,6 +47,7 @@ header {
     &__wtcontainer {
         margin-bottom: 45px;
         textarea {
+            background-color: $color-btn;
             width: 100%;
             border: solid 1px $color-txt;
             min-height: 300px;
@@ -52,7 +59,11 @@ header {
         color: $color-base;
         padding-bottom: 32px;
     }
-    &__btn {
+    &__btn{:hover {
+        opacity: 0.8;
+        background-color: $color-am;
+        transition: 0.6s;
+      }
         display: flex;
         justify-content: center;
         button {
