@@ -12,47 +12,83 @@
 
 {#<div><a href="{{ path('diagnoze_cate') }}">診断</a></div>#}
 {#<div><a href="{{ path('contrib_index') }}">相談一覧</a></div>#}
-
 <div class="top">
-    <div class="top-container">
-        <div class="top-head">
-            <h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
-            <p class="top-head__txt">そんなあなたの悩みをみんなで、解決。ここにテキストが入ります。ここにテキストが入ります。</p>
-        </div><!-- /.top-head -->
-        <input type="search" class="search">
-        <div class="top-cate">
-            <h2 class="sub-ttl">Category</h2>
-            <ul class="top-cate__list">
-                <li class="top-cate__list--item">
-                    <a>
-                        <img src="/src/AppBundle/Resources/public/img/default/power.png" alt="" class="item-img">
-                    </a>
-                </li>
-                <li class="top-cate__list--item">
-                    <a>
-                        <img src="/src/AppBundle/Resources/public/img/default/sexual.png" alt="" class="item-img">
-                    </a>
-                </li>
-                <li class="top-cate__list--item">
-                    <a>
-                        <img src="/src/AppBundle/Resources/public/img/default/maternity.png" alt="" class="item-img">
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="top-new">
-            <h2 class="sub-ttl">New</h2><!-- /.sub-ttl -->
-            <ul class="top-new__list">
-                <li class="top-new__list--item">
-                    <p class="top-new__list--item-text">
-                        私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
-                    </p><!-- /.top-new__list--item-text -->
-                </li><!-- /.top-new__list--item -->
-            </ul>
-        </div>
-    </div>
+        <div class="top-container">
+            <div class="top-head">
+                <h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
+                <p class="top-head__txt">そんなあなたの悩みをみんなで、解決。ここにテキストが入ります。ここにテキストが入ります。</p>
+            </div><!-- /.top-head -->
+            <div class="key__form">
+                <form type="get" action="/article">
+                    <label>
+                        <input type="text" class="key__input" name="q" value="" placeholder="search">
+                        <button type="submit" class="key__btn"><i class="fas fa-search"></i></button>
+                    </label>
+                </form>
+            </div>
+            <div class="top-cate">
+                <h2 class="sub-ttl">Category</h2>
+                <ul class="top-cate__list">
+                    <li>
+                        <button class="top-cate__list--item">
+                            <a>
+                                <img src="/img/power.png" alt="" class="item-img">
+                            </a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="top-cate__list--item">
+                            <a>
+                                <img src="/img/sexual.png" alt="" class="item-img">
+                            </a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="top-cate__list--item">
+                            <a>
+                                <img src="/img/maternity.png" alt="" class="item-img">
+                            </a>
+                        </button>
+                    </li>
+                </ul>
+            </div>
 
-</div>
+        </div><!-- /.top-container -->
+
+    </div><!-- /.container -->
+    <div class="top-new">
+        <div class="top-new__head">
+            <h2 class="sub-ttl">New</h2><!-- /.sub-ttl -->
+            <button class="to-dia"><a href="{{ path('diagnoze_cate') }}"><img src="img/dia.png"></a></button>
+        </div>
+        <ul class="top-new__list">
+            <li class="top-new__list--item">
+                <p class="top-new__list--item-text">
+                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。v私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+                </p><!-- /.top-new__list--item-text -->
+            </li><!-- /.top-new__list--item -->
+            <li class="top-new__list--item">
+                <p class="top-new__list--item-text">
+                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+                </p><!-- /.top-new__list--item-text -->
+            </li><!-- /.top-new__list--item -->
+            <li class="top-new__list--item">
+                <p class="top-new__list--item-text">
+                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+                </p><!-- /.top-new__list--item-text -->
+            </li><!-- /.top-new__list--item -->
+            <li class="top-new__list--item">
+                <p class="top-new__list--item-text">
+                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+                </p><!-- /.top-new__list--item-text -->
+            </li><!-- /.top-new__list--item -->
+            <li class="top-new__list--item">
+                <p class="top-new__list--item-text">
+                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+                </p><!-- /.top-new__list--item-text -->
+            </li><!-- /.top-new__list--item -->
+        </ul>
+    </div>
 
 </body>
 </html>

@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d31ed908-f81a-4299-b0ec-f4f921fda1a1" name="Default Changelist" comment="詳細記入ページコミット">
-      <change afterPath="$PROJECT_DIR$/.idea/harassment_app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/default.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/detail.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/img/default/maternity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/img/default/maternity@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/img/default/power.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/img/default/power@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/img/default/sexual.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/img/default/sexual@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/compile" beforeDir="false" afterPath="$PROJECT_DIR$/bin/compile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/selectCate.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/selectCate.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/default.scss" afterDir="false" />
     </list>
     <list id="9d8659d1-c772-4ff6-968e-596f3bfc05b4" name="Revert &quot;トップ　詳細　作業分&quot;" comment="Revert &quot;トップ　詳細　作業分&quot;&#10;&#10;This reverts commit 09f16d71" />
     <list id="1ce73888-0b17-42da-81eb-5c706edee86b" name="トップ　詳細　作業分" comment="トップ　詳細　作業分" />
@@ -108,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1632131705528</updated>
       <workItem from="1632131707050" duration="11252000" />
-      <workItem from="1632145694645" duration="2620000" />
+      <workItem from="1632145694645" duration="3515000" />
     </task>
     <task id="LOCAL-00001" summary="トップ　詳細　作業分">
       <created>1632143138633</created>
