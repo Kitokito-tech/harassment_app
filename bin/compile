@@ -5,12 +5,8 @@ sass src/AppBundle/Resources/public/css/scss/_variable.scss:src/AppBundle/Resour
 sass src/AppBundle/Resources/public/css/scss/selectCate.scss:src/AppBundle/Resources/public/css/selectCate.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/question.scss:src/AppBundle/Resources/public/css/question.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/make.scss:src/AppBundle/Resources/public/css/make.css --sourcemap=none --style compressed --no-cache
-<<<<<<< HEAD
-sass src/AppBundle/Resources/public/css/scss/floor.scss:src/AppBundle/Resources/public/css/floor.css --sourcemap=none --style compressed --no-cache
-sass src/AppBundle/Resources/public/css/scss/tenant.scss:src/AppBundle/Resources/public/css/tenant.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/default.scss:src/AppBundle/Resources/public/css/default.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/detail.scss:src/AppBundle/Resources/public/css/detail.css --sourcemap=none --style compressed --no-cache
-=======
 sass src/AppBundle/Resources/public/css/scss/make_comp.scss:src/AppBundle/Resources/public/css/make_comp.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/header.scss:src/AppBundle/Resources/public/css/header.css --sourcemap=none --style compressed --no-cache
->>>>>>> 8bd68c7e102c676cbaebdf9bd9427c0de87f5a38
+sass src/AppBundle/Resources/public/css/scss/result.scss:src/AppBundle/Resources/public/css/result.css --sourcemap=none --style compressed --no-cache
