@@ -19,7 +19,7 @@
                 <div class="detail-question">
                     <h2 class="detail-question__ttl">あなたならどうしますか？</h2>
                     <div class="detail-question__btn--list">
-                        {# <form action="{{ path(" contrib_detail", {"id":contribution.id }) }}" method="post"> #}
+                        <form action="{{ path("contrib_detail", {"id":contribution.id }) }}" method="post">
                             <label for="">
                                 <input type="hidden" value="yes" name="consult">
                             </label>
@@ -29,7 +29,7 @@
                             <input type="submit" value="相談する" name="submit" class="button">
                         </form>
 
-                        {# <form action="{{ path(" contrib_detail", {"id":contribution.id }) }}" method="post"> #}
+                        <form action="{{ path("contrib_detail", {"id":contribution.id }) }}" method="post">
                             <label for="">
                                 <input type="hidden" value="no" name="consult">
                             </label>
