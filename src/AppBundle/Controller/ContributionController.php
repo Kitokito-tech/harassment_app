@@ -77,7 +77,7 @@ class ContributionController extends Controller
         if ($request->isMethod('POST')) {
             if ($request->request->get('consult') && !isset($_SESSION['voted'])) {
                 if ($request->request->get('consult') === 'yes') {
-                    $num = $contribution->getConsultNum() + 1;
+                    $num = $contribution[0]->getConsultNum() + 1;
                     $contribution->setConsultNum($num);
                 } else {
                     $num = $contribution->getNotConsultNum() + 1;

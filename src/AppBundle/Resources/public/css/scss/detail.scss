@@ -28,6 +28,7 @@ $blue: #2673b8;
       font-size: 18px;
       color: $blue;
       font-weight: bold;
+      margin-bottom: 20px;
     }
     &__btn--list {
       display: block;
@@ -46,6 +47,7 @@ $blue: #2673b8;
         border: none;
         border-radius: 10px;
         box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        text-align: center;
       }
     }
   }
@@ -64,6 +66,8 @@ $blue: #2673b8;
       font-size: 18px;
       padding: 13px;
       border-radius: 10px;
+      background: white;
+      margin-bottom: 20px;
     }
     .submit-btn {
       text-align: center;
