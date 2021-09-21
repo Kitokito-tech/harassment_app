@@ -141,13 +141,18 @@
           }
           &--item {
               width: 100%;
-              padding: 27px 49px;
               background: #fff;
               border-radius: 15px;
               box-shadow: 0px 3px 3px 0px rgba(36, 4, 4, 0.2);
               margin-bottom: 30px;
-              @media screen and (max-width:375px) {
+              &-link {
+                display:block;
+                padding: 27px 49px;
+                @media screen and (max-width:375px) {
                   padding: 12px;
+                }
+              }
+              @media screen and (max-width:375px) {
                   margin-left: 15px;
                   flex: 0 0 49%;
               }
