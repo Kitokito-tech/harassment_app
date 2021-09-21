@@ -63,6 +63,14 @@
       &__list {
           display: flex;
           margin-bottom: 0;
+          img {
+            width: 68px;
+            height: 74px;
+            @media screen and (max-width: 500px) {
+               width: 41px;
+               height: 38px;
+            }
+          }
           &--item {
               margin-right: 15px;
               border-radius: 10px;
@@ -97,6 +105,9 @@
           @media screen and (max-width: 375px) {
               padding-left: 15px;
               padding-right: 15px;
+          }
+          img {    
+            margin-left: -2px;
           }
           margin-bottom: 11px;
           .to-dia {

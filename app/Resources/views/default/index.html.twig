@@ -1,94 +1,118 @@
 {{ dump() }}
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('bundles/app/css/default.css') }}">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="{{ asset('bundles/app/css/default.css') }}">
+	</head>
+	<body>
 
-{#<div><a href="{{ path('diagnoze_cate') }}">診断</a></div>#}
-{#<div><a href="{{ path('contrib_index') }}">相談一覧</a></div>#}
-    <div class="top">
-        <div class="top-container">
-            <div class="top-head">
-                <h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
-                <p class="top-head__txt">そんなあなたの悩みをみんなで、解決。ここにテキストが入ります。ここにテキストが入ります。</p>
-            </div><!-- /.top-head -->
-            <div class="key__form">
-                <form type="get" action="/article">
-                    <label>
-                        <input type="text" class="key__input" name="q" value="" placeholder="search">
-                        <button type="submit" class="key__btn"><i class="fas fa-search"></i></button>
-                    </label>
-                </form>
-            </div>
-            <div class="top-cate">
-                <h2 class="sub-ttl">Category</h2>
-                <ul class="top-cate__list">
-                    <li>
-                        <button class="top-cate__list--item">
-                            <a>
-                                <img src="/img/power.png" alt="" class="item-img">
-                            </a>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="top-cate__list--item">
-                            <a>
-                                <img src="/img/sexual.png" alt="" class="item-img">
-                            </a>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="top-cate__list--item">
-                            <a>
-                                <img src="/img/maternity.png" alt="" class="item-img">
-                            </a>
-                        </button>
-                    </li>
-                </ul>
-            </div>
+		{#<div><a href="{{ path('diagnoze_cate') }}">診断</a></div>#}
+		{#<div><a href="{{ path('contrib_index') }}">相談一覧</a></div>#}
+			<div class="top"> <div class="top-container">
+				<div class="top-head">
+					<h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
+					<p class="top-head__txt">そんなあなたの悩みをみんなで、解決。ここにテキストが入ります。ここにテキストが入ります。</p>
+				</div>
+				<!-- /.top-head -->
+				<div class="key__form">
+					<form type="get" action="/article">
+						<label>
+							<input type="text" class="key__input" name="q" value="" placeholder="search">
+							<button type="submit" class="key__btn">
+								<i class="fas fa-search"></i>
+							</button>
+						</label>
+					</form>
+				</div>
+				<div class="top-cate">
+					<h2 class="sub-ttl">Category</h2>
+					<ul class="top-cate__list">
+						<li>
+							<button class="top-cate__list--item">
+								<a>
+									<picture>
+										<source srcset="{{ asset('bundles/app/img/default/power@2x.png') }}" media="screen and (min-width: 1500px)">
+										<source srcset="{{ asset('bundles/app/img/default/power.png') }} 1x,{{ asset('bundles/app/img/default/power@2x.png') }} 2x" media="screen and (max-width: 375px)">
+										<img src="{{ asset('bundles/app/img/default/power.png') }}" srcset="{{ asset('bundles/app/img/default/power@2x.png') }} 2x" alt="">
+									</picture>
+								</a>
+							</button>
+						</li>
+						<li>
+							<button class="top-cate__list--item">
+								<a>
+									<picture>
+										<source srcset="{{ asset('bundles/app/img/default/sexual@2x.png') }}" media="screen and (min-width: 1500px)">
+										<source srcset="{{ asset('bundles/app/img/default/sexual.png') }} 1x,{{ asset('bundles/app/img/default/sexual@2x.png') }} 2x" media="screen and (max-width: 375px)">
+										<img src="{{ asset('bundles/app/img/default/sexual.png') }}" srcset="{{ asset('bundles/app/img/default/sexual@2x.png') }} 2x" alt="">
+									</picture>
+								</a>
+							</button>
+						</li>
+						<li>
+							<button class="top-cate__list--item">
+								<a>
+									<picture>
+										<source srcset="{{ asset('bundles/app/img/default/maternity@2x.png') }}" media="screen and (min-width: 1500px)">
+										<source srcset="{{ asset('bundles/app/img/default/maternity.png') }} 1x,{{ asset('bundles/app/img/default/maternity@2x.png') }} 2x" media="screen and (max-width: 375px)">
+										<img src="{{ asset('bundles/app/img/default/maternity.png') }}" srcset="{{ asset('bundles/app/img/default/maternity@2x.png') }} 2x" alt="">
+									</picture>
+								</a>
+							</button>
+						</li>
+					</ul>
+				</div>
 
-        </div><!-- /.top-container -->
+			</div>
+			<!-- /.top-container -->
 
-    </div><!-- /.container -->
-    <div class="top-new">
-        <div class="top-new__head">
-            <h2 class="sub-ttl">New</h2>
-            <button class="to-dia"><a href="{{ path('diagnoze_cate') }}"><img src="{{ asset('bundles/app/img/default/dia.png') }}" srcset="{{ asset('bundles/app/img/make_comp/default/dia@2x.png') }}" width="40px"></a></button>
-        </div>
-        <ul class="top-new__list">
-            <li class="top-new__list--item">
-                <p class="top-new__list--item-text">
-                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。v私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
-                </p>
-            </li>
-            <li class="top-new__list--item">
-                <p class="top-new__list--item-text">
-                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
-                </p>
-            </li>
-            <li class="top-new__list--item">
-                <p class="top-new__list--item-text">
-                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
-                </p>
-            </li>
-            <li class="top-new__list--item">
-                <p class="top-new__list--item-text">
-                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
-                </p>
-            </li>
-            <li class="top-new__list--item">
-                <p class="top-new__list--item-text">
-                    私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
-                </p>
-            </li>
-        </ul>
-    </div>
+		</div>
+		<!-- /.container -->
+		<div class="top-new">
+			<div class="top-new__head">
+				<h2 class="sub-ttl">New</h2>
+				<button class="to-dia">
+					<a href="{{ path('diagnoze_cate') }}">
+						<picture>
+							<source srcset="{{ asset('bundles/app/img/default/dia@2x.png') }}" media="screen and (min-width: 1500px)">
+							<source srcset="{{ asset('bundles/app/img/default/dia.png') }} 1x,{{ asset('bundles/app/img/default/dia@2x.png') }} 2x" media="screen and (max-width: 375px)">
+							<img src="{{ asset('bundles/app/img/default/dia.png') }}" srcset="{{ asset('bundles/app/img/default/dia@2x.png') }} 2x" alt="">
+						</picture>
+					</a>
+				</button>
+			</div>
+			<ul class="top-new__list">
+				<li class="top-new__list--item">
+					<p class="top-new__list--item-text">
+						私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。v私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+					</p>
+				</li>
+				<li class="top-new__list--item">
+					<p class="top-new__list--item-text">
+						私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+					</p>
+				</li>
+				<li class="top-new__list--item">
+					<p class="top-new__list--item-text">
+						私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+					</p>
+				</li>
+				<li class="top-new__list--item">
+					<p class="top-new__list--item-text">
+						私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+					</p>
+				</li>
+				<li class="top-new__list--item">
+					<p class="top-new__list--item-text">
+						私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。私が業務を終え、帰宅しようとした時に・・・・これはサンプルの文章です。これはサンプルの文章です。overflowhidden
+					</p>
+				</li>
+			</ul>
+		</div>
 
-</body>
+	</body>
 </html>
