@@ -89,6 +89,14 @@
                   
               }
           }
+          .btn-label {
+            margin-right: 15px;
+            text-align: center;
+            padding-top: 7px;
+            @media screen and (max-width:500px) {
+              display: none;
+            }
+          }
       }
   }
   &-new {
