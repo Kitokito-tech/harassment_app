@@ -1,21 +1,21 @@
 /*
 Error: Base-level rules cannot contain the parent-selector-referencing character '&'.
-        on line 63 of src/AppBundle/Resources/public/css/scss/default.scss
+        on line 104 of src/AppBundle/Resources/public/css/scss/default.scss
 
-58:       line-height: 60px;
-59:       border-radius: 100px;
-60:       border: none;
-61:       margin-bottom: 52px;
-62:   }
-63:   &-cate {
-64:       padding-bottom: 9px;
-65:       &__list {
-66:           display: flex;
-67:           margin-bottom: 0;
-68:           img {
+99: //               display: none;
+100: //             }
+101: //           }
+102: //       }
+103: //   }
+104:   &-new {
+105:       padding-bottom: 92px;
+106:       background: $color-bc;
+107:       .sub-ttl {
+108:           margin-bottom: 0;
+109:       }
 
 Backtrace:
-src/AppBundle/Resources/public/css/scss/default.scss:63
+src/AppBundle/Resources/public/css/scss/default.scss:104
 C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/selector/comma_sequence.rb:31:in `resolve_parent_refs'
 C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:435:in `visit_rule'
 C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
@@ -49,4 +49,4 @@ C:/Ruby30-x64/bin/sass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Base-level rules cannot contain the parent-selector-referencing character '&'.\A         on line 63 of src/AppBundle/Resources/public/css/scss/default.scss\A \A 58:       line-height: 60px;\A 59:       border-radius: 100px;\A 60:       border: none;\A 61:       margin-bottom: 52px;\A 62:   }\A 63:   &-cate {\A 64:       padding-bottom: 9px;\A 65:       &__list {\A 66:           display: flex;\A 67:           margin-bottom: 0;\A 68:           img {"; }
+  content: "Error: Base-level rules cannot contain the parent-selector-referencing character '&'.\A         on line 104 of src/AppBundle/Resources/public/css/scss/default.scss\A \A 99: //               display: none;\A 100: //             }\A 101: //           }\A 102: //       }\A 103: //   }\A 104:   &-new {\A 105:       padding-bottom: 92px;\A 106:       background: $color-bc;\A 107:       .sub-ttl {\A 108:           margin-bottom: 0;\A 109:       }"; }

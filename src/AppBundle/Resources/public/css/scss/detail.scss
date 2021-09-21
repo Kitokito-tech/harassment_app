@@ -84,27 +84,35 @@ $blue: #2673b8;
     margin-bottom: 21px;
   }
   #graph {
+    position: relative;
     background: white;
     overflow: hidden;
     width: 100%;
     height: 30px;
     white-space: nowrap;
-    p {
-      display: -moz-inline-box;
-      display: inline-block;
-      height: 100%;
-    }
+    // p {
+    //   display: -moz-inline-box;
+    //   display: inline-block;
+    //   height: 100%;
+    // }
     p span {
       display: block;
     }
     p.yes {
       background: #f6e37d;
-      width: 50%;
+      width: 100%;
+      height: 30px;
     } /* for IE */
     p.no {
       background: #FB6979;
+      position: absolute;
+      z-index: 99;
       width: 100%;
+      top: 0px;
+      height: 30px;
       text-align: right;
+      transform: translateX(0%);
+      transition: all 1s;
     }
     * html #graphWrap,
     * html #graph p {

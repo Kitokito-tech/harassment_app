@@ -89,6 +89,9 @@
 				</button>
 			</div>
 			<ul class="top-new__list">
+				{% for contribution in contributions %}
+                <p class="detail-opinion--item">{{contribution.content}}</p>
+            {% endfor %}
 				<li class="top-new__list--item">
 					<a href="#"  class="top-new__list--item-link">
 						<p class="top-new__list--item-text">
