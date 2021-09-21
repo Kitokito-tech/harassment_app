@@ -1,21 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-{{ dump() }}
-     {% for contribution in contributions %}
-    <a href="{{ path("contrib_detail", {"id":contribution.id }) }}"  style="margin-bottom:50px;background-color:green;display:block;text-decoration:none;">
-    <p>bwfhceuohiwn</p>
-    </a>
-    {% endfor %}
-{{ form(searchForm) }}
-    {% for i in 1 .. pagesCount %}
-        <a href="{{ path('contrib_index', {'page': i }) }}">{{ i }}</a>
-    {% endfor %}
-</body>
-</html>
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/contrib.css') }}">
+{% endblock %}
+{% block content %}
+        <div class="cb__ttl">
+            投稿一覧
+        </div>
+        <div class="cb__wrap">
+            {% for contribution in contributions %}
+                <div class="cb__container">
+                    <a href="{{ path("contrib_detail", {"id":contribution.id }) }}">
+                        <div class="cb__tail">
+                            <div class="cb__cate">
+                                <span class="cb__p">category</span>{{contribution.category.cateName}}
+                            </div>
+                            <div class="cb__txt">
+                                {{contribution.content}}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        {{ form(searchForm) }}
+            {% for i in 1 .. pagesCount %}
+                <a href="{{ path('contrib_index', {'page': i }) }}">{{ i }}</a>
+            {% endfor %}
+{% endblock %}
+{% block javascript %}
+{% endblock %}
