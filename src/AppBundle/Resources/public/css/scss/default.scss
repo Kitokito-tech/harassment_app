@@ -130,6 +130,11 @@
                 border: white 4px solid;
                 border-radius: 100px;
                 background: $color-bc;
+                &:hover {
+                    opacity: 0.8;
+                    transition: 0.6s;
+                    background: #707070;
+                }
             }
         }
         &__list {
@@ -208,7 +213,7 @@
         width: 62px;
         border-radius: 100px;
         &:hover {
-            opacity: 0.8;
+            opacity: 0.6;
             transition: 0.6s;
         }
     }
