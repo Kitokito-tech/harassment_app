@@ -1,15 +1,10 @@
-{{ dump() }}
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-		<link rel="stylesheet" href="{{ asset('bundles/app/css/default.css') }}">
-	</head>
-	<body>
+{# {{ dump() }} #}
 
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+		<link rel="stylesheet" href="{{ asset('bundles/app/css/default.css') }}">
+{% endblock %}
+{% block content %}
 		{#<div><a href="{{ path('diagnoze_cate') }}">診断</a></div>#}
 		{#<div><a href="{{ path('contrib_index') }}">相談一覧</a></div>#}
 		<div class="top"> 
@@ -22,7 +17,7 @@
 				<div class="key__form">
 					<form type="get" action="/article">
 						<label>
-							<input type="text" class="key__input" name="q" value="" placeholder="search">
+							<input type="text" class="key__input" id="form_search" name="form[search]" maxlength="100" placeholder="search">
 							<button type="submit" class="key__btn">
 								<i class="fas fa-search"></i>
 							</button>
@@ -34,7 +29,7 @@
 					<ul class="top-cate__list">
 						<li>
 							<button class="top-cate__list--item">
-								<a>
+								<a href="#">
 									<picture>
 										<source srcset="{{ asset('bundles/app/img/default/power@2x.png') }}" media="screen and (min-width: 1500px)">
 										<source srcset="{{ asset('bundles/app/img/default/power.png') }} 1x,{{ asset('bundles/app/img/default/power@2x.png') }} 2x" media="screen and (max-width: 375px)">
@@ -46,7 +41,7 @@
 						</li>
 						<li>
 							<button class="top-cate__list--item">
-								<a>
+								<a href="#">
 									<picture>
 										<source srcset="{{ asset('bundles/app/img/default/sexual@2x.png') }}" media="screen and (min-width: 1500px)">
 										<source srcset="{{ asset('bundles/app/img/default/sexual.png') }} 1x,{{ asset('bundles/app/img/default/sexual@2x.png') }} 2x" media="screen and (max-width: 375px)">
@@ -58,7 +53,7 @@
 						</li>
 						<li>
 							<button class="top-cate__list--item">
-								<a>
+								<a href="#">
 									<picture>
 										<source srcset="{{ asset('bundles/app/img/default/maternity@2x.png') }}" media="screen and (min-width: 1500px)">
 										<source srcset="{{ asset('bundles/app/img/default/maternity.png') }} 1x,{{ asset('bundles/app/img/default/maternity@2x.png') }} 2x" media="screen and (max-width: 375px)">
@@ -104,3 +99,7 @@
 
 	</body>
 </html>
+  {% endblock %}
+  {% block javascript %}
+
+  {% endblock %}

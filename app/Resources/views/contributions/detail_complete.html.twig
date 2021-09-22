@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>コメントを投稿しました</p>
-    <a href="{{ path("contrib_detail",{"id":id }) }}">戻る</a>
+{% extends 'layout.html.twig' %}
+    {% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/detail.css') }}">
+    {% endblock %}
+    {% block content %}
+    <div class="comment-complete">
+        <div class="comment-complete__wrap">
+        <p class="comment-complete__txt">コメントを投稿しました</p>
+        <a href="{{ path("contrib_detail",{"id":id }) }}" class="back-btn">戻る</a>
+    </div>
 </body>
-</html>
+</html>{% endblock %}
