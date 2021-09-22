@@ -4,11 +4,12 @@
 		<link rel="stylesheet" href="{{ asset('bundles/app/css/detail.css') }}">
 {% endblock %}
 {% block content %}
+
 		<div class="detail">
 			<div class="detail-container">
 				<div class="detail-head">
 					<p class="detail-head__text">
-						これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサこれはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサこれはサンプルです。
+						{{contribution.content}}
 					</p>
 				</div>
 				<div class="detail-question">
@@ -25,7 +26,7 @@
                         {% if voted %}
                             <input type="submit" value="相談する" name="submit" class="button disabled" disabled>
                         {% else %}
-                            <input type="submit" value="相談する" name="submit" class="button">
+                            <input type="submit" value="相談する" name="submit" class="button able">
                         {% endif %}
 					</form>
 					<form action="{{path("contrib_detail",{"id":contribution.id })}}" method="post">
@@ -38,11 +39,12 @@
                     {% if voted %}
                             <input type="submit" value="相談しない" name="submit" class="button disabled" disabled>
                     {% else %}
-                            <input type="submit" value="相談しない" name="submit" class="button">
+                            <input type="submit" value="相談しない" name="submit" class="button able">
                     {% endif %}
 				</form>
 			</div>
 		</div>
+        
         <div id="graphWrap">  
             <div id="graph">      
                 <p class="yes" id="yesGr"><span></span></p>
@@ -56,7 +58,7 @@
                 {% if contribution.consultNum + contribution.notConsultNum == 0 %}
                     00%
                 {% else %}
-                    {{ ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100 }}%
+                    {{ (( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100)|round }}%
                 {% endif %}
                 </p>
 			</div>
@@ -66,7 +68,7 @@
                 {% if contribution.consultNum + contribution.notConsultNum == 0 %}
                     00%
                 {% else %}
-                {{ 100 - ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100 }}%
+                {{ ( 100 - ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100)|round }}%
                 {% endif %}
                 </p>
 			</div>
@@ -81,7 +83,7 @@
 		</form>
         </div>
         <div class="to-top">
-            <button class="to-top__btn">TOPへ</button>
+            <button class="to-top__btn"><a href="{{ path('index_page') }}">TOPへ</a></button>
         </div>
         <div class="detail-opinion--list">
             <p class="detail-opinion--list__ttl">
