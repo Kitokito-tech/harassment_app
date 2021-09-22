@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
 
-
 /**
  * @Route("/contrib",)
  */
@@ -31,7 +30,7 @@ class ContributionController extends Controller
     {
         $_SESSION = [];
         $pageNum = $request->query->get('page');
-        $cateName = $request->query->get('form')['categories'] ?? 0;
+        $cateName = $request->query->get('form')['categories'] ?? [];
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
         $search = $request->query->get('form')['search'] ?? '';
         $queries = ['cateName' => $cateName, 'dateOrder' => $dateOrder, 'search' => $search];
@@ -46,8 +45,16 @@ class ContributionController extends Controller
         if (!$results['result']) {
             $results['result'] = "マッチする結果がありませんでした";
         }
+
         $searchForm = $this->createSearchForm($cateName,  $dateOrder, $search);
-        return $this->render('contributions/index.html.twig', ['contributions' => $results['result'], 'pagesCount' => $results['pagesCount'], 'searchForm' => $searchForm, 'queries' => $queries]);
+
+        return $this->render('contributions/index.html.twig', 
+        [
+            'contributions' => $results['result'], 
+            'pagesCount' => $results['pagesCount'], 
+            'searchForm' => $searchForm, 
+            'queries' => $queries
+        ]);
     }
 
     /**
@@ -148,16 +155,16 @@ class ContributionController extends Controller
         }
     }
 
-    public function pagenation(int $dataPerPages, int $currentPage = 1, int $cateId = 0, string $search = '', string $dateOrder = "DESC")
+    public function pagenation(int $dataPerPages, int $currentPage = 0, array $cateIds = [], string $search = '', string $dateOrder = "DESC")
     {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQueryBuilder()
             ->select('a', 'b')
             ->from("AppBundle\Entity\Contributions", 'a')
             ->leftjoin('a.category', 'b');
-        if ($cateId !== 0) {
-            $query = $query->andWhere('b.id = :cateId')
-                ->setParameter('cateId', $cateId);
+        if ($cateIds) {
+            $query = $query->andWhere('b.id in( :cateIds)')
+                ->setParameter('cateIds', $cateIds);
         }
         if ($search !== '') {
             $query = $query->andWhere('a.content like :content')
@@ -188,12 +195,22 @@ class ContributionController extends Controller
             foreach ($categoryObjs as $categoryObj) {
                 if ($categoryObj->getId() == $cateId) {
                     $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
+<<<<<<< Updated upstream
+=======
+                    // dump($categorys);
+                    exit;
+>>>>>>> Stashed changes
                 } else {
                     $notSelected[$categoryObj->getCateName()] = $categoryObj->getId();
                 }
             }
             $categorys['指定なし'] = 0;
             $categorys = array_merge($categorys, $notSelected);
+<<<<<<< Updated upstream
+=======
+            // dump($categorys);
+            // exit;
+>>>>>>> Stashed changes
         } else {
             $categorys = ['指定なし' => 0];
             foreach ($categoryObjs as $categoryObj) {
@@ -205,6 +222,8 @@ class ContributionController extends Controller
         } else {
             $dateOrderArray = ['古い順' => 'ASC', '新しい順' => 'DESC'];
         }
+
+        
         $form = $this->createFormBuilder()
             ->setMethod('GET');
         $form = $form
@@ -214,18 +233,19 @@ class ContributionController extends Controller
                 'data' => $search,
                 'attr' => array(
                     'maxlength' => 100,
-                    'placeholder' => "キーワードを入力"
-                )
+                    'placeholder' => "search",
+                    'class' => 'form-control'
+                ),
+                'data' => $search
             ])
             ->add('categories', ChoiceType::class, [
                 'choices'  => $categorys,
-                'label' => "カテゴリ"
+                'label' => "カテゴリ",
+                'multiple' => true,
+                'expanded' => true,
+                'data' => $cateId
             ])
-            ->add('dateOrder', ChoiceType::class, [
-                'choices'  => $dateOrderArray,
-                'label' => "並べ替え"
-            ])
-            ->add('submit', SubmitType::class, ['label' => '検索'])->getForm();
+            ->add('submit', SubmitType::class, ['label' => ' '])->getForm();
         return $form->createView();
     }
 }
