@@ -1,78 +1,113 @@
 @import "initial";
 @import "variable";
-
 body {
-    background-color: $color-bc;
-    color: $color-txt;
-  }
-
+  background-color: $color-bc;
+  color: $color-txt;
+}
 
 .result {
-    margin-top: 108px;
-    @media screen and (max-width:860px) {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    &__container {
-      background-color: $color-btn;
-      max-width: 860px;
-      margin: 0 auto;
-      border-radius: 18px;
-    }
-    &__ttl {
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      color: $color-base;
-      padding-top: 55px;
-      padding-bottom: 35px;
-    }
-    &__ps {
-      text-align: center;
-      font-size: 80px;
-      font-weight: bold;
-      color: $color-br;
-    }
-    &__ct {
-      padding-left: 16.3px;
-      margin-top: 63px;
-      padding-top: 98.5px;
-      border-top: 1px solid #707070;
-      justify-content: center;
-      padding-right: 21.3px;
-      padding-bottom: 18.3px;
-      position: relative;
-    }
-    &__img {
-      left: 256px;
-      width: fit-content;
-      position: relative;
-      z-index: 1;
-      @media screen and (max-width:860px) {
-          left: initial;
-          width: 55%;
-          text-align: right;
-      }
-    }
-    &__txt {
-      position: absolute;
-      top: 39%;
-      left: 50%;
-      z-index: 3;
-      margin-top: -55px;
-      background-image: url("/bundles/app/img/result/txt.png");
-      background-image: image-set(
-        url("/bundles/app/img/result/txt.png") 1x,
-        url("/bundles/app/img/result/txt@2x.png") 2x
-      );
-      background-image: -webkit-image-set(
-        url("/bundles/app/img/result/txt.png") 1x,
-        url("/bundles/app/img/result/txt@2x.png") 2x
-      );
-      background-repeat: no-repeat;
-      background-position: center top -5px;
-      width: 151.3px;
-      padding: 16px 16px 50px 16px;
-      font-size: 14px;
+  margin-top: 108px;
+  @media screen and (max-width: 860px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  &__container {
+    background-color: $color-btn;
+    max-width: 860px;
+    margin: 0 auto;
+    border-radius: 18px;
+  }
+  &__ttl {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: $color-base;
+    padding-top: 55px;
+    padding-bottom: 35px;
+  }
+  &__ps {
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    color: $color-br;
+  }
+  &__ct {
+    padding-left: 16.3px;
+    margin-top: 63px;
+    padding-top: 98.5px;
+    border-top: 1px solid #707070;
+    justify-content: center;
+    padding-right: 21.3px;
+    padding-bottom: 18.3px;
+    position: relative;
+  }
+  &__img {
+    left: 256px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    @media screen and (max-width: 860px) {
+      left: initial;
+      width: 55%;
+      text-align: right;
     }
   }
+  &__txt {
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    z-index: 3;
+    margin-top: -55px;
+    background-image: url("/bundles/app/img/result/txt.png");
+    background-image: image-set(
+      url("/bundles/app/img/result/txt.png") 1x,
+      url("/bundles/app/img/result/txt@2x.png") 2x
+    );
+    background-image: -webkit-image-set(
+      url("/bundles/app/img/result/txt.png") 1x,
+      url("/bundles/app/img/result/txt@2x.png") 2x
+    );
+    background-repeat: no-repeat;
+    background-position: center top -5px;
+    width: 151.3px;
+    padding: 16px 16px 50px 16px;
+    font-size: 14px;
+  }
+}
+
+.to-top {
+  margin: auto;
+}
+
+.to-consult {
+  max-width: 860px;
+  margin: 0 auto;
+  button {
+    display: block;
+    color: #000;
+    width: 141px;
+    height: 36px;
+    margin-left: auto;
+    margin-right: 20px;
+    font-size: 17px;
+    background: white;
+    padding: 8px 0px 8px 4px;
+    text-align: left;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 18px 0 18px 20px;
+      border-color: transparent transparent transparent #fff;
+    }
+  }
+  a {
+    border-bottom: 3px solid red;
+  }
+}

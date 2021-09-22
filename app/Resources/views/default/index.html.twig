@@ -2,7 +2,10 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
 		<link rel="stylesheet" href="{{ asset('bundles/app/css/default.css') }}">
+		<link rel="stylesheet" href="{{ asset('bundles/app/slick/slick.css') }}">
+		<link rel="stylesheet" href="{{ asset('bundles/app/slick/slick-theme.css') }}">
 {% endblock %}
+		
 {% block content %}
 		<div class="top">
 			<div class="top-container">
@@ -81,7 +84,7 @@
 					</a>
 				</button>
 			</div>
-			<ul class="top-new__list">
+			<ul class="top-new__list slide">
 				{% for contribution in contributions %}
 				<li class="top-new__list--item">
 					<a href="{{ path("contrib_detail", {"id":contribution.id }) }}"  class="top-new__list--item-link">
@@ -98,5 +101,40 @@
 </html>
   {% endblock %}
   {% block javascript %}
-
+  <script src="{{ asset('bundles/app/slick/slick.min.js') }}"></script>
+<script>
+$(function(){
+	console.log($('.slide'));
+  $('.slide').slick({
+    autoplay:true,
+    autoplaySpeed:5000,
+    arrows:false,
+    dots:false,
+    pauseOnHover:true,
+	responsive: [
+		{
+			breakpoint: 1200,
+			settings: {
+				slidesToShow: 3,
+        		slidesToScroll: 3
+			}
+		},
+		{
+			breakpoint: 600,
+			settings: {
+				slidesToShow: 2,
+        		slidesToScroll: 2
+			}
+		},
+		{
+			breakpoint: 400,
+			settings: {
+				slidesToShow: 1,
+        		slidesToScroll: 1
+			}
+		}
+	]
+  });
+});
+</script>
   {% endblock %}

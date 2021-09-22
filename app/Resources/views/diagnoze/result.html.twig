@@ -29,9 +29,14 @@
       </div>
     </div>
   </div>
+<div class="to-top">
+  <button class="to-top__btn"><a href="{{ path('index_page') }}">TOPへ</a></button>
 </div>
-<a href="{{ path('contrib_make') }}">他の人に相談</a>
-<a href="{{ path('index_page') }}">TOPへ</a>
+<div class="to-consult">
+  <button>
+  <a href="{{ path('contrib_make') }}">オンラインで相談</a>
+</div>
+</div>
   {% endblock %}
   {% block javascript %}
     {% endblock %}
