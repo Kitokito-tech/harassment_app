@@ -58,7 +58,7 @@
                 {% if contribution.consultNum + contribution.notConsultNum == 0 %}
                     00%
                 {% else %}
-                    {{ ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100 }}%
+                    {{ (( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100)|round }}%
                 {% endif %}
                 </p>
 			</div>
@@ -68,7 +68,7 @@
                 {% if contribution.consultNum + contribution.notConsultNum == 0 %}
                     00%
                 {% else %}
-                {{ 100 - ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100 }}%
+                {{ ( 100 - ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100)|round }}%
                 {% endif %}
                 </p>
 			</div>
