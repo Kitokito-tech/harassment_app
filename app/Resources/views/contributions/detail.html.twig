@@ -106,7 +106,9 @@
         if ($('.yes-per').text() === "00%") {
             $('.no').css('transform', 'translateX(50%)');
         } else {
+            setTimeout(function(){
             $('.no').css('transform', `translateX(${yes})`);
+5           },100);
         }
 
         {# setTimeout($('.no').css('transform', `translateX(${yes})`), 10); #}
