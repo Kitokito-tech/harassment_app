@@ -96,7 +96,8 @@ nav.globalMenuSp {
   top  : 0;
   left : 0;
   color: #000;
-  background: white;
+  background: rgba(0,0,0,0.5);
+  height: 100em;
   text-align: center;
   width: 100%;
   opacity: 0;
@@ -104,8 +105,9 @@ nav.globalMenuSp {
 }
 
 nav.globalMenuSp ul {
-  margin: 86px auto 55px auto;
-  padding: 0 30px 0 30px;
+  background-color: $color-btn;
+  margin: 0 auto 55px auto;
+  padding: 86px 30px 50px 30px;
   width: 100%;
 }
 
