@@ -98,17 +98,12 @@
   {% endblock %}
   {% block javascript %}
     <script>
-        console.log($('.yes-per').text());
-        console.log($('.no-per').text());
-        const yes = $('.yes-per').text();
-        if ($('.yes-per').text() === "00%") {
+        const yes = $('.yes-per').text().trim();
+        if (yes === "00%") {
             $('.no').css('transform', 'translateX(50%)');
         } else {
-            setTimeout(function(){
-            $('.no').css('transform', `translateX(${yes})`);
-5           },100);
+           $('.no').css('transform', `translateX(${yes})`);
         }
-
         {# setTimeout($('.no').css('transform', `translateX(${yes})`), 10); #}
     </script>
 
