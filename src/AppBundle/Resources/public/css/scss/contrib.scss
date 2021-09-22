@@ -1,0 +1,58 @@
+@import "initial";
+@import "variable";
+
+
+.cb {
+    &__ttl {
+        color: $color-base;
+        width: fit-content;
+        margin: 112px auto 48px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    &__wrap {
+        width: 375px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 15px;
+        margin: 0 auto;
+        @media screen and (max-width: 375px) {
+            width: 100%;
+        }
+    }
+    &__container {
+        a {
+            display: block;
+        }
+    }
+    &__p {
+        margin-top: -2px;
+        font-size: 8px;
+        font-weight: bold;
+        color: $color-base;
+        display: block;
+        padding-right: 5px;
+    }
+    &__cate {
+        display: flex;
+        padding-top: 16px;
+        font-size: 13px;
+    }
+    &__tail {
+        padding: 0 11px;
+        width: 166px;
+        height: 218px;
+        background-color: #fff;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        @media screen and (max-width: 375px) {
+            width: auto;            
+        }
+    }
+    &__txt {
+        padding:27px 0px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}

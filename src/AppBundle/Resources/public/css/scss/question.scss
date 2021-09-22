@@ -10,7 +10,9 @@ header {
   height: 58px;
   background-color: $color-btn;
 }
-
+.content {
+  padding-top: 51px;
+}
 .cate {
   &__select {
     margin-bottom: 60px;

@@ -13,25 +13,35 @@ header {
 
 .comp {
   &__container {
-    margin-top: 154px;
+    margin-top: 189px;
   }
   &__wrapper {
     padding-left: 15px;
     padding-right: 15px;
   }
   &__comment {
+    text-align: center;
     width: fit-content;
     margin: 0 auto;
     font-size: 16px;
     color: $color-base;
     font-weight: bold;
-    padding: 23px 15.1px;
+    padding-top: 21px;
+    padding-bottom: 66px;
+    padding-left: 15px;
+    padding-right: 15px;
     line-height: 35px;
     background-image: url('/bundles/app/img/make_comp/cm-bg.png');
     background-image: image-set(url('/bundles/app/img/make_comp/cm-bg.png') 1x, url('/bundles/app/img/make_comp/cm-bg@2x.png') 2x);
     background-image: -webkit-image-set(url('/bundles/app/img/make_comp/cm-bg.png') 1x, url('/bundles/app/img/make_comp/cm-bg@2x.png') 2x);
     background-repeat: no-repeat;
     background-position: center;
+  }
+  &__dt {
+    font-size: 10px;
+    margin-top: -21px;
+    display: block;
+    padding-left: 143px;
   }
   &__img {
     margin-top: 45.6px;

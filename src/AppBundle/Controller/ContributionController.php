@@ -73,15 +73,16 @@ class ContributionController extends Controller
             ->addOrderBy('a.createdAt', 'desc')
             ->getQuery()
             ->getResult();
-        $comments = $contribution[0]->getComments()->getValues();
+        $contribution = $contribution[0];
+        $comments = $contribution->getComments()->getValues();
         if ($request->isMethod('POST')) {
             if ($request->request->get('consult') && !isset($_SESSION['voted'])) {
                 if ($request->request->get('consult') === 'yes') {
-                    $num = $contribution[0]->getConsultNum() + 1;
-                    $contribution[0]->setConsultNum($num);
+                    $num = $contribution->getConsultNum() + 1;
+                    $contribution->setConsultNum($num);
                 } else {
-                    $num = $contribution[0]->getNotConsultNum() + 1;
-                    $contribution[0]->setNotConsultNum($num);
+                    $num = $contribution->getNotConsultNum() + 1;
+                    $contribution->setNotConsultNum($num);
                 }
                 $_SESSION['voted'] = true;
                 $em->flush();
@@ -89,16 +90,16 @@ class ContributionController extends Controller
             if ($request->request->get('comment')) {
                 $comment = new Comments();
                 $comment->setContent($request->request->get('comment'));
-                $comment->setContribution($contribution[0]);
+                $comment->setContribution($contribution);
                 $em->persist($comment);
                 $em->flush();
-                return $this->render('contributions/detail_complete.html.twig', ["id" => $contribution[0]->getId()]);
+                return $this->render('contributions/detail_complete.html.twig', ["id" => $contribution->getId()]);
             }
         }
         if (isset($_SESSION['voted'])) {
-            return $this->render('contributions/detail.html.twig', ["contribution" => $contribution[0], 'comments' => $comments, 'voted' => true]);
+            return $this->render('contributions/detail.html.twig', ["contribution" => $contribution, 'comments' => $comments, 'voted' => true]);
         } else {
-            return $this->render('contributions/detail.html.twig', ["contribution" => $contribution[0], 'comments' => $comments, 'voted' => false]);
+            return $this->render('contributions/detail.html.twig', ["contribution" => $contribution, 'comments' => $comments, 'voted' => false]);
         }
     }
 
@@ -201,6 +202,7 @@ class ContributionController extends Controller
         $form = $this->createFormBuilder()
             ->setMethod('GET')
             ->add('search', TextType::class, [
+                'required' => false,
                 'label' => 'キーワード検索',
                 'attr' => array(
                     'maxlength' => 100,

@@ -10,3 +10,4 @@ sass src/AppBundle/Resources/public/css/scss/detail.scss:src/AppBundle/Resources
 sass src/AppBundle/Resources/public/css/scss/make_comp.scss:src/AppBundle/Resources/public/css/make_comp.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/header.scss:src/AppBundle/Resources/public/css/header.css --sourcemap=none --style compressed --no-cache
 sass src/AppBundle/Resources/public/css/scss/result.scss:src/AppBundle/Resources/public/css/result.css --sourcemap=none --style compressed --no-cache
+sass src/AppBundle/Resources/public/css/scss/contrib.scss:src/AppBundle/Resources/public/css/contrib.css --sourcemap=none --style compressed --no-cache

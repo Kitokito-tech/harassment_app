@@ -9,7 +9,7 @@ body {
 
 .result {
     margin-top: 108px;
-    @media screen and (max-width:600px) {
+    @media screen and (max-width:860px) {
       padding-left: 15px;
       padding-right: 15px;
     }
@@ -44,8 +44,15 @@ body {
       position: relative;
     }
     &__img {
+      left: 256px;
+      width: fit-content;
       position: relative;
       z-index: 1;
+      @media screen and (max-width:860px) {
+          left: initial;
+          width: 55%;
+          text-align: right;
+      }
     }
     &__txt {
       position: absolute;
@@ -65,7 +72,7 @@ body {
       background-repeat: no-repeat;
       background-position: center top -5px;
       width: 151.3px;
-      padding: 16px 16px 20px 16px;
+      padding: 16px 16px 50px 16px;
       font-size: 14px;
     }
   }
