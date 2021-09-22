@@ -30,6 +30,7 @@ $blue: #2673b8;
     font-size: 18px;
     margin-bottom: 59px;
     color: #707070;
+    word-wrap: break-word;
   }
   &-question {
     font-size: 18px;
@@ -186,6 +187,7 @@ $blue: #2673b8;
     }
     &--item {
       line-height: 1.3;
+      word-wrap: break-word;
       text-align: left;
       background: #fff;
       color: #707070;
