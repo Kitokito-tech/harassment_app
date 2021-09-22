@@ -1,14 +1,9 @@
-{{ dump() }}
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+{# {{ dump() }} #}
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
 		<link rel="stylesheet" href="{{ asset('bundles/app/css/detail.css') }}">
-	</head>
-	<body>
+{% endblock %}
+{% block content %}
 		<div class="detail">
 			<div class="detail-container">
 				<div class="detail-head">
@@ -20,24 +15,31 @@
 					<h2 class="detail-question__ttl">あなたならどうしますか？</h2>
 					<div
 						class="detail-question__btn--list">
-						<form action="{{ path("contrib_detail", {"id":contribution.id }) }}" method="post">
+						<form action="{{path("contrib_detail",{"id":contribution.id })}}" method="post">
 						<label for="">
 							<input type="hidden" value="yes" name="consult">
 						</label>
 						<label for="">
 							<input type="hidden" value="voted" name="voted">
 						</label>
-						<input type="submit" value="相談する" name="submit" class="button">
+                        {% if voted %}
+                            <input type="submit" value="相談する" name="submit" class="button disabled" disabled>
+                        {% else %}
+                            <input type="submit" value="相談する" name="submit" class="button">
+                        {% endif %}
 					</form>
-
-					<form action="{{ path("contrib_detail", {"id":contribution.id }) }}" method="post">
+					<form action="{{path("contrib_detail",{"id":contribution.id })}}" method="post">
 					<label for="">
 						<input type="hidden" value="no" name="consult">
 					</label>
 					<label for="">
 						<input type="hidden" value="voted" name="voted">
 					</label>
-					<input type="submit" value="相談しない" name="submit" class="button">
+                    {% if voted %}
+                            <input type="submit" value="相談しない" name="submit" class="button disabled" disabled>
+                    {% else %}
+                            <input type="submit" value="相談しない" name="submit" class="button">
+                    {% endif %}
 				</form>
 			</div>
 		</div>
@@ -49,17 +51,29 @@
         </div>  
 		<div class="detail__graph">
 			<div class="detail__graph--label">
-				<p class="detail__graph--text">相談する</p>
-				<p class="per">00%</p>
+				<p class="detail__graph--text" >相談する</p>
+				<p class="per yes-per">
+                {% if contribution.consultNum + contribution.notConsultNum == 0 %}
+                    00%
+                {% else %}
+                    {{ ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100 }}%
+                {% endif %}
+                </p>
 			</div>
 			<div class="detail__graph--label">
 				<p class="detail__graph--text">相談しない</p>
-				<p class="per">00%</p>
+				<p class="per no-per">
+                {% if contribution.consultNum + contribution.notConsultNum == 0 %}
+                    00%
+                {% else %}
+                {{ 100 - ( contribution.consultNum / (contribution.consultNum + contribution.notConsultNum )) * 100 }}%
+                {% endif %}
+                </p>
 			</div>
 		</div>
 		<div class="detail__your-opinion">
 			<h2 class="detail__your-opinion--ttl">あなたの意見</h2>
-			<form action="{{ path("contrib_detail", {"id":contribution.id }) }}" method="post">
+			<form action="{{path("contrib_detail",{"id":contribution.id})}}" method="post">
 			<label for="" class="opinion-area">
 				<textarea id="" name="comment" cols="47" rows="10"></textarea>
 			</label>
@@ -74,24 +88,28 @@
 	            みんなの意見
             </p>
             {% for comment in comments %}
-                <p>コメント:</p>
-                <p>{{ comment.content }}</p>
+                <p class="detail-opinion--item">{{comment.content}}</p>
             {% endfor %}
-
-            <div class="detail-opinion--item">
-                <div class="yes"></div>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-            </div>
-            <div class="detail-opinion--item">
-                <div class="no"></div>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-            </div>
-            <div class="detail-opinion--item">
-                <div class="yes"></div>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-            </div>
         </div>
     </div>
 </div>
 </body>
 </html>
+  {% endblock %}
+  {% block javascript %}
+    <script>
+        console.log($('.yes-per').text());
+        console.log($('.no-per').text());
+        const yes = $('.yes-per').text();
+        if ($('.yes-per').text() === "00%") {
+            $('.no').css('transform', 'translateX(50%)');
+        } else {
+            $('.no').css('transform', `translateX(${yes})`);
+        }
+
+        {# setTimeout($('.no').css('transform', `translateX(${yes})`), 10); #}
+    </script>
+
+{% endblock %}
+
+

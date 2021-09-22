@@ -202,6 +202,7 @@ class ContributionController extends Controller
         $form = $this->createFormBuilder()
             ->setMethod('GET')
             ->add('search', TextType::class, [
+                'required' => false,
                 'label' => 'キーワード検索',
                 'attr' => array(
                     'maxlength' => 100,
