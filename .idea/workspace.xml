@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d31ed908-f81a-4299-b0ec-f4f921fda1a1" name="Default Changelist" comment="詳細記入ページコミット">
-      <change afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/contributions/detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/contributions/detail.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/default.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/scss/default.scss" afterDir="false" />
     </list>
     <list id="9d8659d1-c772-4ff6-968e-596f3bfc05b4" name="Revert &quot;トップ　詳細　作業分&quot;" comment="Revert &quot;トップ　詳細　作業分&quot;&#10;&#10;This reverts commit 09f16d71" />
