@@ -158,6 +158,10 @@
         border-radius: 15px;
         box-shadow: 0px 3px 3px 0px rgba(36, 4, 4, 0.2);
         margin-bottom: 30px;
+        &:hover {
+            background-color: #f6e37d;
+            transition: 0.6s;
+          }
         &-link {
           display: block;
           padding: 27px 49px;
