@@ -46,13 +46,17 @@
         background-color: #fff;
         border-radius: 15px;
         margin-bottom: 15px;
-        @media screen and (max-width: 375px) {
-            width: auto;            
+        @media screen and (max-width:365px) {
+            width: 150px;
+        }
+        @media screen and (max-width: 335px) {
+            width: 140px;            
         }
     }
     &__txt {
         padding:27px 0px;
         word-wrap: break-word;
         overflow-wrap: break-word;
+        text-overflow: ellipsis;
     }
 }
