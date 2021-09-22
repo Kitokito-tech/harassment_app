@@ -37,8 +37,8 @@ class SendContribCommand extends Command
             ->select('a')
             ->from("AppBundle\Entity\Contributions", 'a')
             ->andWhere('a.createdAt BETWEEN :dateA AND :dateB')
-            ->setParameter(':dateA', (new \DateTime())->modify('-6 day'))
-            ->setParameter(':dateB', (new \DateTime())->modify('-7 day'))
+            ->setParameter(':dateA', (new \DateTime())->modify('-7 day'))
+            ->setParameter(':dateB', (new \DateTime())->modify('-6 day'))
             ->getQuery()->getResult();
         if ($results) {
             foreach ($results as $result) {

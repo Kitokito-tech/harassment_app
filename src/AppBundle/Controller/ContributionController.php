@@ -141,8 +141,6 @@ class ContributionController extends Controller
             $em->persist($contribution);
             $em->flush();
             $_SESSION = [];
-            $entry['to'] = $form["email"];
-            $this->contribSendMail($entry);
             return $this->render('contributions/complete.html.twig');
         } else {
             return $this->redirectToRoute('index_page');
@@ -178,18 +176,6 @@ class ContributionController extends Controller
             ->setMaxResults($dataPerPages)
             ->getResult();
         return ['result' => $result, 'pagesCount' => $pagesCount,];
-    }
-
-    public function contribSendMail($entry)
-    {
-        $contrib =  $this->getDoctrine()->getManager()->getRepository('AppBundle:Contributions')->findOneBy(['email' => $entry['to']], ['createdAt' => 'DESC']);
-        $message = \Swift_Message::newInstance()
-            ->setFrom('system_test@glic.co.jp', '〇Xハラスメント')
-            ->setSubject('〇Xハラスメント【ご相談内容の結果についてのご報告】')
-            ->setBody($this->renderView('Email/cont_email.html.twig', ['pageId' => $contrib->getId()]), 'text/html')
-            ->setReplyTo('system_test@glic.co.jp')
-            ->setTo($entry['to']);
-        $this->get('swiftmailer.mailer.default')->send($message);
     }
     public function createSearchForm()
     {
