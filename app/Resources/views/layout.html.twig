@@ -29,11 +29,12 @@
       
       <nav class="globalMenuSp">
           <ul>
-              <li><a href="{{ path('index_page') }}">トップページ</a></li>
-              <li><a href="{{ path('diagnoze_cate') }}">診断</a></li>
-              <li><a href="{{ path('contrib_index') }}">投稿一覧</a></li>
+              <li class="globalMenuSp_first"><a href="{{ path('diagnoze_cate') }}">診断する</a></li>
+              <li class="globalMenuSp_second"><a href="{{ path('contrib_index') }}">投稿一覧</a></li>
+              <li class="globalMenuSp_third"><a href="{{ path('index_page') }}">トップページ</a></li>
           </ul>
       </nav>
+    <div class="header-cover"></div>
     </header>
         {% endblock %}
                 {% block content %}{% endblock %}

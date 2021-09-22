@@ -35,6 +35,7 @@ header {
   height: 42px;
   cursor: pointer;
   text-align: center;
+  z-index: 9999;
 }
 .hamburger span {
   display : block;
@@ -61,7 +62,7 @@ header {
 .hamburger.active span:nth-child(1) {
   top : 16px;
   left: 6px;
-  background :#fff;
+  background :#707070;
   -webkit-transform: rotate(-45deg);
   -moz-transform   : rotate(-45deg);
   transform        : rotate(-45deg);
@@ -70,11 +71,23 @@ header {
 .hamburger.active span:nth-child(2),
 .hamburger.active span:nth-child(3) {
   top: 16px;
-  background :#fff;
+  background :#707070;
   -webkit-transform: rotate(45deg);
   -moz-transform   : rotate(45deg);
   transform        : rotate(45deg);
 }
+
+.hamburger.active .header-cover{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9997;
+	background: rgba(3,3,3,.5);
+	display: block;
+}
+
 
 nav.globalMenuSp {
   display: none;
@@ -82,8 +95,8 @@ nav.globalMenuSp {
   z-index : 2;
   top  : 0;
   left : 0;
-  color: #fff;
-  background: rgba(0,0,0,0.7);
+  color: #000;
+  background: white;
   text-align: center;
   width: 100%;
   opacity: 0;
@@ -91,10 +104,9 @@ nav.globalMenuSp {
 }
 
 nav.globalMenuSp ul {
-  margin: 0 auto;
-  padding: 0;
+  margin: 86px auto 55px auto;
+  padding: 0 30px 0 30px;
   width: 100%;
-  height: 100em;
 }
 
 nav.globalMenuSp ul li {
@@ -112,13 +124,59 @@ nav.globalMenuSp ul li:hover{
 
 nav.globalMenuSp ul li a {
   display: block;
-  color: #fff;
+  color: #000;
   padding: 1em 0;
   text-decoration :none;
+  &:hover {
+    color: #2673B8;
+  }
 }
 
 /* このクラスを、jQueryで付与・削除する */
 nav.globalMenuSp.active {
   opacity: 100;
   display: block;
+}
+
+.globalMenuSp_first {
+  border-bottom: 1px solid #000;
+  position: relative;
+  &::before {
+    content: url('/bundles/app/img/header/tri.png');
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+  &:hover {
+    color: $color-base;
+    transition: 0.6s;
+  }
+}
+.globalMenuSp_second {
+  border-bottom: 1px solid #000;
+  position: relative;
+  &::before {
+    content: url('/bundles/app/img/header/tri.png');
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+  &:hover {
+    color: $color-base;
+    transition: 0.6s;
+  }
+}
+
+.globalMenuSp_third {
+  position: relative;
+  &::before {
+    content: url('/bundles/app/img/header/tri.png');
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+  &:hover {
+    color: $color-base;
+    transition: 0.6s;
+  }
 }
