@@ -29,7 +29,7 @@
 					<ul class="top-cate__list">
 						<li>
 							<button class="top-cate__list--item">
-								<a href="{{ path('contrib_index',{'form[categories]': 2}) }}">
+								<a href="{{ path('contrib_index',{'form[categories]': [2]}) }}">
 									<picture>
 										<source srcset="{{ asset('bundles/app/img/default/power@2x.png') }}" media="screen and (min-width: 1500px)">
 										<source srcset="{{ asset('bundles/app/img/default/power.png') }} 1x,{{ asset('bundles/app/img/default/power@2x.png') }} 2x" media="screen and (max-width: 375px)">
@@ -41,7 +41,7 @@
 						</li>
 						<li>
 							<button class="top-cate__list--item">
-								<a href="{{ path('contrib_index',{'form[categories]': 1}) }}">
+								<a href="{{ path('contrib_index',{'form[categories]': [1]}) }}">
 									<picture>
 										<source srcset="{{ asset('bundles/app/img/default/sexual@2x.png') }}" media="screen and (min-width: 1500px)">
 										<source srcset="{{ asset('bundles/app/img/default/sexual.png') }} 1x,{{ asset('bundles/app/img/default/sexual@2x.png') }} 2x" media="screen and (max-width: 375px)">
@@ -53,7 +53,7 @@
 						</li>
 						<li>
 							<button class="top-cate__list--item">
-								<a href="{{ path('contrib_index',{'form[categories]': 3}) }}">
+								<a href="{{ path('contrib_index',{'form[categories]': [3]}) }}">
 									<picture>
 										<source srcset="{{ asset('bundles/app/img/default/maternity@2x.png') }}" media="screen and (min-width: 1500px)">
 										<source srcset="{{ asset('bundles/app/img/default/maternity.png') }} 1x,{{ asset('bundles/app/img/default/maternity@2x.png') }} 2x" media="screen and (max-width: 375px)">

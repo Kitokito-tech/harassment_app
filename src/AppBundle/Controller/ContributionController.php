@@ -30,14 +30,14 @@ class ContributionController extends Controller
     {
         $_SESSION = [];
         $pageNum = $request->query->get('page');
-        $cateName = $request->query->get('form')['categories'] ?? [];
+        $cateIds = $request->query->get('form')['categories'] ?? [];
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
         $search = $request->query->get('form')['search'] ?? '';
-        $queries = ['cateName' => $cateName, 'dateOrder' => $dateOrder, 'search' => $search];
+        $queries = ['cateName' => $cateIds, 'dateOrder' => $dateOrder, 'search' => $search];
         if (is_numeric($pageNum)) {
-            $results = $this->pagenation(10, $pageNum, $cateName = $cateName, $search = $search, $dateOrder = $dateOrder);
+            $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
         } else {
-            $results = $this->pagenation(10, 1, $cateName = $cateName, $search = $search, $dateOrder = $dateOrder);
+            $results = $this->pagenation(10, 1, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
         }
         if (!$results['pagesCount']) {
             $results['pagesCount'] = 1;
@@ -45,16 +45,17 @@ class ContributionController extends Controller
         if (!$results['result']) {
             $results['result'] = "マッチする結果がありませんでした";
         }
+        $searchForm = $this->createSearchForm($cateIds,  $dateOrder, $search);
 
-        $searchForm = $this->createSearchForm($cateName,  $dateOrder, $search);
-
-        return $this->render('contributions/index.html.twig', 
-        [
-            'contributions' => $results['result'], 
-            'pagesCount' => $results['pagesCount'], 
-            'searchForm' => $searchForm, 
-            'queries' => $queries
-        ]);
+        return $this->render(
+            'contributions/index.html.twig',
+            [
+                'contributions' => $results['result'],
+                'pagesCount' => $results['pagesCount'],
+                'searchForm' => $searchForm,
+                'queries' => $queries
+            ]
+        );
     }
 
     /**
@@ -165,6 +166,8 @@ class ContributionController extends Controller
         if ($cateIds) {
             $query = $query->andWhere('b.id in( :cateIds)')
                 ->setParameter('cateIds', $cateIds);
+        } else {
+            dump('e');
         }
         if ($search !== '') {
             $query = $query->andWhere('a.content like :content')
@@ -201,8 +204,6 @@ class ContributionController extends Controller
             }
             $categorys['指定なし'] = 0;
             $categorys = array_merge($categorys, $notSelected);
-            // dump($categorys);
-            // exit;
         } else {
             $categorys = ['指定なし' => 0];
             foreach ($categoryObjs as $categoryObj) {
@@ -215,7 +216,7 @@ class ContributionController extends Controller
             $dateOrderArray = ['古い順' => 'ASC', '新しい順' => 'DESC'];
         }
 
-        
+
         $form = $this->createFormBuilder()
             ->setMethod('GET');
         $form = $form

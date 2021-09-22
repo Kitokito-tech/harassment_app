@@ -3,16 +3,13 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/contrib.css') }}">
 {% endblock %}
 {% block content %}
-<<<<<<< Updated upstream
-=======
-        {{ form_start(searchForm) }}  
+        {{ form_start(searchForm) }}
         {{ form_widget(searchForm.search, { "attr" : { "class" : "form-control"}}) }}
         <div class="cb__cate-ttl">
             category
         </div>
         {{ form_widget(searchForm.categories, { "attr" : { "class" : "hhh"}}) }}
         {{ form_end(searchForm) }}
->>>>>>> Stashed changes
         <div class="cb__ttl">
             投稿一覧
         </div>
