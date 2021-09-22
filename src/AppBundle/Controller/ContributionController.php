@@ -195,22 +195,14 @@ class ContributionController extends Controller
             foreach ($categoryObjs as $categoryObj) {
                 if ($categoryObj->getId() == $cateId) {
                     $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
-<<<<<<< Updated upstream
-=======
-                    // dump($categorys);
-                    exit;
->>>>>>> Stashed changes
                 } else {
                     $notSelected[$categoryObj->getCateName()] = $categoryObj->getId();
                 }
             }
             $categorys['指定なし'] = 0;
             $categorys = array_merge($categorys, $notSelected);
-<<<<<<< Updated upstream
-=======
             // dump($categorys);
             // exit;
->>>>>>> Stashed changes
         } else {
             $categorys = ['指定なし' => 0];
             foreach ($categoryObjs as $categoryObj) {
