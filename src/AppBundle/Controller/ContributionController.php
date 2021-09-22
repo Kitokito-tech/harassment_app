@@ -29,16 +29,18 @@ class ContributionController extends Controller
     public function indexAction(Request $request)
     {
         $_SESSION = [];
-        $pageNum = $request->query->get('page');
+        // $pageNum = $request->query->get('page');
+        $pageNum = $request->query->get('page') ?? 1;
         $cateIds = $request->query->get('form')['categories'] ?? [];
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
         $search = $request->query->get('form')['search'] ?? '';
         $queries = ['cateName' => $cateIds, 'dateOrder' => $dateOrder, 'search' => $search];
-        if (is_numeric($pageNum)) {
-            $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
-        } else {
-            $results = $this->pagenation(10, 1, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
-        }
+        $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
+        // if (is_numeric($pageNum)) {
+        //     $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
+        // } else {
+        //     $results = $this->pagenation(10, 1, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
+        // }
         if (!$results['pagesCount']) {
             $results['pagesCount'] = 1;
         }
@@ -53,7 +55,8 @@ class ContributionController extends Controller
                 'contributions' => $results['result'],
                 'pagesCount' => $results['pagesCount'],
                 'searchForm' => $searchForm,
-                'queries' => $queries
+                'queries' => $queries,
+                'currentPage' => $pageNum,
             ]
         );
     }
