@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/contrib.css') }}">
 {% endblock %}
 {% block content %}
+{{ dump() }}
         <div class="cb__ttl">
             投稿一覧
         </div>
@@ -24,7 +25,7 @@
         </div>
         {{ form(searchForm) }}
             {% for i in 1 .. pagesCount %}
-                <a href="{{ path('contrib_index', {'page': i }) }}">{{ i }}</a>
+                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateName,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}">{{ i }}</a>
             {% endfor %}
 {% endblock %}
 {% block javascript %}

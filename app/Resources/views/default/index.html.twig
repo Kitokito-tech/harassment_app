@@ -4,10 +4,8 @@
 		<link rel="stylesheet" href="{{ asset('bundles/app/css/default.css') }}">
 {% endblock %}
 {% block content %}
-		{#<div><a href="{{ path('diagnoze_cate') }}">診断</a></div>#}
-		{#<div><a href="{{ path('contrib_index') }}">相談一覧</a></div>#}
-{{ dump() }}
-		<div class="top"> 
+<<<<<<< HEAD
+		<div class="top">
 			<div class="top-container">
 				<div class="top-head">
 					<h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
@@ -15,7 +13,7 @@
 				</div>
 				<!-- /.top-head -->
 				<div class="key__form">
-					<form type="get" action="/article">
+					<form method="GET" action="{{ path('contrib_index') }}">
 						<label>
 							<input type="text" class="key__input" id="form_search" name="form[search]" maxlength="100" placeholder="search">
 							<button type="submit" class="key__btn">

@@ -1,0 +1,1 @@
+00 12 * * * php73 bin/console app:send-contrib

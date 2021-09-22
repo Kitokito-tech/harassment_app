@@ -34,6 +34,7 @@ class ContributionController extends Controller
         $cateName = $request->query->get('form')['categories'] ?? 0;
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
         $search = $request->query->get('form')['search'] ?? '';
+        $queries = ['cateName' => $cateName, 'dateOrder' => $dateOrder, 'search' => $search];
         if (is_numeric($pageNum)) {
             $results = $this->pagenation(10, $pageNum, $cateName = $cateName, $search = $search, $dateOrder = $dateOrder);
         } else {
@@ -45,8 +46,8 @@ class ContributionController extends Controller
         if (!$results['result']) {
             $results['result'] = "マッチする結果がありませんでした";
         }
-        $searchForm = $this->createSearchForm();
-        return $this->render('contributions/index.html.twig', ['contributions' => $results['result'], 'pagesCount' => $results['pagesCount'], 'searchForm' => $searchForm]);
+        $searchForm = $this->createSearchForm($cateName,  $dateOrder, $search);
+        return $this->render('contributions/index.html.twig', ['contributions' => $results['result'], 'pagesCount' => $results['pagesCount'], 'searchForm' => $searchForm, 'queries' => $queries]);
     }
 
     /**
@@ -141,8 +142,6 @@ class ContributionController extends Controller
             $em->persist($contribution);
             $em->flush();
             $_SESSION = [];
-            $entry['to'] = $form["email"];
-            $this->contribSendMail($entry);
             return $this->render('contributions/complete.html.twig');
         } else {
             return $this->redirectToRoute('index_page');
@@ -179,31 +178,44 @@ class ContributionController extends Controller
             ->getResult();
         return ['result' => $result, 'pagesCount' => $pagesCount,];
     }
-
-    public function contribSendMail($entry)
-    {
-        $contrib =  $this->getDoctrine()->getManager()->getRepository('AppBundle:Contributions')->findOneBy(['email' => $entry['to']], ['createdAt' => 'DESC']);
-        $message = \Swift_Message::newInstance()
-            ->setFrom('system_test@glic.co.jp', '〇Xハラスメント')
-            ->setSubject('〇Xハラスメント【ご相談内容の結果についてのご報告】')
-            ->setBody($this->renderView('Email/cont_email.html.twig', ['pageId' => $contrib->getId()]), 'text/html')
-            ->setReplyTo('system_test@glic.co.jp')
-            ->setTo($entry['to']);
-        $this->get('swiftmailer.mailer.default')->send($message);
-    }
-    public function createSearchForm()
+    public function createSearchForm($cateId, $dateOrder, $search)
     {
         $em = $this->getDoctrine()->getManager();
         $categoryObjs = $em->getRepository('AppBundle:HaraCategory')->findAll();
-        $categorys = ['指定なし' => true];
-        foreach ($categoryObjs as $categoryObj) {
-            $categorys[$categoryObj->getCateName()] = false;
+        if ($cateId) {
+            $categorys = [];
+            $notSelected = [];
+            foreach ($categoryObjs as $categoryObj) {
+                if ($categoryObj->getId() === $cateId) {
+                    $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
+                    dump($categorys);
+                    exit;
+                } else {
+                    $notSelected[$categoryObj->getCateName()] = $categoryObj->getId();
+                }
+            }
+            $categorys['指定なし'] = 0;
+            $categorys = array_merge($categorys, $notSelected);
+            dump($categorys);
+            exit;
+        } else {
+            $categorys = ['指定なし' => 0];
+            foreach ($categoryObjs as $categoryObj) {
+                $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
+            }
+        }
+        if ($dateOrder === "DESC") {
+            $dateOrderArray = ['新しい順' => 'DESC', '古い順' => 'ASC'];
+        } else {
+            $dateOrderArray = ['古い順' => 'ASC', '新しい順' => 'DESC'];
         }
         $form = $this->createFormBuilder()
-            ->setMethod('GET')
+            ->setMethod('GET');
+        $form = $form
             ->add('search', TextType::class, [
                 'required' => false,
                 'label' => 'キーワード検索',
+                'data' => $search,
                 'attr' => array(
                     'maxlength' => 100,
                     'placeholder' => "キーワードを入力"
@@ -214,7 +226,7 @@ class ContributionController extends Controller
                 'label' => "カテゴリ"
             ])
             ->add('dateOrder', ChoiceType::class, [
-                'choices'  => ['新しい順' => 'DESC', '古い順' => 'ASC'],
+                'choices'  => $dateOrderArray,
                 'label' => "並べ替え"
             ])
             ->add('submit', SubmitType::class, ['label' => '検索'])->getForm();
