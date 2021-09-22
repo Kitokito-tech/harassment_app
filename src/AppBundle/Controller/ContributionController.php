@@ -186,18 +186,14 @@ class ContributionController extends Controller
             $categorys = [];
             $notSelected = [];
             foreach ($categoryObjs as $categoryObj) {
-                if ($categoryObj->getId() === $cateId) {
+                if ($categoryObj->getId() == $cateId) {
                     $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
-                    dump($categorys);
-                    exit;
                 } else {
                     $notSelected[$categoryObj->getCateName()] = $categoryObj->getId();
                 }
             }
             $categorys['指定なし'] = 0;
             $categorys = array_merge($categorys, $notSelected);
-            dump($categorys);
-            exit;
         } else {
             $categorys = ['指定なし' => 0];
             foreach ($categoryObjs as $categoryObj) {
