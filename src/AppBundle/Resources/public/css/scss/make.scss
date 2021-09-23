@@ -1,16 +1,15 @@
 @import "initial";
 @import "variable";
 
-
 body {
     background-color: $color-bc;
     color: $color-txt;
-  }
+}
 
 header {
     height: 58px;
     background-color: $color-btn;
-  }
+}
 
 .content {
     max-width: 900px;
@@ -28,14 +27,15 @@ header {
     &__adcontainer {
         margin-top: 108px;
         margin-bottom: 36px;
-        input {
+        .input {
             background-color: $color-btn;
             width: 100%;
-            border: solid 1px $color-txt;
             padding-left: 10px;
             padding-top: 5px;
+            border: none;
             padding-bottom: 5px;
             color: $color-txt;
+            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
         }
     }
     &__ad-detail {
@@ -46,11 +46,17 @@ header {
     }
     &__wtcontainer {
         margin-bottom: 45px;
-        textarea {
+        .input-area {
+            min-height: 300px;
             background-color: $color-btn;
             width: 100%;
-            border: solid 1px $color-txt;
-            min-height: 300px;
+            padding-left: 10px;
+            padding-top: 5px;
+            border: none;
+            padding-bottom: 5px;
+            color: $color-txt;
+            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+            resize: none;
         }
     }
     &__wt-detail {
@@ -59,18 +65,20 @@ header {
         color: $color-base;
         padding-bottom: 32px;
     }
-    &__btn{:hover {
-        opacity: 0.8;
-        background-color: $color-am;
-        transition: 0.6s;
-      }
+    &__btn {
+        :hover {
+            opacity: 0.8;
+            background-color: $color-am;
+            transition: 0.6s;
+        }
         display: flex;
         justify-content: center;
         button {
-          padding: 9px 45px;
-          background-color: $color-btn;
-          border-radius: 10px;
-          border: solid 3px $color-txt;
+            padding: 9px 45px;
+            background-color: $color-btn;
+            border-radius: 10px;
+            border: solid 3px $color-txt;
+            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
         }
-      }
+    }
 }

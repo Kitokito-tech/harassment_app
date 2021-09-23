@@ -19,16 +19,8 @@
         </picture>
       </div>
     </div>
-    <div class="comp__top-container">
-      <a href="{{ path("index_page") }}">
-        <div class="comp__img2">
-            <picture>
-                <source srcset="{{ asset('bundles/app/img/make_comp/top@2x.png') }}" media="screen and (min-width: 1500px)">
-                <source srcset="{{ asset('bundles/app/img/make_comp/top.png') }} 1x,{{ asset('bundles/app/img/make_comp/top@2x.png') }} 2x" media="screen and (max-width: 600px)">
-                <img src="{{ asset('bundles/app/img/make_comp/top.png') }}" srcset="{{ asset('bundles/app/img/make_comp/top@2x.png') }} 2x" width="277" height="277" alt="">
-            </picture>
-        </div>
-    </a>
+    <div class="to-top">
+      <button class="to-top__btn"><a href="{{ path('index_page') }}">TOPへ</a></button>
     </div>
   </div>
   {% endblock %}
