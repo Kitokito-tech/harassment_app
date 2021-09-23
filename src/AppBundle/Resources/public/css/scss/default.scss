@@ -6,14 +6,14 @@
   font-size: 21px;
   font-weight: bold;
   margin-bottom: 27px;
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 400px) {
     margin-bottom: 12px;
   }
 }
 
 .is-sp {
   display: none;
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 400px) {
     display: block;
   }
 }
@@ -30,7 +30,7 @@
     padding-top: 115px;
     padding-left: 50px;
     padding-right: 50px;
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 400px) {
       padding-left: 15px;
       padding-right: 15px;
     }
@@ -120,7 +120,7 @@
       align-items: flex-end;
       padding-left: 50px;
       padding-right: 50px;
-      @media screen and (max-width: 375px) {
+      @media screen and (max-width: 400px) {
         padding-left: 15px;
         padding-right: 15px;
       }
