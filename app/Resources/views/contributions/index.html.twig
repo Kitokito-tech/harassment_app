@@ -29,9 +29,16 @@
                 </div>
             {% endfor %}
         </div>
+        {# ページネーション↓ #}
+        <div class="pagenations">
             {% for i in 1 .. pagesCount %}
-                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateName,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}">{{ i }}</a>
-            {% endfor %}
+                    {% if i == currentPage %}
+                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateName,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}" class="pagenation current_page">{{ i }}</a>
+                    {% else %}
+                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateName,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}" class="pagenation">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+        </div>
 {% endblock %}
 {% block javascript %}
 {% endblock %}

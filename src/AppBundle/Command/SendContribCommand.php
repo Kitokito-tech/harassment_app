@@ -44,8 +44,8 @@ class SendContribCommand extends Command
             foreach ($results as $result) {
                 if ($result->getEmail()) {
                     $message = \Swift_Message::newInstance()
-                        ->setFrom('system_test@glic.co.jp', '〇Xハラスメント')
-                        ->setSubject('〇Xハラスメント【ご相談内容の結果についてのご報告】')
+                        ->setFrom('system_test@glic.co.jp', 'HaraNax')
+                        ->setSubject('HaraNax【ご相談内容の結果についてのご報告】')
                         ->setBody($this->twig->render('Email/cont_email.html.twig', ['pageId' => $result->getId()]), 'text/html')
                         ->setReplyTo('system_test@glic.co.jp')
                         ->setTo($result->getEmail());
