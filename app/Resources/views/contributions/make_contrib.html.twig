@@ -11,7 +11,7 @@
                         メールアドレスを記入してください
                     </div>
                 {{ form_start(form) }}
-                    {{ form_widget(form.email, {"attr": {'placeholder':'example@gmail.com'}}) }}
+                    {{ form_widget(form.email, {"attr":{"class":"input" , 'placeholder':'example@gmail.com'}}) }}
                 </label>
             </div>
             <div class="hs__wtcontainer">
@@ -19,11 +19,11 @@
                     <div class="hs__wt-detail">
                         詳細を記入してください
                     </div>
-                    {{ form_widget(form.comment) }}
+                     {{ form_widget(form.comment, {"attr":{"class":"input-area"}}) }}
                 </label>
             </div>
             <div class="hs__btn">
-                {{ form_widget(form.submit) }}
+                {{ form_widget(form.submit, {"attr":{"class":"input-btn"}}) }}
             </div>
              {{ form_end(form) }}
     </div>

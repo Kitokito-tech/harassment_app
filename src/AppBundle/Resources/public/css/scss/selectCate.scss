@@ -14,7 +14,7 @@ body {
     url("/bundles/app/img/selectCate/bg@2x.png") 2x
   );
   background-repeat: no-repeat;
-  background-position: left bottom -4em;
+  background-position: left bottom -14em;
 }
 header {
   height: 58px;
@@ -35,14 +35,16 @@ header {
     margin-right: auto;
   }
   &__ttl {
-    color: $color-base;
-    font-size: 20px;
+    color: #2673b8;
+    font-size: 18px;
     font-weight: bold;
     padding-bottom: 17px;
     text-align: center;
+    font-family: $font-ja;
   }
   &__txt {
-    font-size: 12px;
+    font-size: 14px;
+    font-family: $font-ja;
   }
   &__detail-ct {
     position: relative;
@@ -77,6 +79,7 @@ header {
     }
   }
   &__detail {
+    margin-top: 230px;
     font-size: 18px;
     display: block;
     padding: 20px 116.5px;
@@ -89,8 +92,36 @@ header {
     box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
   }
   &__btn {
+    width: 270px;
     display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: 40px;
+    left: 50%;
+  }
+  &__to-top {
+    &__btn {
+      position: relative;
+      font-size: 20px;
+      display: block;
+      padding: 4px 30px 4px 20px;
+      font-weight: bold;
+      color: #000;
+      background: white;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: -15px;
+        border-style: solid;
+        border-width: 15.5px 16px 15.5px 0;
+        border-color: transparent #ffffff transparent transparent;
+      }
+    }
   }
   &__btn-wrap {
     :hover {
@@ -99,12 +130,31 @@ header {
       transition: 0.6s;
     }
     background-color: $color-btn;
-    border-radius: 10px;
-    border: solid 3px $color-txt;
-    margin-top: 100px;
+
     button {
+      position: relative;
+      font-size: 20px;
       display: block;
-      padding: 9px 45px;
+      padding: 4px 13px 4px 19px;
+      font-weight: bold;
+      color: #000;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        right: -16px;
+        border-style: solid;
+        border-width: 15.5px 0 15.5px 16px;
+        border-color: transparent transparent transparent #ffffff;
+      }
     }
   }
+}
+
+.select-btn {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: $font-ja;
 }

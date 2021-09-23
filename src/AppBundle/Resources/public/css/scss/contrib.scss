@@ -3,9 +3,20 @@
 
 .cb {
   &__ttl {
+    color: #2673b8;
+    width: 375px;
+    margin-top: 32px;
+    padding: 0 15px;
+    margin-bottom: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__ttl-search {
     color: $color-base;
     width: fit-content;
-    margin: 32px 0 48px;
+    margin: 88px 0 20px 0;
     padding: 0 15px;
     font-size: 18px;
     font-weight: bold;
@@ -39,7 +50,7 @@
     margin-top: -2px;
     font-size: 8px;
     font-weight: bold;
-    color: $color-base;
+    color:$color-base;
     display: block;
     padding-right: 5px;
   }
@@ -47,6 +58,7 @@
     display: flex;
     padding-top: 16px;
     font-size: 13px;
+    color:#000;
   }
   &__tail {
     padding: 0 11px;
@@ -63,6 +75,7 @@
     }
   }
   &__txt {
+    font-size: 13px;
     overflow-wrap: break-word;
     text-overflow: ellipsis;
     margin-top: 27px;
@@ -76,46 +89,58 @@
 label[for="form_categories_0"] {
   background: url("/bundles/app/img/contrib/sh.png") no-repeat;
   background-position: top left 50%;
+  color: #000;
+
+  background-image: url("/bundles/app/img/contrib/sh.png");
+  background-repeat: no-repeat;
+  background-position: top 31% left 50%;
+
   display: block;
   padding-top: 83px;
   width: 71px;
   text-align: center;
   font-size: 12px;
-  text-align: left;
   margin-right: 15px;
 }
 label[for="form_categories_1"] {
-  background: url("/bundles/app/img/contrib/sh.png") no-repeat;
-  background-position: top left 50%;
+  background-image: url("/bundles/app/img/contrib/sh.png");
+  background-repeat: no-repeat;
+  background-position: top 31% left 50%;
   display: block;
   padding-top: 83px;
   width: 71px;
   text-align: center;
   font-size: 12px;
-  text-align: left;
+
   margin-right: 15px;
+  color: #000;
+
+  text-align: left;
+  margin-right: 15px; 
 }
 label[for="form_categories_2"] {
-  background: url("/bundles/app/img/contrib/ph.png") no-repeat;
-  background-position: top left 50%;
+  background-image: url("/bundles/app/img/contrib/ph.png");
+  background-repeat: no-repeat;
+  background-position: top 31% left 50%;
   display: block;
   padding-top: 83px;
   width: 71px;
   text-align: center;
   font-size: 12px;
-  text-align: left;
   margin-right: 15px;
+  color: #000;
 }
 label[for="form_categories_3"] {
-  background: url("/bundles/app/img/contrib/mh.png") no-repeat;
-  background-position: top left 50%;
+  background-image: url("/bundles/app/img/contrib/mh.png");
+  background-repeat: no-repeat;
+  background-position: top 31% left 50%;
   display: block;
   padding-top: 83px;
   width: 71px;
   text-align: center;
   font-size: 12px;
-  text-align: left;
   margin-right: 15px;
+  color: #000;
 }
 #form_categories_0 {
   display: none;
@@ -135,7 +160,6 @@ label[for="form_categories_3"] {
   margin-top: 18px;
 }
 #form_search {
-  margin-top: 136px;
   background: #fff;
   max-width: 860px;
   width: 100%;
@@ -155,10 +179,9 @@ form[name="form"] {
 
 #form_submit {
   position: absolute;
-  top: 136px;
+  top: 0;
   right: 0;
-  background-color: #f6e37d;
-  background: url(../img/default/search.png) center no-repeat;
+  background: url(../img/default/search.png) #f6e37d center no-repeat;
   border-radius: 50%;
   width: 62px;
   height: 62px;
@@ -204,4 +227,21 @@ form[name="form"] {
     background-color: #f6e37d;
     color: #2673b8;
   }
+}
+
+.is-checked0 {
+  transition: 0.6s;
+  background-image: url("/bundles/app/img/contrib/sh-c.png") !important;
+}
+.is-checked1 {
+  transition: 0.6s;
+  background-image: url("/bundles/app/img/contrib/sh-c.png") !important;
+}
+.is-checked2 {
+  transition: 0.6s;
+  background-image: url("/bundles/app/img/contrib/ph-c.png") !important;
+}
+.is-checked3 {
+  transition: 0.6s;
+  background-image: url("/bundles/app/img/contrib/mh-c.png") !important;
 }

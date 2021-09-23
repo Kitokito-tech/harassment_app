@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<head prefix="og:http://ogp.me/ns#">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="og:url" content="https://www.itra.co.jp/webmedia/flash_finish.html">
+    <meta property="og:title" content="HaraNax">
+    <meta property="og:description" content="このサイトではハラスメントに関する悩みを解決します">
+    <meta property="og:url" content="{{ asset('app/Resources/view/default/index.html.twig') }}">
+    <meta property="og:image" content=" {{ asset('bundles/app/img/og/og-img02.png') }}" />
+    <meta property="og:image" content=" {{ asset('bundles/app/img/og/og-img01.png') }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="fb:app_id" content="App-ID（15文字の半角数字）" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HaraNax">
+    <title>HaraNax</title>
     {% block stylesheet %}{% endblock %}
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
