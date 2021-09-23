@@ -5,10 +5,13 @@
 	<link rel="stylesheet" href="{{ asset('bundles/app/slick/slick-theme.css') }}">
 {% endblock %}
 {% block content %}
+        <div class="cb__ttl-search">
+            投稿検索
+        </div>
         {{ form_start(searchForm) }}
         {{ form_widget(searchForm.search, { "attr" : { "class" : "form-control"}}) }}
         <div class="cb__cate-ttl">
-            category
+            Category
         </div>
         {{ form_widget(searchForm.categories, { "attr" : { "class" : "hhh"}}) }}
         {{ form_end(searchForm) }}
