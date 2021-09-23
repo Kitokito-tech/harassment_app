@@ -46,6 +46,20 @@
         </div>
 {% endblock %}
 {% block javascript %}
+<script>
+$('label[for="form_categories_0"]').click(function(){
+  $(this).toggleClass('is-checked0');
+});
+$('label[for="form_categories_1"]').click(function(){
+  $(this).toggleClass('is-checked1');
+});
+$('label[for="form_categories_2"]').click(function(){
+  $(this).toggleClass('is-checked2');
+});
+$('label[for="form_categories_3"]').click(function(){
+  $(this).toggleClass('is-checked3');
+});
+</script>
   <script src="{{ asset('bundles/app/slick/slick.min.js') }}"></script>
 <script>
 $(function(){

@@ -42,7 +42,6 @@ class ContributionController extends Controller
             $results['result'] = "マッチする結果がありませんでした";
         }
         $searchForm = $this->createSearchForm($cateIds,  $dateOrder, $search);
-
         return $this->render(
             'contributions/index.html.twig',
             [
