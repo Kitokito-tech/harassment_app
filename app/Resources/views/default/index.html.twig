@@ -23,8 +23,8 @@
 							</button>
 						</label>
 					</form>
-				</div>
-				<div class="top-cate">
+				</div> #}
+				{# <div class="top-cate">
 					<h2 class="sub-ttl">Category</h2>
 					<ul class="top-cate__list">
 						<li>
@@ -67,8 +67,6 @@
 				</div>
 
 			</div> #}
-			<!-- /.top-container -->
-
 		</div>
 		<!-- /.container -->
 		<div class="top-new">
@@ -97,7 +95,7 @@
 			</ul>
 			<div class="to-list">
   			<button>
-  				<a href="{{ path('contrib_make') }}">オンラインで相談</a>
+  				<a href="{{ path('contrib_index') }}">投稿一覧へ</a>
 			</button>
 			</div>
 		</div>
@@ -132,7 +130,7 @@ $(function(){
 			}
 		},
 		{
-			breakpoint: 400,
+			breakpoint: 375,
 			settings: {
 				slidesToShow: 1,
         		slidesToScroll: 1
