@@ -108,6 +108,7 @@ class DiagnozeController extends Controller
                 $resultPer = 100;
             }
             $_SESSION['resultPer'] = $resultPer;
+            $_SESSION = [];
             return $this->render('diagnoze/result.html.twig', ["resultPer" => $resultPer]);
         } else {
             return $this->redirectToRoute('index_page');

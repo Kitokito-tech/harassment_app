@@ -63,10 +63,13 @@
     }
   }
   &__txt {
-    padding: 27px 0px;
-    word-wrap: break-word;
     overflow-wrap: break-word;
     text-overflow: ellipsis;
+    margin-top: 27px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    overflow: hidden;
   }
 }
 
@@ -155,6 +158,7 @@ form[name="form"] {
   top: 136px;
   right: 0;
   background-color: #f6e37d;
+  background: url(../img/default/search.png) center no-repeat;
   border-radius: 50%;
   width: 62px;
   height: 62px;
