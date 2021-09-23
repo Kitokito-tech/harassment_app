@@ -63,12 +63,12 @@ header {
   }
   &__detail-ct:first-child {
     &::before {
-      background: url(../img/selectCate/punch.png) center no-repeat;
+      background: url(../img/selectCate/gender.png) center no-repeat;
     }
   }
   &__detail-ct:nth-child(2) {
     &::before {
-      background: url(../img/selectCate/gender.png) center no-repeat;
+      background: url(../img/selectCate/punch.png) center no-repeat;
     }
   }
   &__detail-ct:nth-child(3) {

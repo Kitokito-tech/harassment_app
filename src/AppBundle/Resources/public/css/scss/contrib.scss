@@ -1,162 +1,179 @@
 @import "initial";
 @import "variable";
 
-
 .cb {
-    &__ttl {
-        color: $color-base;
-        width: fit-content;
-        margin: 32px 0 48px;
-        padding: 0 15px;
-        font-size: 18px;
-        font-weight: bold;
+  &__ttl {
+    color: $color-base;
+    width: fit-content;
+    margin: 32px 0 48px;
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  &__cate-ttl {
+    color: $color-base;
+    width: fit-content;
+    margin: 30px 0 0 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  &__wrap {
+    width: 375px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin: 0 auto;
+    @media screen and (max-width: 375px) {
+      width: 100%;
     }
-    &__cate-ttl {
-        color: $color-base;
-        width: fit-content;
-        margin: 30px 0 0 0;
-        font-size: 18px;
-        font-weight: bold;
+  }
+  &__container {
+    a {
+      display: block;
     }
-    &__wrap {
-        width: 375px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0 15px;
-        margin: 0 auto;
-        @media screen and (max-width: 375px) {
-            width: 100%;
-        }
+  }
+  &__p {
+    margin-top: -2px;
+    font-size: 8px;
+    font-weight: bold;
+    color: $color-base;
+    display: block;
+    padding-right: 5px;
+  }
+  &__cate {
+    display: flex;
+    padding-top: 16px;
+    font-size: 13px;
+  }
+  &__tail {
+    padding: 0 11px;
+    width: 166px;
+    height: 218px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    @media screen and (max-width: 365px) {
+      width: 150px;
     }
-    &__container {
-        a {
-            display: block;
-        }
+    @media screen and (max-width: 335px) {
+      width: 140px;
     }
-    &__p {
-        margin-top: -2px;
-        font-size: 8px;
-        font-weight: bold;
-        color: $color-base;
-        display: block;
-        padding-right: 5px;
-    }
-    &__cate {
-        display: flex;
-        padding-top: 16px;
-        font-size: 13px;
-    }
-    &__tail {
-        padding: 0 11px;
-        width: 166px;
-        height: 218px;
-        background-color: #fff;
-        border-radius: 15px;
-        margin-bottom: 15px;
-        @media screen and (max-width:365px) {
-            width: 150px;
-        }
-        @media screen and (max-width: 335px) {
-            width: 140px;            
-        }
-    }
-    &__txt {
-        padding:27px 0px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        text-overflow: ellipsis;
-    }
+  }
+  &__txt {
+    padding: 27px 0px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+  }
 }
-
-
 
 label[for="form_categories_0"] {
-    background: url("/bundles/app/img/contrib/sh.png") no-repeat;
-    background-position: top left 50%;
-    display: block;
-    padding-top: 83px;
-    width: 71px;
-    text-align: center;
-    font-size: 12px;
-    text-align: left;
-    margin-right: 15px;
+  background: url("/bundles/app/img/contrib/sh.png") no-repeat;
+  background-position: top left 50%;
+  display: block;
+  padding-top: 83px;
+  width: 71px;
+  text-align: center;
+  font-size: 12px;
+  text-align: left;
+  margin-right: 15px;
 }
 label[for="form_categories_1"] {
-    background: url("/bundles/app/img/contrib/sh.png") no-repeat;
-    background-position: top left 50%;
-    display: block;
-    padding-top: 83px;
-    width: 71px;
-    text-align: center;
-    font-size: 12px;
-    text-align: left;
-    margin-right: 15px;
+  background: url("/bundles/app/img/contrib/sh.png") no-repeat;
+  background-position: top left 50%;
+  display: block;
+  padding-top: 83px;
+  width: 71px;
+  text-align: center;
+  font-size: 12px;
+  text-align: left;
+  margin-right: 15px;
 }
 label[for="form_categories_2"] {
-    background: url("/bundles/app/img/contrib/ph.png") no-repeat;
-    background-position: top left 50%;
-    display: block;
-    padding-top: 83px;
-    width: 71px;
-    text-align: center;
-    font-size: 12px;
-    text-align: left;
-    margin-right: 15px;
+  background: url("/bundles/app/img/contrib/ph.png") no-repeat;
+  background-position: top left 50%;
+  display: block;
+  padding-top: 83px;
+  width: 71px;
+  text-align: center;
+  font-size: 12px;
+  text-align: left;
+  margin-right: 15px;
 }
 label[for="form_categories_3"] {
-    background: url("/bundles/app/img/contrib/mh.png") no-repeat;
-    background-position: top left 50%;
-    display: block;
-    padding-top: 83px;
-    width: 71px;
-    text-align: center;
-    font-size: 12px;
-    text-align: left;
-    margin-right: 15px;
+  background: url("/bundles/app/img/contrib/mh.png") no-repeat;
+  background-position: top left 50%;
+  display: block;
+  padding-top: 83px;
+  width: 71px;
+  text-align: center;
+  font-size: 12px;
+  text-align: left;
+  margin-right: 15px;
 }
 #form_categories_0 {
-    display: none;
+  display: none;
 }
 #form_categories_1 {
-    display: none;
+  display: none;
 }
 #form_categories_2 {
-    display: none;
+  display: none;
 }
 #form_categories_3 {
-    display: none;
+  display: none;
 }
 
 .hhh {
-    display: flex;
-    margin-top: 18px;
+  display: flex;
+  margin-top: 18px;
 }
 #form_search {
-    margin-top: 136px;
-    background: #fff;
-    max-width: 860px;
-    width: 100%;
-    height: 62px;
-    border-radius: 100px;
-    line-height: normal;
-    font-size: 16px;
-    padding: 0 25px;
-    border: none;
+  margin-top: 136px;
+  background: #fff;
+  max-width: 860px;
+  width: 100%;
+  height: 62px;
+  border-radius: 100px;
+  line-height: normal;
+  font-size: 16px;
+  padding: 0 25px;
+  border: none;
 }
 
 form[name="form"] {
-    width: fit-content;
-    margin:  0 auto;
-    position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
 }
 
 #form_submit {
-    position: absolute;
-    top: 136px;
-    right: 0;
-    background-color: #F6E37D;
-    border-radius: 50%;
-    width: 62px;
-    height: 62px;
+  position: absolute;
+  top: 136px;
+  right: 0;
+  background-color: #f6e37d;
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+}
+.pagenations {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.pagenation {
+  height: 25px;
+  width: 25px;
+  padding: 5px 7.5px;
+  background-color: #2673b8;
+  color: #fff;
+  border-radius: 50%;
+  &.current_page {
+    background-color: #f6e37d;
+    color: #2673b8;
+  }
 }
