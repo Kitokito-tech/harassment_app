@@ -84,13 +84,22 @@
 			</div>
 			<ul class="top-new__list slide">
 				{% for contribution in contributions %}
-				<li class="top-new__list--item">
+				{# <li class="top-new__list--item">
 					<a href="{{ path("contrib_detail", {"id":contribution.id }) }}"  class="top-new__list--item-link">
 						<p class="top-new__list--item-text">
 							{{contribution.content}}
 						</p>
 					</a>
+				</li> #}
+				<li class="top-new__list--item">
+					<a href="{{ path("contrib_detail", {"id":contribution.id }) }}" class="top-new__list--item-link">
+						<div class="cb__cate">
+        	            	<span class="cb__p">category</span>{{contribution.category.cateName}}
+                		</div>
+                		<div class="cb__txt top-new__list--item-text">{{contribution.content}}</div>
+					</a>
 				</li>
+				
             	{% endfor %}
 			</ul>
 			<div class="to-list">
