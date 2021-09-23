@@ -29,18 +29,12 @@ class ContributionController extends Controller
     public function indexAction(Request $request)
     {
         $_SESSION = [];
-        // $pageNum = $request->query->get('page');
         $pageNum = $request->query->get('page') ?? 1;
         $cateIds = $request->query->get('form')['categories'] ?? [];
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
         $search = $request->query->get('form')['search'] ?? '';
         $queries = ['cateName' => $cateIds, 'dateOrder' => $dateOrder, 'search' => $search];
         $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
-        // if (is_numeric($pageNum)) {
-        //     $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
-        // } else {
-        //     $results = $this->pagenation(10, 1, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
-        // }
         if (!$results['pagesCount']) {
             $results['pagesCount'] = 1;
         }
@@ -124,7 +118,7 @@ class ContributionController extends Controller
             $form = $this->createFormBuilder()
                 ->setAction($this->generateUrl("contrib_complete"))
                 ->setMethod('POST')
-                ->add('email', EmailType::class)
+                ->add('email', EmailType::class, ['required' => false])
                 ->add('comment', TextareaType::class)
                 ->add('submit', SubmitType::class, ['label' => '完了'])->getForm()->createView();
             return $this->render('contributions/make_contrib.html.twig', ['form' => $form]);
@@ -169,8 +163,6 @@ class ContributionController extends Controller
         if ($cateIds) {
             $query = $query->andWhere('b.id in( :cateIds)')
                 ->setParameter('cateIds', $cateIds);
-        } else {
-            dump('e');
         }
         if ($search !== '') {
             $query = $query->andWhere('a.content like :content')

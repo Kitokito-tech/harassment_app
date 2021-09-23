@@ -16,7 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class DiagnozeController extends Controller
 {
     public $buttonStats = ['当てはまる' => 4, 'やや当てはまる' => 3, '分からない' => 2, 'あまり当てはまらない' => 1, '当てはまらない' => 0];
-    public $assessVals = [4 => 1, 3 => 0.67, 2 => 0.33, 1 => 0.1, 0 => 0];
+    public $assessVals = [4 => 1, 3 => 0.8, 2 => 0.4, 1 => 0.2, 0 => 0];
 
     /**
      * @Route("/select_cate/", name="diagnoze_cate")

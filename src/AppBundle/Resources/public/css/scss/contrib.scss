@@ -161,17 +161,39 @@ form[name="form"] {
   display: block;
   width: 200px;
   margin: 10px auto;
-  display: flex;
   justify-content: space-between;
-  font-size: 15px;
+  .slick-arrow::before {
+    content: "";
+    background: url(../img/contrib/pagenation_arrow.svg) center no-repeat;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: absolute;
+  }
+  .slick-prev::before {
+    left: 5px;
+    top: 3px;
+  }
+  .slick-next::before {
+    left: 7px;
+    top: 3px;
+    transform: rotate(180deg);
+  }
 }
 .pagenation {
   height: 25px;
   width: 25px;
-  padding: 5px 7.5px;
+  padding: 5px 0;
+  text-align: center;
   background-color: #2673b8;
   color: #fff;
   border-radius: 50%;
+  font-size: 15px;
+  margin: 0 4.5px;
+  &.slick-slide {
+    height: 25px;
+  }
   &.current_page {
     background-color: #f6e37d;
     color: #2673b8;

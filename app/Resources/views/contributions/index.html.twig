@@ -1,6 +1,8 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('bundles/app/css/contrib.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/slick/slick.css') }}">
+	<link rel="stylesheet" href="{{ asset('bundles/app/slick/slick-theme.css') }}">
 {% endblock %}
 {% block content %}
         {{ form_start(searchForm) }}
@@ -41,4 +43,16 @@
         </div>
 {% endblock %}
 {% block javascript %}
+  <script src="{{ asset('bundles/app/slick/slick.min.js') }}"></script>
+<script>
+$(function(){
+  $('.pagenations').slick({
+    slidesToShow:6,
+    slidesToScroll:6,
+    autoplay:false,
+    arrows:true,
+    dots:false,
+  });
+});
+</script>
 {% endblock %}
