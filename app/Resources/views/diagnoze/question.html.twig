@@ -31,4 +31,15 @@
   </div>
   {% endblock %}
   {% block javascript %}
-    {% endblock %}
+    <script>
+    $(function(){
+     const submits = $('.cate__select').find('button#form_submit');
+     submits.each(function(){
+        $(this).on('click', function(){
+          submits.attr('disabled','disabled');
+          $(this).closest('form').submit();
+      })
+     })
+    });
+    </script>
+  {% endblock %}
