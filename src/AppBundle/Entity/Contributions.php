@@ -42,9 +42,9 @@ class Contributions
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=300)
+     * @ORM\Column(name="content", type="string", length=500)
      * @Assert\NotBlank()
-     * @Assert\Length(max=300)
+     * @Assert\Length(max=500)
      */
     private $content;
 

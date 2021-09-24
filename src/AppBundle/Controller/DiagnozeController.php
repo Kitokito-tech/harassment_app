@@ -64,7 +64,7 @@ class DiagnozeController extends Controller
             //一回目
             if (isset($request->request->get('form')['whichHara'])) {
                 $_SESSION['whichHara'] = $request->request->get('form')['whichHara'];
-                $sql = 'SELECT id, cate_id,content, ratio_of_weight FROM harassment_app.questions WHERE cate_id = ' . $_SESSION['whichHara'] . ' ORDER BY RAND() LIMIT 10;';
+                $sql = 'SELECT id, cate_id,content, ratio_of_weight FROM glicxint_hara.questions WHERE cate_id = ' . $_SESSION['whichHara'] . ' ORDER BY RAND() LIMIT 10;';
                 $questions = $em->getConnection()->query($sql)->fetchAll();
                 $_SESSION['questions'] = $questions;
                 $_SESSION['select_ids'] = [];
