@@ -17,6 +17,38 @@
     display: block;
   }
 }
+.to-dia {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 35px;
+  background: #fff;
+  a {
+    padding: 34px 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      width: 83px;
+      height: 5px;
+      background-color: #f6e37d;
+      transform: translateX(-50%);
+    }
+  }
+  &:hover {
+    background-color: #f6e37d;
+    transition: 0.6s;
+  }
+}
 
 .top {
   background: url("/bundles/app/img/default/heart.png") no-repeat;
@@ -35,6 +67,7 @@
       padding-right: 15px;
     }
   }
+
   &-head {
     margin-bottom: 40px;
     &__ttl {
@@ -127,18 +160,6 @@
         margin-left: -2px;
       }
       margin-bottom: 11px;
-      .to-dia {
-        margin-left: auto;
-        width: 62px;
-        height: 62px;
-        border: white 4px solid;
-        border-radius: 100px;
-        background: $color-bc;
-        &:hover {
-          background-color: #f6e37d;
-          transition: 0.6s;
-        }
-      }
     }
     &__list {
       display: block;
@@ -241,27 +262,41 @@
     margin: 0 auto;
     display: block;
     color: #000;
-    width: 89px;
-    height: 36px;
     font-size: 17px;
     background: white;
-    padding: 8px 0px 8px 4px;
     text-align: left;
     font-weight: bold;
     position: relative;
     box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    a {
+      width: 89px;
+      display: block;
+      border-bottom: 3px solid #fb6979;
+      height: 36px;
+      padding: 8px 0px 8px 4px;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 26px;
+        width: 89px;
+        height: 3px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
     &:hover {
       background: #f6e37d;
       transition: 0.6s;
     }
     &:hover:after {
-      border-color: transparent  transparent transparent #f6e37d;
+      border-color: transparent transparent transparent #f6e37d;
       transition: 0.6s;
     }
     &:after {
       content: "";
       position: absolute;
       top: 0;
+      right: -20px;
       width: 0;
       height: 0;
       border-style: solid;
