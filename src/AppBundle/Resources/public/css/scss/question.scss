@@ -11,7 +11,14 @@ header {
   background-color: $color-btn;
 }
 .content {
-  padding-top: 51px;
+  padding-top: 100px;
+  @media screen and (max-width: 600px) {
+    padding-top: 51px;
+  }
+}
+.container {
+  width: fit-content;
+  margin: 0 auto;
 }
 .cate {
   &__select {
@@ -20,29 +27,37 @@ header {
   &__contents {
     margin-top: 56px;
     margin-bottom: 46px;
-    width: 288px;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    @media screen and (max-width: 600px) {
+      width: 288px;
+    }
   }
   &__ttl {
     color: $color-base;
     font-size: 20px;
     font-weight: bold;
-    padding-bottom: 17px;
     text-align: center;
+    padding-bottom: 43px;
+    @media screen and (max-width:600px) {
+      padding-bottom: 17px;
+    }
   }
   &__txt {
     font-size: 18px;
     color: #FB6979;
   }
   &__detail-ct {
+    margin-bottom: 25px;
       width: fit-content;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;/*コレ*/
   }
   &__detail {
-        width: 309px;
+        width: 860px;
+        margin: 0 50px;
         height: 71px;
         display: block;
         font-size: 18px;
@@ -51,6 +66,10 @@ header {
         margin-top: 15px;
         margin-bottom: 15px;
         box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.2);
+        @media screen and (max-width:600px) {
+          width: 309px;
+          margin: 0;
+        }
         #form {
             div {
               width: 100%;
