@@ -186,7 +186,7 @@ class ContributionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categoryObjs = $em->getRepository('AppBundle:HaraCategory')->findAll();
-        $categorys = ['指定なし' => 0];
+        $categorys = [];
         $attrAry = [];
         foreach ($categoryObjs as $categoryObj) {
             $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
