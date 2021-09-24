@@ -18,12 +18,17 @@
   }
 }
 .to-dia {
-  width: 100%;
+  display: block;
+  width: 66%;
   text-align: center;
-  margin-bottom: 50px;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  /* margin-bottom: 50px; */
+  margin: 0 auto 50px auto;
   border-radius: 35px;
   background: #fff;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
   a {
     padding: 34px 0;
     display: block;
@@ -51,9 +56,11 @@
 }
 
 .top {
-  background: url("/bundles/app/img/default/heart.png") no-repeat;
-  background-position-x: 70%;
-  background-position-y: 25%;
+  background: url(/bundles/app/img/default/heart.png) no-repeat;
+  background-position-x: 81%;
+  background-position-y: 17%;
+  max-width: 860px;
+  margin: 0 auto;
   @media screen and (max-width: 499px) {
     background-position-x: 122%;
     background-position-y: 25%;
@@ -75,7 +82,7 @@
       color: #2673b8;
       font-weight: bold;
       line-height: 1.869;
-      margin-bottom: 20px;
+      margin-bottom: 32px;
       @media screen and (max-width: 400px) {
         font-size: 23px;
       }
@@ -83,10 +90,10 @@
     &__txt {
       line-height: 1.36;
       font-size: 16px;
-      width: 360px;
-      @media screen and (max-width: 500px) {
+      width: 580px;
+      @media screen and (max-width: 860px) {
         font-size: 14px;
-        width: 252px;
+        width: 260px;
       }
     }
   }
