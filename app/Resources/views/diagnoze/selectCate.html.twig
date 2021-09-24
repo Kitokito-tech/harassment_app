@@ -25,9 +25,6 @@
                 </div>
             {% endfor %}
             <div class="cate__btn">
-              <div class="cate__to-top">
-                <button class="cate__to-top__btn"><a href="{{ path('index_page') }}">戻る</a></button>
-              </div>
               <label class="cate__btn-detail">
                 <div class="cate__btn-wrap">
                     {{ form_start(form) }}
@@ -38,6 +35,9 @@
                 </div>
               </label>
             </div>
+              <div class="cate__to-top">
+                <button class="cate__to-top__btn"><a href="{{ path('index_page') }}">戻る</a></button>
+              </div>
         </div>
       </section>
     </div>
