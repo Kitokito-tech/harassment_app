@@ -5,13 +5,16 @@
 {% block content %}
 		<div class="detail">
 			<div class="detail-container">
-				<div class="detail-head">
-					<p class="detail-head__text">
-						{{contribution.content}}
-					</p>
-				</div>
+                <div class="detail-head-wrapper">
+                	<div class="detail-head">
+					    <p class="detail-head__text">
+						        {{contribution.content}}
+					    </p>
+				    </div>
+                    <div class="unfold-btn">続きを読む</div>
+                </div>
 				<div class="detail-question">
-					<h2 class="detail-question__ttl">あなたならどうしますか？</h2>
+					<h2 class="detail-question__ttl">あなたなら窓口に相談する？</h2>
 					<div
 						class="detail-question__btn--list">
 						<form action="{{path("contrib_detail",{"id":contribution.id })}}" method="post">
@@ -98,13 +101,26 @@
   {% endblock %}
   {% block javascript %}
     <script>
+    $(function(){
         const yes = $('.yes-per').text().trim();
         if (yes === "00%") {
             $('.no').css('transform', 'translateX(50%)');
         } else {
            $('.no').css('transform', `translateX(${yes})`);
         }
-        {# setTimeout($('.no').css('transform', `translateX(${yes})`), 10); #}
+        const detail_txt = $('.detail-head__text')
+        const txtlen = detail_txt.html().length
+        const unfoldbtn = $('.unfold-btn')
+        if(matchMedia("(max-width: 767px)").matches && txtlen > 120){
+            $('.detail-head').addClass('tile-folded');
+            detail_txt.addClass('longtxt-folded');
+            unfoldbtn.on('click', function(){
+                $('.detail-head').removeClass('tile-folded');
+                detail_txt.removeClass('longtxt-folded');
+                unfoldbtn.fadeOut();
+            })
+        }
+    })
     </script>
 
 {% endblock %}
