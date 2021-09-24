@@ -38,27 +38,32 @@
         <div class="pagenations">
             {% for i in 1 .. pagesCount %}
                     {% if i == currentPage %}
-                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateName,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}" class="pagenation current_page">{{ i }}</a>
+                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateIds,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}" class="pagenation current_page">{{ i }}</a>
                     {% else %}
-                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateName,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}" class="pagenation">{{ i }}</a>
+                <a href="{{ path('contrib_index', {'page': i , 'form[categories]': queries.cateIds,'form[dateOrder]':queries.dateOrder,'form[search]':queries.search}) }}" class="pagenation">{{ i }}</a>
             {% endif %}
         {% endfor %}
         </div>
 {% endblock %}
 {% block javascript %}
 <script>
-$('label[for="form_categories_0"]').click(function(){
-  $(this).toggleClass('is-checked0');
-});
-$('label[for="form_categories_1"]').click(function(){
-  $(this).toggleClass('is-checked1');
-});
-$('label[for="form_categories_2"]').click(function(){
-  $(this).toggleClass('is-checked2');
-});
-$('label[for="form_categories_3"]').click(function(){
-  $(this).toggleClass('is-checked3');
-});
+const checkboxes = $('#form_categories').find('input');
+const labels = $('#form_categories').find('label');
+checkboxes.each(function(){
+  if($(this).attr('checked')){
+    const input = $(this);
+      labels.each(function(){
+        if(input.attr('id') === $(this).attr("for")){
+            $(this).addClass('is-checked');
+        }
+      })
+  }
+})
+labels.each(function(){
+  $(this).on('click',function(){
+    $(this).toggleClass('is-checked')
+  });
+})
 </script>
   <script src="{{ asset('bundles/app/slick/slick.min.js') }}"></script>
 <script>

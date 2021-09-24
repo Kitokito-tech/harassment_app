@@ -33,7 +33,7 @@ class ContributionController extends Controller
         $cateIds = $request->query->get('form')['categories'] ?? [];
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
         $search = $request->query->get('form')['search'] ?? '';
-        $queries = ['cateName' => $cateIds, 'dateOrder' => $dateOrder, 'search' => $search];
+        $queries = ['cateIds' => $cateIds, 'dateOrder' => $dateOrder, 'search' => $search];
         $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
         if (!$results['pagesCount']) {
             $results['pagesCount'] = 1;
@@ -182,26 +182,16 @@ class ContributionController extends Controller
             ->getResult();
         return ['result' => $result, 'pagesCount' => $pagesCount,];
     }
-    public function createSearchForm($cateId, $dateOrder, $search)
+    public function createSearchForm($cateIds, $dateOrder, $search)
     {
         $em = $this->getDoctrine()->getManager();
         $categoryObjs = $em->getRepository('AppBundle:HaraCategory')->findAll();
-        if ($cateId) {
-            $categorys = [];
-            $notSelected = [];
-            foreach ($categoryObjs as $categoryObj) {
-                if ($categoryObj->getId() == $cateId) {
-                    $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
-                } else {
-                    $notSelected[$categoryObj->getCateName()] = $categoryObj->getId();
-                }
-            }
-            $categorys['指定なし'] = 0;
-            $categorys = array_merge($categorys, $notSelected);
-        } else {
-            $categorys = ['指定なし' => 0];
-            foreach ($categoryObjs as $categoryObj) {
-                $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
+        $categorys = ['指定なし' => 0];
+        $attrAry = [];
+        foreach ($categoryObjs as $categoryObj) {
+            $categorys[$categoryObj->getCateName()] = $categoryObj->getId();
+            if (in_array($categoryObj->getId(), $cateIds, false)) {
+                $attrAry[$categoryObj->getCateName()] = ['checked' => 'checked'];
             }
         }
         if ($dateOrder === "DESC") {
@@ -209,8 +199,6 @@ class ContributionController extends Controller
         } else {
             $dateOrderArray = ['古い順' => 'ASC', '新しい順' => 'DESC'];
         }
-
-
         $form = $this->createFormBuilder()
             ->setMethod('GET');
         $form = $form
@@ -230,7 +218,7 @@ class ContributionController extends Controller
                 'label' => "カテゴリ",
                 'multiple' => true,
                 'expanded' => true,
-                'data' => $cateId
+                'choice_attr' => $attrAry,
             ])
             ->add('submit', SubmitType::class, ['label' => ' '])->getForm();
         return $form->createView();
