@@ -50,7 +50,7 @@
     margin-top: -2px;
     font-size: 8px;
     font-weight: bold;
-    color:$color-base;
+    color: $color-base;
     display: block;
     padding-right: 5px;
   }
@@ -58,7 +58,7 @@
     display: flex;
     padding-top: 16px;
     font-size: 13px;
-    color:#000;
+    color: #000;
   }
   &__tail {
     padding: 0 11px;
@@ -87,74 +87,17 @@
 }
 
 label[for="form_categories_0"] {
-  background: url("/bundles/app/img/contrib/sh.png") no-repeat;
-  background-position: top left 50%;
-  color: #000;
-
-  background-image: url("/bundles/app/img/contrib/sh.png");
-  background-repeat: no-repeat;
-  background-position: top 31% left 50%;
-
-  display: block;
-  padding-top: 83px;
-  width: 71px;
-  text-align: center;
-  font-size: 12px;
-  margin-right: 15px;
+  background: url("/bundles/app/img/default/sexual.png") no-repeat;
 }
 label[for="form_categories_1"] {
-  background-image: url("/bundles/app/img/contrib/sh.png");
-  background-repeat: no-repeat;
-  background-position: top 31% left 50%;
-  display: block;
-  padding-top: 83px;
-  width: 71px;
-  text-align: center;
-  font-size: 12px;
-
-  margin-right: 15px;
-  color: #000;
-
-  text-align: left;
-  margin-right: 15px; 
+  background-image: url("/bundles/app/img/default/sexual.png");
 }
 label[for="form_categories_2"] {
-  background-image: url("/bundles/app/img/contrib/ph.png");
-  background-repeat: no-repeat;
-  background-position: top 31% left 50%;
-  display: block;
-  padding-top: 83px;
-  width: 71px;
-  text-align: center;
-  font-size: 12px;
-  margin-right: 15px;
-  color: #000;
+  background-image: url("/bundles/app/img/default/power.png");
 }
 label[for="form_categories_3"] {
-  background-image: url("/bundles/app/img/contrib/mh.png");
-  background-repeat: no-repeat;
-  background-position: top 31% left 50%;
-  display: block;
-  padding-top: 83px;
-  width: 71px;
-  text-align: center;
-  font-size: 12px;
-  margin-right: 15px;
-  color: #000;
+  background-image: url("/bundles/app/img/default/maternity.png");
 }
-#form_categories_0 {
-  display: none;
-}
-#form_categories_1 {
-  display: none;
-}
-#form_categories_2 {
-  display: none;
-}
-#form_categories_3 {
-  display: none;
-}
-
 .hhh {
   display: flex;
   margin-top: 18px;
@@ -175,6 +118,27 @@ form[name="form"] {
   width: fit-content;
   margin: 0 auto;
   position: relative;
+}
+
+#form_categories {
+  input {
+    display: none;
+  }
+  label {
+    background-repeat: no-repeat;
+    background-position: top 50% left 50%;
+    display: block;
+    padding-top: 70px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 15px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    line-height: 2;
+  }
 }
 
 #form_submit {
@@ -229,19 +193,23 @@ form[name="form"] {
   }
 }
 
-.is-checked0 {
-  transition: 0.6s;
-  background-image: url("/bundles/app/img/contrib/sh-c.png") !important;
+.is-checked {
+  background-color: #f6e37d !important;
 }
-.is-checked1 {
-  transition: 0.6s;
-  background-image: url("/bundles/app/img/contrib/sh-c.png") !important;
-}
-.is-checked2 {
-  transition: 0.6s;
-  background-image: url("/bundles/app/img/contrib/ph-c.png") !important;
-}
-.is-checked3 {
-  transition: 0.6s;
-  background-image: url("/bundles/app/img/contrib/mh-c.png") !important;
-}
+
+// .is-checked0 {
+//   transition: 0.6s;
+//   background-image: url("/bundles/app/img/contrib/sh-c.png") !important;
+// }
+// .is-checked1 {
+//   transition: 0.6s;
+//   background-image: url("/bundles/app/img/contrib/sh-c.png") !important;
+// }
+// .is-checked2 {
+//   transition: 0.6s;
+//   background-image: url("/bundles/app/img/contrib/ph-c.png") !important;
+// }
+// .is-checked3 {
+//   transition: 0.6s;
+//   background-image: url("/bundles/app/img/contrib/mh-c.png") !important;
+// }
