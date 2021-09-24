@@ -16,3 +16,4 @@
 /vendor/
 /web/bundles/
 src/AppBundle/Resources/pubilc/.sass-cache/
+.idea/workspace.xml

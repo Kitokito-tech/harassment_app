@@ -12,76 +12,17 @@
 				<div class="top-head">
 					<h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
 					<p class="top-head__txt">そう感じた方はまずは下のボタンからハラスメント度を診断してみてください。<br>
-また、HaraNaxに悩みを投稿してユーザー同士で意見を交換しましょう。</p>
+						また、HaraNaxに悩みを投稿してユーザー同士で意見を交換しましょう。</p>
 				</div>
-				<!-- /.top-head -->
-				{# <div class="key__form">
-					<form method="GET" action="{{ path('contrib_index') }}">
-						<label>
-							<input type="text" class="key__input" id="form_search" name="form[search]" maxlength="100" placeholder="search">
-							<button type="submit" class="key__btn">
-								<i class="fas fa-search"></i>
-							</button>
-						</label>
-					</form>
-				</div> #}
-				{# <div class="top-cate">
-					<h2 class="sub-ttl">Category</h2>
-					<ul class="top-cate__list">
-						<li>
-							<button class="top-cate__list--item">
-								<a href="{{ path('contrib_index',{'form[categories]': [2]}) }}">
-									<picture>
-										<source srcset="{{ asset('bundles/app/img/default/power@2x.png') }}" media="screen and (min-width: 1500px)">
-										<source srcset="{{ asset('bundles/app/img/default/power.png') }} 1x,{{ asset('bundles/app/img/default/power@2x.png') }} 2x" media="screen and (max-width: 375px)">
-										<img src="{{ asset('bundles/app/img/default/power.png') }}" srcset="{{ asset('bundles/app/img/default/power@2x.png') }} 2x" alt="">
-									</picture>
-								</a>
-							</button>
-							<p class="btn-label">パワハラ</p>
-						</li>
-						<li>
-							<button class="top-cate__list--item">
-								<a href="{{ path('contrib_index',{'form[categories]': [1]}) }}">
-									<picture>
-										<source srcset="{{ asset('bundles/app/img/default/sexual@2x.png') }}" media="screen and (min-width: 1500px)">
-										<source srcset="{{ asset('bundles/app/img/default/sexual.png') }} 1x,{{ asset('bundles/app/img/default/sexual@2x.png') }} 2x" media="screen and (max-width: 375px)">
-										<img src="{{ asset('bundles/app/img/default/sexual.png') }}" srcset="{{ asset('bundles/app/img/default/sexual@2x.png') }} 2x" alt="">
-									</picture>
-								</a>
-							</button>
-							<p class="btn-label">セクハラ</p>
-						</li>
-						<li>
-							<button class="top-cate__list--item">
-								<a href="{{ path('contrib_index',{'form[categories]': [3]}) }}">
-									<picture>
-										<source srcset="{{ asset('bundles/app/img/default/maternity@2x.png') }}" media="screen and (min-width: 1500px)">
-										<source srcset="{{ asset('bundles/app/img/default/maternity.png') }} 1x,{{ asset('bundles/app/img/default/maternity@2x.png') }} 2x" media="screen and (max-width: 375px)">
-										<img src="{{ asset('bundles/app/img/default/maternity.png') }}" srcset="{{ asset('bundles/app/img/default/maternity@2x.png') }} 2x" alt="">
-									</picture>
-								</a>
-							</button>
-							<p class="btn-label">マタハラ</p>
-						</li>
-					</ul>
-				</div>
-
-			</div> #}
-		</div>
+				<button class="to-dia">
+					<a href="{{ path('diagnoze_cate') }}">診断する
+					</a>
+				</button>
+			</div>
 		<!-- /.container -->
 		<div class="top-new">
 			<div class="top-new__head">
 				<h2 class="sub-ttl">最近の投稿</h2>
-				<button class="to-dia">
-					<a href="{{ path('diagnoze_cate') }}">
-						<picture>
-							<source srcset="{{ asset('bundles/app/img/default/dia@2x.png') }}" media="screen and (min-width: 1500px)" width="60" height="40">
-							<source srcset="{{ asset('bundles/app/img/default/dia.png') }} 1x,{{ asset('bundles/app/img/default/dia@2x.png') }} 2x" media="screen and (max-width: 375px)">
-							<img src="{{ asset('bundles/app/img/default/dia.png') }}" srcset="{{ asset('bundles/app/img/default/dia@2x.png') }} 2x" alt="">
-						</picture>
-					</a>
-				</button>
 			</div>
 			<ul class="top-new__list slide">
 				{% for contribution in contributions %}
@@ -125,7 +66,7 @@ $(function(){
     pauseOnHover:true,
 	responsive: [
 		{
-			breakpoint: 1200,
+			breakpoint: 4000,
 			settings: {
 				slidesToShow: 3,
         		slidesToScroll: 3
