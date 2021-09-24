@@ -250,6 +250,14 @@
     font-weight: bold;
     position: relative;
     box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    &:hover {
+      background: #f6e37d;
+      transition: 0.6s;
+    }
+    &:hover:after {
+      border-color: transparent  transparent transparent #f6e37d;
+      transition: 0.6s;
+    }
     &:after {
       content: "";
       position: absolute;
