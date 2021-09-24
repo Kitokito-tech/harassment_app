@@ -48,7 +48,7 @@
   &__p {
     font-family: $font-en;
     margin-top: -2px;
-    font-size: 8px;
+    font-size: 14px;
     font-weight: bold;
     color:$color-base;
     display: block;
@@ -57,7 +57,7 @@
   &__cate {
     display: flex;
     padding-top: 16px;
-    font-size: 13px;
+    font-size: 14px;
     color:#000;
   }
   &__tail {
@@ -75,7 +75,7 @@
     }
   }
   &__txt {
-    font-size: 13px;
+    font-size: 14px;
     overflow-wrap: break-word;
     text-overflow: ellipsis;
     margin-top: 27px;
@@ -83,6 +83,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 7;
     overflow: hidden;
+    line-height: 1.3;
   }
 }
 
