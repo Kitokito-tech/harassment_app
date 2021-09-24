@@ -4,17 +4,28 @@
 body {
   background-color: $color-bc;
   color: $color-txt;
-  background-image: url("/bundles/app/img/selectCate/bg.png");
+  background-image: url("/bundles/app/img/selectCate/bg-pc.png");
   background-image: image-set(
-    url("/bundles/app/img/selectCate/bg.png") 1x,
-    url("/bundles/app/img/selectCate/bg@2x.png") 2x
+    url("/bundles/app/img/selectCate/bg-pc.png") 1x,
+    url("/bundles/app/img/selectCate/bg-pc@2x.png") 2x
   );
   background-image: -webkit-image-set(
-    url("/bundles/app/img/selectCate/bg.png") 1x,
-    url("/bundles/app/img/selectCate/bg@2x.png") 2x
+    url("/bundles/app/img/selectCate/bg-pc.png") 1x,
+    url("/bundles/app/img/selectCate/bg-pc@2x.png") 2x
   );
+  @media screen and (max-width:600px) {
+    background-image: url("/bundles/app/img/selectCate/bg.png");
+    background-image: image-set(
+      url("/bundles/app/img/selectCate/bg.png") 1x,
+      url("/bundles/app/img/selectCate/bg@2x.png") 2x
+    );
+    background-image: -webkit-image-set(
+      url("/bundles/app/img/selectCate/bg.png") 1x,
+      url("/bundles/app/img/selectCate/bg@2x.png") 2x
+    );
+  }
   background-repeat: no-repeat;
-  background-position: left bottom -8em;
+  background-position: left bottom 2em;
 }
 header {
   height: 58px;
@@ -22,6 +33,10 @@ header {
 }
 .content {
   padding-top: 51px;
+}
+.container {
+  width: fit-content;
+    margin: 0 auto;
 }
 .cate {
   &__select {
@@ -47,11 +62,15 @@ header {
     font-family: $font-ja;
   }
   &__detail-ct {
+    padding: 0 50px;
     position: relative;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden; /*コレ*/
+    @media screen and (max-width: 600px) {
+      padding: 0px;
+    }
     &::before {
       cursor: pointer;
       content: "";
@@ -65,37 +84,51 @@ header {
   }
   &__detail-ct:first-child {
     &::before {
+      padding-left: 154px;
       background: url(../img/selectCate/gender.png) center no-repeat;
+      @media screen and (max-width: 600px) {
+        padding-left: 0px;
+      }
     }
   }
   &__detail-ct:nth-child(2) {
     &::before {
+      padding-left: 154px;
       background: url(../img/selectCate/punch.png) center no-repeat;
+      @media screen and (max-width: 600px) {
+        padding-left: 0px;
+      }
     }
   }
   &__detail-ct:nth-child(3) {
     &::before {
+      padding-left: 154px;
       background: url(../img/selectCate/chilist.png) center no-repeat;
+      @media screen and (max-width: 600px) {
+        padding-left: 0px;
+      }
     }
   }
   &__detail {
-    margin-top: 230px;
+    text-align: center;
     font-size: 18px;
     display: block;
-    padding: 20px 116.5px;
     background-color: $color-btn;
-    width: fit-content;
+    width: 860px;
     border-radius: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
     cursor: pointer;
     box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    padding:  35px 0;
+    @media screen and (max-width:600px) {
+      width: fit-content;
+      padding: 20px 116.5px;
+    }
   }
   &__to-top {
-    position: absolute;
-    bottom: 40px;
-    transform: translateX(-50%);
-    left: 25%;
+    margin-left: 65px;
+    margin-top: 113px;
     &__btn {
       box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
       &:hover {
