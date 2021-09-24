@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="{{ asset('bundles/app/slick/slick-theme.css') }}">
 {% endblock %}
 {% block content %}
+{{ dump() }}
         <div class="cb__ttl-search">
             投稿検索
         </div>
@@ -19,6 +20,7 @@
             投稿一覧
         </div>
         <div class="cb__wrap">
+          {% if not (contributions == []) %}
             {% for contribution in contributions %}
                 <div class="cb__container">
                     <a href="{{ path("contrib_detail", {"id":contribution.id }) }}">
@@ -33,6 +35,9 @@
                     </a>
                 </div>
             {% endfor %}
+          {% else %}
+              <p class="nofetch-txt">該当する投稿がありませんでした。</p>
+          {% endif %}
         </div>
         {# ページネーション↓ #}
         <div class="pagenations">
@@ -76,6 +81,5 @@ $(function(){
     dots:false,
   });
 });
-
 </script>
 {% endblock %}
