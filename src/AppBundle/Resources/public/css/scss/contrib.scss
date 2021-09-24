@@ -112,8 +112,6 @@ label[for="form_categories_1"] {
 
   margin-right: 15px;
   color: #000;
-
-  text-align: left;
   margin-right: 15px; 
 }
 label[for="form_categories_2"] {
@@ -183,6 +181,9 @@ form[name="form"] {
   border-radius: 50%;
   width: 62px;
   height: 62px;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 .pagenations {
   display: block;
