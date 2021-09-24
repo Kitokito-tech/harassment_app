@@ -129,8 +129,9 @@ header {
   }
   &__btn-wrap {
     background-color: $color-btn;
-
+    
     button {
+     
       position: relative;
       font-size: 20px;
       display: block;
