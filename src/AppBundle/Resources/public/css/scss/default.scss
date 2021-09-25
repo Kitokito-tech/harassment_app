@@ -131,9 +131,11 @@
         align-items: center;
         display: flex;
         box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
-        &:hover {
-          background-color: #f6e37d;
-          transition: 0.6s;
+        @media screen and (min-width: 769px) {
+          &:hover {
+            background-color: #f6e37d;
+            transition: 0.6s;
+          }
         }
         @media screen and (max-width: 500px) {
           width: 70px;
