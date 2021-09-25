@@ -18,10 +18,12 @@ header {
   &__wrapper {
     padding-left: 15px;
     padding-right: 15px;
+    width: fit-content;
+    margin: 0 auto;
   }
   &__comment {
     text-align: center;
-    width: fit-content;
+    width: 345px;
     margin: 0 auto;
     font-size: 16px;
     color: $color-base;
@@ -41,8 +43,9 @@ header {
     font-size: 10px;
     margin-top: -21px;
     display: block;
-    padding-left: 143px;
-  }
+    margin-left: auto;
+    width: fit-content;
+}
   &__img {
     margin-top: 45.6px;
     display: flex;
