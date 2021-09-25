@@ -33,6 +33,7 @@
   {% block javascript %}
     <script>
     $(function(){
+	  $('body').fadeIn(500);
      const submits = $('.cate__select').find('button#form_submit');
      submits.each(function(){
         $(this).on('click', function(){

@@ -128,7 +128,7 @@ class ContributionController extends Controller
      */
     public function completeContrib(Request $request)
     {
-        if ($request->isMethod('post')) {
+        if ($request->isMethod('post') && isset($_SESSION["whichHara"])) {
             $form = $request->request->get("form");
             $em = $this->getDoctrine()->getManager();
             $cateRepositry = $em->getRepository('AppBundle:HaraCategory');
