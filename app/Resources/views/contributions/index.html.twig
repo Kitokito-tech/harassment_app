@@ -46,7 +46,9 @@
         </div>
 {% endblock %}
 {% block javascript %}
+<script src="{{ asset('bundles/app/slick/slick.min.js') }}"></script>
 <script>
+$(function(){
 const checkboxes = $('#form_categories').find('input');
 const labels = $('#form_categories').find('label');
 checkboxes.each(function(){
@@ -64,10 +66,6 @@ labels.each(function(){
     $(this).toggleClass('is-checked')
   });
 })
-</script>
-  <script src="{{ asset('bundles/app/slick/slick.min.js') }}"></script>
-<script>
-$(function(){
   $('.pagenations').slick({
     slidesToShow:6,
     slidesToScroll:6,
@@ -76,18 +74,5 @@ $(function(){
     dots:false,
   });
 });
-</script>
-  <script src="{{ asset('bundles/app/slick/slick.min.js') }}"></script>
-<script>
-$(function(){
-  $('.pagenations').slick({
-    slidesToShow:5,
-    slidesToScroll:5,
-    autoplay:true,
-    arrows:true,
-    dots:false,
-  });
-});
-
 </script>
 {% endblock %}
