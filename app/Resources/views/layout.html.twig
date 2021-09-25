@@ -8,15 +8,15 @@
     <meta property="og:title" content="HaraNax">
     <meta property="og:description" content="このサイトではハラスメントに関する悩みを解決します">
     <meta property="og:url" content="{{ asset('app/Resources/view/default/index.html.twig') }}">
-    <meta property="og:image" content=" {{ asset('bundles/app/img/og/og-img02.png') }}" />
-    <meta property="og:image" content=" {{ asset('bundles/app/img/og/og-img01.png') }}" />
+    <meta property="og:image" content="{{ asset('bundles/app/img/og/og-img02.png') }}" />
+    <meta property="og:image" content="{{ asset('bundles/app/img/og/og-img01.png') }}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="fb:app_id" content="576181037166030"/>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="HaraNax">
     <title>HaraNax</title>
-    <link rel="icon" href="bundles/app/img/header/favicon.ico" id="favicon">
-    <link rel="HaraNax-icon" sizes="180x180" href="bundles/app/img/header/haranax-icn.png">  
+    <link rel="icon" href="{{ asset('bundles/app/img/header/favicon.ico') }}" id="favicon">
+    <link rel="HaraNax-icon" sizes="180x180" href="{{ asset('bundles/app/img/header/haranax-icn.png') }}">  
     {% block stylesheet %}{% endblock %}
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
