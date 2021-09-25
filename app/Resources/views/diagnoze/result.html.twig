@@ -5,21 +5,15 @@
 {% block content %}
 <div class="result">
   <div class="result__container">
-    <div class="result__ttl">
-      ハラスメント度
-    </div>
-    <div class="result__ps">
-        {{resultPer}}%
+    <div class="result__head">
+      <div class="result__ttl">
+        ハラスメント度
+      </div>
+      <div class="result__ps">
+          {{resultPer}}%
+      </div>
     </div>
     <div class="result__ct">
-      <div class="result__img">
-        <img src="./img/result-img.png" alt="">
-                    <picture>
-                <source srcset="{{ asset('bundles/app/img/result/result-img@2x.png') }}" media="screen and (min-width: 1500px)">
-                <source srcset="{{ asset('bundles/app/img/result/result-img.png') }} 1x,{{ asset('bundles/app/img/result/result-img@2x.png') }} 2x" media="screen and (max-width: 600px)">
-                <img src="{{ asset('bundles/app/img/result/result-img.png') }}" srcset="{{ asset('bundles/app/img/result/result-img@2x.png') }} 2x" width="174" height="131" alt="">
-            </picture>
-      </div>
       <div class="result__txt">
           {% if resultPer >= 50 %}
             ハラスメント度が高いため、どこかの相談窓口に行くことをお勧めします。
@@ -27,12 +21,25 @@
             ハラスメント度はあまり高くありませんでした。
           {% endif %}
       </div>
-    </div>
+      <div class="result__img">
+        <img src="./img/result-img.png" alt="">
+                    <picture>
+                <source srcset="{{ asset('bundles/app/img/result/result-img@2x.png') }}" media="screen and (min-width: 1500px)">
+                <source srcset="{{ asset('bundles/app/img/result/result-img.png') }} 1x,{{ asset('bundles/app/img/result/result-img@2x.png') }} 2x" width="145" height="108" media="screen and (max-width: 400px)">
+                <img src="{{ asset('bundles/app/img/result/result-img.png') }}" srcset="{{ asset('bundles/app/img/result/result-img@2x.png') }} 2x" width="174" height="131" alt="">
+            </picture>
+            <div class="to-consult is-sp">
+              <button>
+                <a href="{{ path('contrib_make') }}">オンラインで相談</a>
+              </button>
+            </div>
+          </div>
+      </div>
   </div>
 <div class="to-top">
   <button class="to-top__btn"><a href="{{ path('index_page') }}">TOPへ</a></button>
 </div>
-<div class="to-consult">
+<div class="to-consult is-pc">
   <button>
     <a href="{{ path('contrib_make') }}">オンラインで相談</a>
   </button>

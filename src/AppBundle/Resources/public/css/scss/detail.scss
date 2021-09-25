@@ -107,12 +107,15 @@ $blue: #2673b8;
       font-weight: bold;
       text-align: center;
       margin: 0 auto;
-      width: 100%;
       background: white;
       border: none;
       border-radius: 5px;
       height: 60px;
       box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+      width: 66%;
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
       &:hover {
         background-color: #f6e37d;
         transition: 0.6s;
