@@ -1,8 +1,6 @@
 @import "initial";
 @import "variable";
 
-
-
 .sub-ttl {
   color: $color-base;
   font-size: 21px;
@@ -349,4 +347,8 @@
       width: 140px;
     }
   }
+}
+.lg-span {
+  color: #2673b8;
+  font-size: 20px;
 }

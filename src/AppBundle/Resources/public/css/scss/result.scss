@@ -7,12 +7,12 @@ body {
 
 .is-sp {
   display: none;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     display: block;
   }
 }
 .is-pc {
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
@@ -96,7 +96,10 @@ body {
   &__txt {
     z-index: 3;
     background-image: url(/bundles/app/img/result/txt.png);
-    background-image: image-set(url(/bundles/app/img/result/txt.png) 1x, url(/bundles/app/img/result/txt@2x.png) 2x);
+    background-image: image-set(
+      url(/bundles/app/img/result/txt.png) 1x,
+      url(/bundles/app/img/result/txt@2x.png) 2x
+    );
     background-image: -webkit-image-set(
       url(/bundles/app/img/result/txt.png) 1x,
       url(/bundles/app/img/result/txt@2x.png) 2x
@@ -122,10 +125,13 @@ body {
       width: initial;
       height: 230px;
     }
-    @media screen and (max-width:350px) {
+    @media screen and (max-width: 350px) {
       height: 200px;
     }
-   }
+    &-link {
+      color: #fb6979;
+    }
+  }
 }
 
 .to-top {
@@ -157,7 +163,8 @@ body {
       height: 0;
       border-style: solid;
       border-width: 18px 0 18px 20px;
-      border-color: transparent transparent transparent #fff;
+      // -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
+      border-color: transparent transparent transparent white;
     }
   }
   a {

@@ -45,7 +45,7 @@ class SendContribCommand extends Command
                 if ($result->getEmail()) {
                     $message = \Swift_Message::newInstance()
                         ->setFrom('system_test@glic.co.jp', 'HaraNax')
-                        ->setSubject('HaraNax【ご相談内容の結果についてのご報告】')
+                        ->setSubject('Hara Nax【ご相談内容の結果についてのご報告】')
                         ->setBody($this->twig->render('Email/cont_email.html.twig', ['pageId' => $result->getId()]), 'text/html')
                         ->setReplyTo('system_test@glic.co.jp')
                         ->setTo($result->getEmail());

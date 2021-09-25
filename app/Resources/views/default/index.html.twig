@@ -11,8 +11,7 @@
 			<div class="top-container">
 				<div class="top-head">
 					<h1 class="top-head__ttl">これって、ハラスメント<br>なのかな？</h1>
-					<p class="top-head__txt">そう感じた方はまずは下のボタンからハラスメント度を診断してみてください。<br>
-						また、HaraNaxに悩みを投稿してユーザー同士で意見を交換しましょう。</p>
+					<p class="top-head__txt"><span class="lg-span">Hara Nax</span>はこうした悩みを抱えている方を支援するサービスです。<br>ハラスメント度の診断や他の利用者の声を聞けるオンライン相談であなたのお悩み解決をサポートします。相談窓口等に連絡する一つの指標としてお役立てください。<br>まずはあなたのハラスメント度を診断してみましょう。</p>
 				</div>
 				<button class="to-dia">
 					<a href="{{ path('diagnoze_cate') }}">診断する
@@ -26,13 +25,6 @@
 			</div>
 			<ul class="top-new__list slide">
 				{% for contribution in contributions %}
-				{# <li class="top-new__list--item">
-					<a href="{{ path("contrib_detail", {"id":contribution.id }) }}"  class="top-new__list--item-link">
-						<p class="top-new__list--item-text">
-							{{contribution.content}}
-						</p>
-					</a>
-				</li> #}
 				<li class="top-new__list--item">
 					<a href="{{ path("contrib_detail", {"id":contribution.id }) }}" class="top-new__list--item-link">
 						<div class="cb__cate">

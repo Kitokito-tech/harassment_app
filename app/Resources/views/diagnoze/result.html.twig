@@ -16,19 +16,19 @@
     <div class="result__ct">
       <div class="result__txt">
           {% if resultPer >= 50 %}
-            ハラスメント度が高いため、どこかの相談窓口に行くことをお勧めします。
+            ハラスメント度が高いため、どこかの相談窓口に行くことをお勧めします。<br>また、身近な人や信頼できる人に相談相手になってもらうと気持ちが楽になるでしょう。
           {% else %}
-            ハラスメント度はあまり高くありませんでした。
+            ハラスメント度はあまり高くありませんでした。しかし、今あなたが現状に苦しさを感じているなら思い切って誰かに相談してみるのも良いでしょう。
           {% endif %}
+          <br>Hara Naxの<a href="{{ path('contrib_make') }}" class="result__txt-link">オンライン相談</a>ではハラスメント内容を投稿することで他の利用者から共感やアドバイスをもらうことができます。ぜひご利用下さい。
       </div>
       <div class="result__img">
-        <img src="./img/result-img.png" alt="">
-                    <picture>
+            <picture>
                 <source srcset="{{ asset('bundles/app/img/result/result-img@2x.png') }}" media="screen and (min-width: 1500px)" alt="HaraNaxキャラクター">
                 <source srcset="{{ asset('bundles/app/img/result/result-img.png') }} 1x,{{ asset('bundles/app/img/result/result-img@2x.png') }} 2x" width="145" height="108" media="screen and (max-width: 400px)" alt="HaraNaxキャラクター">
                 <img src="{{ asset('bundles/app/img/result/result-img.png') }}" srcset="{{ asset('bundles/app/img/result/result-img@2x.png') }} 2x" width="174" height="131" alt="HaraNaxキャラクター">
             </picture>
-            <div class="to-consult is-sp">
+            <div class="to-consult">
               <button>
                 <a href="{{ path('contrib_make') }}">オンラインで相談</a>
               </button>
@@ -38,11 +38,6 @@
   </div>
 <div class="to-top">
   <button class="to-top__btn"><a href="{{ path('index_page') }}">TOPへ</a></button>
-</div>
-<div class="to-consult is-pc">
-  <button>
-    <a href="{{ path('contrib_make') }}">オンラインで相談</a>
-  </button>
 </div>
 </div>
   {% endblock %}

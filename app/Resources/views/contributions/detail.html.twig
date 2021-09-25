@@ -14,7 +14,7 @@
                     <div class="unfold-btn">続きを読む</div>
                 </div>
 				<div class="detail-question">
-					<h2 class="detail-question__ttl">あなたなら窓口に相談する？</h2>
+					<h2 class="detail-question__ttl">あなたなら会社人事部や公的な労働相談窓口に相談する？</h2>
 					<div
 						class="detail-question__btn--list">
 						<form action="{{path("contrib_detail",{"id":contribution.id })}}" method="post">
@@ -114,8 +114,9 @@
         }
         const detail_txt = $('.detail-head__text')
         const txtlen = detail_txt.html().length
-        const unfoldbtn = $('.unfold-btn')
         if(matchMedia("(max-width: 767px)").matches && txtlen > 120){
+            const unfoldbtn = $('.unfold-btn');
+            unfoldbtn.css('display','block')
             $('.detail-head').addClass('tile-folded');
             detail_txt.addClass('longtxt-folded');
             unfoldbtn.on('click', function(){
