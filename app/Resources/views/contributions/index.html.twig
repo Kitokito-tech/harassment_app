@@ -19,6 +19,7 @@
             相談一覧
         </div>
         <div class="cb__wrap">
+         {% if not(contributions == []) %}
             {% for contribution in contributions %}
                 <div class="cb__container">
                     <a href="{{ path("contrib_detail", {"id":contribution.id }) }}">
@@ -33,6 +34,9 @@
                     </a>
                 </div>
             {% endfor %}
+         {% else %}
+            <p class="nofetch-txt">該当する相談がありませんでした。</p>
+         {% endif %}
         </div>
         {# ページネーション↓ #}
         <div class="pagenations">
