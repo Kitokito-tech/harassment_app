@@ -272,3 +272,8 @@ $blue: #2673b8;
   height: 536px;
   -webkit-text-fill-color: transparent;
 }
+.nofetch-txt {
+  @media screen and (min-width: 768px) {
+    font-size: 21px;
+  }
+}

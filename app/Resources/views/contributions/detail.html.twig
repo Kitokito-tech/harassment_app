@@ -90,9 +90,13 @@
             <p class="detail-opinion--list__ttl">
 	            みんなの意見
             </p>
-            {% for comment in comments %}
-                <p class="detail-opinion--item">{{comment.content}}</p>
-            {% endfor %}
+            {% if not (comments == []) %}
+                {% for comment in comments %}
+                    <p class="detail-opinion--item">{{comment.content}}</p>
+                {% endfor %}
+            {% else %}
+                <p class="nofetch-txt">まだコメントがありません。</p>
+            {% endif %}
         </div>
     </div>
 </div>
