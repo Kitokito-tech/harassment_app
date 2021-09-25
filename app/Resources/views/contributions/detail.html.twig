@@ -78,7 +78,7 @@
 			<h2 class="detail__your-opinion--ttl">あなたの意見</h2>
 			<form action="{{path("contrib_detail",{"id":contribution.id})}}" method="post">
 			<label for="" class="opinion-area">
-				<textarea id="" name="comment" cols="47" rows="10"></textarea>
+				<textarea id="" name="comment" cols="47" rows="10" required></textarea>
 			</label>
 			<input type="submit" value="コメントを送信" name="submit" class="submit-btn">
 		</form>
