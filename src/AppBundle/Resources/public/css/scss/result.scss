@@ -5,6 +5,18 @@ body {
   color: $color-txt;
 }
 
+.is-sp {
+  display: none;
+  @media screen and (max-width:767px) {
+    display: block;
+  }
+}
+.is-pc {
+  @media screen and (max-width:767px) {
+    display: none;
+  }
+}
+
 .result {
   margin-top: 108px;
   @media screen and (max-width: 860px) {
@@ -12,11 +24,23 @@ body {
     padding-right: 15px;
   }
   &__container {
-    background-color: $color-btn;
+    display: flex;
+    background-color: #fff;
     max-width: 860px;
     margin: 0 auto;
     border-radius: 18px;
+    padding: 50px 35px;
     box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    @media screen and (max-width: 767px) {
+      display: block;
+      padding: 0;
+    }
+  }
+  &__head {
+    width: 50%;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
   }
   &__ttl {
     text-align: center;
@@ -34,47 +58,74 @@ body {
     color: $color-br;
   }
   &__ct {
-    padding-left: 16.3px;
-    margin-top: 63px;
-    padding-top: 98.5px;
-    border-top: 1px solid #707070;
     justify-content: center;
-    padding-right: 21.3px;
-    padding-bottom: 18.3px;
-    position: relative;
+    width: 50%;
+    border-left: 7px solid #707070;
+    @media screen and (max-width: 767px) {
+      border-top: 1px solid #707070;
+      margin-top: 63px;
+      width: 100%;
+      border-left: none;
+    }
   }
   &__img {
-    left: 256px;
-    width: fit-content;
-    position: relative;
-    z-index: 1;
-    @media screen and (max-width: 860px) {
-      left: initial;
-      width: 55%;
-      text-align: right;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 20px;
+    @media screen and (max-width: 767px) {
+      padding-bottom: 20px;
+    }
+    @media screen and (max-width: 400px) {
+      margin-left: 0;
+      display: block;
+      text-align: center;
+      padding-left: 0;
+    }
+    .to-consult {
+      margin: 0;
+      max-width: auto;
+      margin-left: auto;
+      @media screen and (max-width: 370px) {
+        button {
+          margin-top: 20px;
+          margin-right: auto;
+        }
+      }
     }
   }
   &__txt {
-    position: absolute;
-    top: 39%;
-    left: 50%;
     z-index: 3;
-    margin-top: -55px;
-    background-image: url("/bundles/app/img/result/txt.png");
-    background-image: image-set(
-      url("/bundles/app/img/result/txt.png") 1x,
-      url("/bundles/app/img/result/txt@2x.png") 2x
-    );
+    background-image: url(/bundles/app/img/result/txt.png);
+    background-image: image-set(url(/bundles/app/img/result/txt.png) 1x, url(/bundles/app/img/result/txt@2x.png) 2x);
     background-image: -webkit-image-set(
-      url("/bundles/app/img/result/txt.png") 1x,
-      url("/bundles/app/img/result/txt@2x.png") 2x
+      url(/bundles/app/img/result/txt.png) 1x,
+      url(/bundles/app/img/result/txt@2x.png) 2x
     );
     background-repeat: no-repeat;
     background-position: center top -5px;
-    width: 151.3px;
-    padding: 16px 16px 50px 16px;
+    height: 179px;
+    padding: 23px 30px;
     font-size: 14px;
-  }
+    width: 358px;
+    margin: 16.5px auto 0 auto;
+    @media screen and (max-width: 400px) {
+      background-image: url(/bundles/app/img/result/txt-sp.png);
+      background-image: image-set(
+        url(/bundles/app/img/result/txt-sp.png) 1x,
+        url(/bundles/app/img/result/txt-sp@2x.png) 2x
+      );
+      background-image: -webkit-image-set(
+        url(/bundles/app/img/result/txt-sp.png) 1x,
+        url(/bundles/app/img/result/txt-sp@2x.png) 2x
+      );
+      background-size: cover;
+      width: initial;
+      height: 230px;
+    }
+    @media screen and (max-width:350px) {
+      height: 200px;
+    }
+   }
 }
 
 .to-top {
