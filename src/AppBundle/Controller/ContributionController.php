@@ -34,7 +34,7 @@ class ContributionController extends Controller
         $dateOrder = $request->query->get('form')['dateOrder'] ?? 'DESC';
         $search = $request->query->get('form')['search'] ?? '';
         $queries = ['cateIds' => $cateIds, 'dateOrder' => $dateOrder, 'search' => $search];
-        $results = $this->pagenation(1, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
+        $results = $this->pagenation(10, $pageNum, $cateIds = $cateIds, $search = $search, $dateOrder = $dateOrder);
         if (!$results['pagesCount']) {
             $results['pagesCount'] = 1;
         }
