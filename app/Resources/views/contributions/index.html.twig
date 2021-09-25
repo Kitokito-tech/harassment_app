@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content %}
         <div class="cb__ttl-search">
-            投稿検索
+            相談検索
         </div>
         {{ form_start(searchForm) }}
         {{ form_widget(searchForm.search, { "attr" : { "class" : "form-control"}}) }}
@@ -16,7 +16,7 @@
         {{ form_widget(searchForm.categories, { "attr" : { "class" : "hhh"}}) }}
         {{ form_end(searchForm) }}
         <div class="cb__ttl">
-            投稿一覧
+            相談一覧
         </div>
         <div class="cb__wrap">
             {% for contribution in contributions %}

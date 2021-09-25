@@ -279,3 +279,8 @@ $blue: #2673b8;
     font-size: 21px;
   }
 }
+.only-sp {
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
