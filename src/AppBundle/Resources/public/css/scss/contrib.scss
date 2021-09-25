@@ -3,24 +3,28 @@
 
 .cb {
   &__ttl {
-    color: #2673b8;
-    width: 375px;
-    margin-top: 32px;
-    padding: 0 15px;
-    margin-bottom: 48px;
+    color: $color-base;
+    margin: 88px auto 20px auto;
+    max-width: 860px;
+    width: 100%;
     font-size: 18px;
     font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0 15px;
+    @media screen and (max-width:600px) {
+      width: 375px;
+    }
   }
   &__ttl-search {
     color: $color-base;
     margin: 88px auto 20px auto;
-    padding: 0;
+    max-width: 860px;
+    width: 100%;
     font-size: 18px;
     font-weight: bold;
-    max-width: 340px;
-    width: 100%;
+    padding: 0 15px;
+    @media screen and (max-width:600px) {
+      width: 375px;
+    }
   }
   &__cate-ttl {
     font-family: $font-en;
@@ -31,13 +35,17 @@
     font-weight: bold;
   }
   &__wrap {
-    width: 375px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    max-width: 860px;
+    width: 100%;
     padding: 0 15px;
     margin: 0 auto;
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 600px) {
+      width: 375px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @media screen and (max-width:375px) {
       width: 100%;
     }
   }
@@ -63,11 +71,14 @@
   }
   &__tail {
     padding: 0 11px;
-    width: 166px;
+    width: 100%;
     height: 218px;
     background-color: #fff;
     border-radius: 15px;
     margin-bottom: 15px;
+    @media screen and (max-width: 600px) {
+      width: 166px;
+    }    
     @media screen and (max-width: 365px) {
       width: 150px;
     }
@@ -76,7 +87,7 @@
     }
   }
   &__txt {
-    font-size: 14px;
+    font-size: 16px;
     overflow-wrap: break-word;
     text-overflow: ellipsis;
     margin-top: 27px;
@@ -85,6 +96,9 @@
     -webkit-line-clamp: 7;
     overflow: hidden;
     line-height: 1.3;
+    @media screen and (max-width:600px) {
+      font-size: 14px;
+    }
   }
 }
 
@@ -114,9 +128,15 @@ label[for="form_categories_2"] {
 }
 
 form[name="form"] {
-  width: fit-content;
+  max-width: 860px;
+  width: 100%;
+  padding: 0 15px;
   margin: 0 auto;
   position: relative;
+  @media screen and (max-width:600px) {
+    width: 375px;
+    padding: 0 15px;
+  }
 }
 
 #form_categories {
@@ -143,7 +163,7 @@ form[name="form"] {
 #form_submit {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 15px;
   background: url(../img/default/search.png) #f6e37d center no-repeat;
   border-radius: 50%;
   width: 62px;
