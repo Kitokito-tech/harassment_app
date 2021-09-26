@@ -82,10 +82,9 @@ $(function(){
   if(matchMedia("(max-width: 768px)").matches){
 		const slickTxts = $('.slick-slide').find('.top-new__list--item-text');
 		slickTxts.each(function(){
-			if($(this).html().length >= 62){
-				const substr = $(this).html().substr(0, 62);
+			if($(this).html().length >= 61){
+				const substr = $(this).html().substr(0, 61);
 				$(this).html(substr + '...');
-				console.log('hi')
 			}
 		})
   }
