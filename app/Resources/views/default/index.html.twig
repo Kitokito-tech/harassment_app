@@ -79,6 +79,17 @@ $(function(){
 		}
 	]
   });
+  if(matchMedia("(max-width: 768px)").matches){
+		const slickTxts = $('.slick-slide').find('.top-new__list--item-text');
+		slickTxts.each(function(){
+			if($(this).html().length >= 62){
+				if($(this).html().match(/^[\u30a0-\u30ff\u3040-\u309f\u3005-\u3006\u30e0-\u9fcf]+$/)){
+				const substr = $(this).html().substr(0, 62);
+				$(this).html(substr + '...');
+				}
+			}
+		})
+  }
 });
 </script>
   {% endblock %}
