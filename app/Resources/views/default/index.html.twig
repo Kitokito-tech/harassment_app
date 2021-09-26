@@ -86,6 +86,7 @@ $(function(){
 				if($(this).html().match(/^[\u30a0-\u30ff\u3040-\u309f\u3005-\u3006\u30e0-\u9fcf]+$/)){
 				const substr = $(this).html().substr(0, 62);
 				$(this).html(substr + '...');
+				console.log('hi')
 				}
 			}
 		})
