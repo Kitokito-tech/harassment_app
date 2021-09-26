@@ -265,10 +265,10 @@ $blue: #2673b8;
 .tile-folded {
   height: 220px;
   overflow: hidden;
-  background: linear-gradient(#fff, 96%, transparent);
+  background: linear-gradient(rgb(255, 255, 255), 96%, rgba(255, 255, 255, 0));
 }
 .longtxt-folded {
-  background: linear-gradient(#000 30%, 35%, transparent);
+  background: linear-gradient(#000 30%, 35%, rgba(255, 255, 255, 0));
   -webkit-background-clip: text;
   background-clip: text;
   height: 536px;
